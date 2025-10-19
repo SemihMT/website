@@ -1,0 +1,27 @@
+name: FTP Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy via FTP
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PATH: ${{ secrets.FTP_PATH }}
+        run: |
+          lftp -c "
+            open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST
+            mirror -R --delete --verbose ./ $FTP_PATH
+          "
