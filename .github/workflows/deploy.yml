@@ -22,6 +22,8 @@ jobs:
           FTP_PATH: ${{ secrets.FTP_PATH }}
         run: |
           lftp -c "
-            open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST
+            set ssl:verify-certificate no
+            open -u $FTP_USERNAME,$FTP_PASSWORD ftps://$FTP_HOST
             mirror -R --delete --verbose ./ $FTP_PATH
           "
+
