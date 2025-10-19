@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTO-CALL</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico">
+    <link rel="stylesheet" href="../assets/highlight/styles/agate.css">
+    <script src="../assets/highlight/highlight.min.js"></script>
+    <script src=https://cdn.jsdelivr.net/gh/eligrey/FileSaver.js/dist/FileSaver.min.js></script>
+    <script>function saveFileFromMEMFSToDisk(e, a) { var i, o = FS.readFile(e); i = new Blob([o.buffer], { type: "application/octet-binary" }), saveAs(i, a) }</script>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div onclick="location.href='../index.html';" style="cursor: pointer;">
+            <h1>Semih's Portfolio</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank"
+                        title="Resume">Resume</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Project Details Section -->
+    <section id="project-details">
+        <div class="project-header">
+            <h2>PROTO-CALL | Raylib Next Gamejam</h2>
+            <a href="https://github.com/SemihMT/RLJam" target="_blank" class="github-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                    alt="GitHub Repository" width="40" height="40">
+            </a>
+        </div>
+        <hr>
+            <div id="emscripten-hider" style="display: none;">
+                <div class="canvas-container">
+                    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+                </div>
+                        <p id="output" />
+                        <script>
+                var Module = {
+                    print: (function() {
+                        var element = document.getElementById('output');
+                        if (element) element.value = ''; // clear browser cache
+                        return function(text) {
+                            if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+                            console.log(text);
+                            if (element) {
+                              element.value += text + "\n";
+                              element.scrollTop = element.scrollHeight; // focus on bottom
+                            }
+                        };
+                    })(),
+                    canvas: (function() {
+                        var canvas = document.getElementById('canvas');
+                        return canvas;
+                    })()
+                };
+                        </script>
+                        <script async type="text/javascript" src="../assets/emscripten/RLJam/RLJam.js"></script>
+            </div>
+        <div class="project-details-image">
+            <video preload="none" autoplay loop muted playsinline>
+                <source src="../assets/images/PROTO-CALL/PROTO-CALL.webm" type="video/webm">
+            </video>
+        </div>
+        <div class="project-details-content">
+            <div class="project-details-text">
+                <h3>Overview</h3>
+                <p>
+                    This was supposed to be my submission to the Raylib Next Gamejam (28/10/2024 - 04/11/2024).
+                    It's still a WIP at the time of writing this.
+                </p>
+                <p>
+                    Created using C++ and the Raylib framework.
+                    The jam's theme was "Connections". This immediately brought me to the words "multiplayer" and
+                    "socket", probably because I was reading "Multiplayer Game Programming" by Glazer & Madhav.
+                    I decided on making a game based on packet routing, where the player needs to skillfully send
+                    packets to the right computers on the network in order to progress.
+                </p>
+                <p>
+                    I started the jam with high hopes and was happy with such a fitting theme. 
+                    I started hacking away at the template repo that was provided by the creator of Raylib and got 
+                    a small prototype running. I had rewritten most of the C code that was provided into something 
+                    I'm more familiar with. I edited the makefile, the github workflows and I thought "all that's 
+                    left is to make the game". 
+                </p>
+                <p>
+                    Boy was I wrong. Building went fine, totally no issues there. The github actions really helped 
+                    in that regard. The issue was with getting the web build to actually work in the browser! Sadly,
+                    a web build was a requirement for submitting and that's exactly where I got stuck. 
+                </p>
+                <p>
+                    After countless hours of debugging, rebuilding, starting a local http server to host the resulting 
+                    index.html file to test if the game works and finding out it doesn't, I gave up on mixing C and C++.
+                    I tried rewriting what I had in C, but didn't make the deadline. Surprisingly, not making the deadline, while being 
+                    a bummer, is not my biggest issue with this project. It's the finnicky nature of the html canvas, the webgl
+                    context and CSS that have made this project a pain to work on. When the build did work in the resulting index.html 
+                    file, placing it in a canvas on my own site magically disabled any and all input from being registered! 
+                    I couldn't find any solutions to this problem on the internet, so I tried solving it on my own and I suspect
+                    the issue lies with CSS and how it scales elements. 
+                </p>
+                <p>
+                    When I actually find the solution to this issue, I'll write a blogpost about it so it's documented here at the very least...
+                </p>
+                <p>
+                    If you want to see the emscripten canvas with the incomplete project <span onclick="toggleEmscripten()">press here</span>.
+                </p>
+    </section>
+    <script>
+         function toggleEmscripten() {
+        // Toggle the visibility of the Emscripten canvas section
+        var emscriptenSection = document.getElementById("emscripten-hider");
+        var imageSection = document.getElementsByClassName("project-details-image")[0];
+
+        // Toggle the display style
+        if (emscriptenSection.style.display === "none") {
+            emscriptenSection.style.display = "block"; // Show the Emscripten canvas
+            imageSection.style.display = "none"; // Hide the project image
+        } else {
+            emscriptenSection.style.display = "none"; // Hide the Emscripten canvas
+            imageSection.style.display = "flex"; // Show the project image
+        }
+    }
+    </script>
+    <section id="code-snippets">
+        <h2>Code</h2>
+        <div class="code-card">
+            <div class="code-card-header" onclick="toggleCodeSnippet(this)">
+                <h3>PROTO-CALL</h3>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="code-content" style="display: none;">
+                <p>A simple texture manager</p>
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span>Texture Manager</span>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <pre><code class="language-c">
+// texture_manager.h                            
+#ifndef TEXTURE_MANAGER_H
+#define TEXTURE_MANAGER_H
+
+#include "raylib.h"
+
+#define MAX_TEXTURES 128
+
+typedef struct {
+    Texture2D textures[MAX_TEXTURES];
+    const char* textureNames[MAX_TEXTURES];
+    int count;
+} TextureManager;
+
+
+TextureManager* CreateTextureManager();
+void Manager_LoadTexture(TextureManager* manager, const char* name, const char* filePath);
+Texture2D Manager_GetTexture(TextureManager* manager, const char* name);
+void Manager_UnloadTextures(TextureManager* manager);
+void Manager_UnloadTexture(TextureManager* manager, const char* name);
+
+#endif
+
+// texture_manager.c
+
+#include "texture_manager.h"
+#include &ltstdio.h>
+#include &ltstdlib.h>
+#include &ltstring.h>
+
+TextureManager* CreateTextureManager() {
+    TextureManager* manager = (TextureManager*)malloc(sizeof(TextureManager));
+    manager->count = 0;
+    return manager;
+}
+
+void Manager_LoadTexture(TextureManager* manager, const char* name, const char* filePath) {
+    if (manager->count >= MAX_TEXTURES) {
+        TraceLog(LOG_WARNING,"Texture limit reached, unable to load more textures.");
+        return;
+    }
+
+    Texture2D texture = LoadTexture(filePath);
+    if (texture.id == 0) {
+        TraceLog(LOG_WARNING,"Failed to load texture: %s", filePath);
+        return;
+    }
+
+    manager->textures[manager->count] = texture;
+    manager->textureNames[manager->count] = name;
+    manager->count++;
+}
+
+Texture2D Manager_GetTexture(TextureManager* manager, const char* name) {
+    for (int i = 0; i < manager->count; i++) {
+        if (strcmp(manager->textureNames[i], name) == 0) {
+            return manager->textures[i];
+        }
+    }
+    TraceLog(LOG_WARNING,"Texture not found: %s", name);
+    return (Texture2D){0}; // Return a null texture
+}
+
+void Manager_UnloadTextures(TextureManager* manager) {
+    for (int i = 0; i < manager->count; i++) {
+        UnloadTexture(manager->textures[i]);
+    }
+    free(manager); // Free the manager after unloading textures
+}
+
+void Manager_UnloadTexture(TextureManager* manager, const char* name) {
+    for (int i = 0; i < manager->count; i++) {
+        if (strcmp(manager->textureNames[i], name) == 0) {
+            UnloadTexture(manager->textures[i]);
+            manager->textures[i] = (Texture2D){0}; // Set to null
+            // Shift remaining textures
+            for (int j = i; j < manager->count - 1; j++) {
+                manager->textures[j] = manager->textures[j + 1];
+                manager->textureNames[j] = manager->textureNames[j + 1];
+            }
+            manager->count--;
+            return;
+        }
+    }
+    TraceLog(LOG_WARNING,"Texture not found for unloading: %s", name);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleCodeSnippet(element) {
+            const codeContent = element.nextElementSibling;
+            const toggleIcon = element.querySelector('.toggle-icon');
+
+            if (codeContent.style.display === "none") {
+                codeContent.style.display = "block";
+                toggleIcon.textContent = "-";
+            } else {
+                codeContent.style.display = "none";
+                toggleIcon.textContent = "+";
+            }
+        }
+
+        const allCodeBlockHeader = document.querySelectorAll('.code-block-header');
+        allCodeBlockHeader.forEach(element => {
+            element.addEventListener('click', function () {
+            const codeBlock = this.parentElement;
+            const toggleIcon = this.querySelector('.toggle-icon');
+
+            if (codeBlock.classList.contains('collapsed')) {
+                codeBlock.classList.remove('collapsed');
+                toggleIcon.textContent = '-';
+            } else {
+                codeBlock.classList.add('collapsed');
+                toggleIcon.textContent = '+';
+            }
+        });
+        });
+        const allCodeCardHeader = document.querySelectorAll('.code-card-header');
+        allCodeCardHeader.forEach(element => {
+            element.addEventListener('click', function () {
+            const codeBlock =  document.querySelector('.code-card');
+            if (codeBlock.classList.contains('collapsed')) {
+                codeBlock.classList.remove('collapsed');
+            } else {
+                codeBlock.classList.add('collapsed');
+            }
+        });
+        });
+        
+        // Initialize as collapsed
+        document.addEventListener('DOMContentLoaded', function () {
+            const codeBlock = document.querySelectorAll('.code-block');
+            codeBlock.forEach(element => {
+                element.classList.add('collapsed');
+            });
+            //codeBlock.classList.add('collapsed');
+            const codeCard = document.querySelectorAll('.code-card');
+            codeCard.forEach(element => {
+                element.classList.add('collapsed');
+            });
+            //codeCard.classList.add('collapsed');
+
+        });
+    </script>
+ 
+    <section>
+        <h3>Features</h3>
+
+        <h3>Technologies Used</h3>
+        <div class="tags">
+            <div class="tag" style="background-color: #6488bc">
+                <span>C++</span>
+            </div>
+            <div class="tag" style="background-color: #6488bc">
+                <span>Raylib</span>
+            </div>
+            <!-- <div class="tag" style="background-color: #ac162c;">
+                        <span>Vulkan</span>
+                    </div> -->
+            <!-- Add more tags as needed -->
+        </div>
+        </div>
+
+        </div>
+
+        <!-- Additional Screenshots Section -->
+        <div class="project-screenshots">
+            <h3>Screenshots</h3>
+            <div class="project-grid">
+                <!-- Add more screenshots as needed -->
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Semih. All rights reserved.</p>
+    </footer>
+    <script src="../script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+   
+
+</body>
+
+</html>

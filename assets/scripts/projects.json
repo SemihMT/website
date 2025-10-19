@@ -1,0 +1,74 @@
+[
+    {
+        "title": "P4Engine - Bubble Bobble",
+        "link": "./project-pages/p4engine.html",
+        "imageSrc": "./assets/images/BubbleBobble/BubbleBobble.jpg",
+        "videoSrc": "",
+        "tags": ["C++", "GPP", "School"],
+        "description": "A game engine & game made from scratch for the programming 4 course. Using modern C++ & Game Programming Patterns.",
+        "priority": "High"
+    },
+    {
+        "title": "PPMEdit",
+        "link": "./project-pages/ppmedit.html",
+        "imageSrc": "",
+        "videoSrc": "./assets/images/PPMEdit/ColorPicker.webm",
+        "tags": ["Python", "TKinter"],
+        "description": "A custom level editor for my custom engine. Inspired by PICO-8's P8PNG cartridge format.",
+        "priority": "High"
+    },
+    {
+        "title": "PROTO-CALL",
+        "link": "./project-pages/raylibjam.html",
+        "imageSrc": "",
+        "videoSrc": "./assets/images/PROTO-CALL/PROTO-CALL.webm",
+        "tags": ["C", "Raylib", "GameJam"],
+        "description": "A WIP game about networking and routing packets to the right destination. Made using C and the Raylib library.",
+        "priority": "High"
+    },
+    {
+        "title": "Voice of the Ocean",
+        "link": "./project-pages/voiceoftheocean.html",
+        "imageSrc": "./assets/images/VOTO/icon.png",
+        "videoSrc": "",
+        "tags": ["C++", "UE5", "School","Group"],
+        "description": "A single player action-adventure game based on exploration and unique mechanics using the player's voice.",
+        "priority": "Normal"
+    },
+    {
+        "title": "Voxel Editor",
+        "link": "./project-pages/voxelgame.html",
+        "imageSrc": "",
+        "videoSrc": "./assets/images/Voxelgame/voxelgame.webm",
+        "tags": ["C++", "Vulkan", "CMake", "School"],
+        "description": "A procedural voxel world generator and editor",
+        "priority": "Normal"
+    },
+    {
+        "title": "BoomBastic",
+        "link": "./project-pages/boombastic.html",
+        "imageSrc": "",
+        "videoSrc": "./assets/images/Boombastic/Boombastic.webm",
+        "tags": ["C#", "Group", "School"],
+        "description": "Co-op game with mechanics based on hot potato",
+        "priority": "Normal"
+    },
+    {
+        "title": "Dual Rasterizer",
+        "link": "./project-pages/rasterizer.html",
+        "imageSrc": "./assets/images/Rasterizer/DualRasterizer_DirectX.png",
+        "videoSrc": "",
+        "tags": ["C++", "DX11", "School"],
+        "description": "A combination rasterizer, software and hardware.",
+        "priority": "Normal"
+    },
+    {
+        "title": "Raytracer",
+        "link": "./project-pages/raytracer.html",
+        "imageSrc": "",
+        "videoSrc": "./assets/images/Raytracer/Raytracer.webm",
+        "tags": ["C++", "School"],
+        "description": "A software ray tracer with BVH optimization",
+        "priority": "Normal"
+    }
+]

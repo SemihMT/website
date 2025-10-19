@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulkanGin - Voxel Game</title>
+    <link rel="stylesheet" href="../styles.css">
+   
+        <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div onclick="location.href='../index.html';" style="cursor: pointer;">
+            <h1>Semih's Portfolio</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../about.html">About Me</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+             <li><a href="../img/SemihMehmetTeke_Resume_Public.pdf" target="_blank" >Resume</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Project Details Section -->
+    <section id="project-details">
+        <div class="project-header">
+            <h2>MC Server Status Checker</h2>
+            <a href="https://github.com/SemihMT/MinecraftServerStatusChecker" target="_blank" class="github-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Repository" width="40" height="40">
+            </a>
+        </div>
+        <hr>
+        <!--
+        carousel code:
+       
+
+            
+            <div class="slideshow-container">
+
+             
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="../img/voxelgame.webm" style="width:100%">
+                    <div class="text">Caption Text</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="../img/Boombastic.webm" style="width:100%">
+                    <div class="text">Caption Two</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="../img/MCServerStatusChecker.png" style="width:100%">
+                    <div class="text">Caption Three</div>
+                </div>
+
+              
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+
+          
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+            
+        -->
+        <div class="project-details-image" >
+            <img src="https://github.com/SemihMT/MinecraftServerStatusChecker/assets/113976242/66da9e06-9128-4774-84dd-17c05535f199" alt="Main Screenshot of the Project">
+        </div>
+
+        <div class="project-details-content">
+            <div class="project-details-text">
+                <h3>Overview</h3>
+                <p>This is a C# tool for the ToolDev course @ DAE.</p>
+                <p>
+                   The Minecraft Server Status Checker tool is one I created to learn C#, async programming and how to use and incorporate APIs into my projects.
+                   It also familiarized me with the "Model - View - ViewModel" architectural pattern.
+                </p>
+                <h3>Usage</h3>
+                <p>The app is divided into two pages:</p>
+                <ol>
+                    <li><strong>Local Servers Page:</strong> Shows a list of Minecraft servers from <code>Resources/Data/LocalServers.json</code>.</li>
+                    <li><strong>Search Page:</strong> Initially shows an empty list and a search bar for querying servers via the Minecraft Server Status API.</li>
+                </ol>
+                <p>Switching between pages is done by pressing the "SWITCH TO X" button at the bottom of the page.</p>
+        
+                <h3>Local Servers Page</h3>
+                <p>The local data page displays servers read from the provided JSON array. Note that the displayed information may be outdated.</p>
+        
+                <h3>Search Page</h3>
+                <p>The search page connects to the <a href="https://api.mcsrvstat.us/" target="_blank" rel="noopener noreferrer">Minecraft Server Status API</a>. When an IP address or hostname is searched, it is sent to the API. If the server exists, it will be listed with accurate information. If not, a dummy server with the provided hostname and "not found" IP address will be shown.</p>
+                <p>The server list displays the following information returned by the API:</p>
+                <ul>
+                    <li>Server icon</li>
+                    <li>Hostname</li>
+                    <li>IP address</li>
+                    <li>Port</li>
+                    <li>Maximum number of players</li>
+                    <li>Current number of players online</li>
+                    <li>Online status of the server</li>
+                </ul>
+                <img src="https://github.com/SemihMT/MinecraftServerStatusChecker/assets/113976242/66da9e06-9128-4774-84dd-17c05535f199" alt="Local Servers Page" width="800">
+        
+                <h3>Detail Page</h3>
+                <p>The detail page provides more detailed information about the server:</p>
+                <ul>
+                    <li>Message of the day</li>
+                    <li>Subset of online players (with player heads from <a href="https://mc-heads.net/" target="_blank" rel="noopener noreferrer">mc-heads.net</a>)</li>
+                    <li>List of mods (if present)</li>
+                    <li>List of plugins (if present)</li>
+                </ul>
+                <img src="https://github.com/SemihMT/MinecraftServerStatusChecker/assets/113976242/5a81aaa2-8cc3-4e56-8a8a-ca51eb8f6a6a" alt="Detail Page" width="800">
+        
+                <h3>Technologies Used</h3>
+                <div class="tags">
+                    <div class="tag" style="background-color:  #682179">
+                        <span>C#</span>
+                    </div>
+                    <!-- Add more tags as needed -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Additional Screenshots Section -->
+        <div class="project-screenshots">
+            <h3>Screenshots</h3>
+            <div class="project-grid">
+                <div class="project">
+                    <img src="https://github.com/SemihMT/MinecraftServerStatusChecker/assets/113976242/66da9e06-9128-4774-84dd-17c05535f199" alt="Screenshot 1">
+                    <div class="caption">The Search Page: Search for any Minecraft server and see its details</div>
+                </div>
+                <div class="project">
+                    <img src="https://github.com/SemihMT/MinecraftServerStatusChecker/assets/113976242/5a81aaa2-8cc3-4e56-8a8a-ca51eb8f6a6a" alt="Screenshot 2">
+                    <div class="caption">The Details Page: Shows you the more intricate details of the server along with current players</div>
+                </div>
+                <!-- Add more screenshots as needed -->
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Semih. All rights reserved.</p>
+    </footer>
+<script src="../script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+  
+</body>
+
+</html>

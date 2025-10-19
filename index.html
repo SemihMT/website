@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semih's Portfolio</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico">
+
+    <!-- Preload and load Google Material Symbols with font-display swap -->
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0"
+        as="style">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0">
+    </noscript>
+
+    <!-- Preload locally hosted fonts -->
+    <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2"
+        crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff" as="font" type="font/woff" crossorigin="anonymous">
+
+    <!-- Stylesheet for the website -->
+    <link rel="stylesheet" href="styles.css">
+   
+</head>
+
+<body>
+    
+    <header>
+        <div onclick="location.href='./index.html';" style="cursor: pointer;">
+            <h1>Semih's Portfolio</h1>
+        </div>
+         <nav>
+            <ul>
+                <li><a href="./index.html#projects">Projects</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank"
+                        title="Resume">Resume</a></li>
+                <li><a href="./index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Welcome!</h2>
+                <p>
+                    I'm <span class="highlight">Semih</span>, a senior student at <span class="highlight">Digital
+                        Arts & Entertainment</span> studying <span class="highlight">Game Development</span> and I am
+                    currently looking for an <span class="highlight">end-of-study internship</span> from <span
+                        class="highlight">10 February to 13 June 2025</span>.
+                </p>
+                <p>
+                    I'm highly technical and enjoy tinkering and learning how things work at a deeper level. My passion
+                    lies in creating software that empowers others to create, which is why
+                    I'm aspiring to become an <span class="highlight">engine programmer/tool developer</span>.
+                </p>
+                <p>
+                    Throughout my studies, I've gained experience in, among other things, <span class="highlight">graphics</span> and
+                    <span class="highlight">tool development</span>. Now, in my final year, I'm excited to find an <span
+                        class="highlight">end-of-study internship</span> where I can contribute meaningfully to the
+                    games industry.
+                </p>
+                <p>
+                    Beyond technical skills, I'm known for being both independent and a strong team player.
+                    I excel at giving and receiving constructive feedback, am praised for my adaptability
+                    and problem-solving abilities and I enjoy mentoring and sharing my knowledge with others.
+                </p>
+                <p>
+                    Feel free to browse through my projects down below.<br>
+                    The top right of each project contains a link to its corresponding repository or website.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div id="project-grid"></div>
+    </section>
+    <script src="./assets/scripts/projects.js"></script>
+
+    <section id="recent-blogposts">
+        <h2>Recent Posts</h2>
+    </section>
+    <script src="./assets/scripts/blogpostgatherer.js"></script>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>You can reach me at <a href="mailto:semihm.teke@gmail.com">semihm.teke@gmail.com</a>.</p>
+        <div>
+            <a href="https://github.com/SemihMT" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"
+                    width="40" height="40" style="filter: invert(1);">
+            </a>
+            <a href="https://www.linkedin.com/in/semih-mehmet-teke-59289b223" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn"
+                    width="40" height="40">
+            </a>
+            <a href="https://bsky.app/profile/retorikal.bsky.social" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Bluesky_Logo.svg/600px-Bluesky_Logo.svg.png" alt="Bluesky"
+                    width="40" height="40">
+            </a>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Semih. All rights reserved.</p>
+    </footer>
+<script src="./script.js"></script>
+</body>
+
+</html>

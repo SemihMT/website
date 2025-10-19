@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulkanGin - Voxel Game</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico"><link rel="stylesheet" href="../assets/highlight/styles/agate.css">
+    <script src="../assets/highlight/highlight.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div onclick="location.href='../index.html';" style="cursor: pointer;">
+            <h1>Semih's Portfolio</h1>
+        </div>
+         <nav>
+            <ul>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank"
+                        title="Resume">Resume</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Project Details Section -->
+    <section id="project-details">
+        <div class="project-header">
+            <h2>Dual Rasterizer</h2>
+            <a href="https://github.com/SemihMT/DualRasterizer" target="_blank" class="github-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                    alt="GitHub Repository" width="40" height="40">
+            </a>
+        </div>
+        <hr>
+        <div class="project-details-image">
+            <img src="../assets/images/Rasterizer/DualRasterizer_DirectX.png" alt="Main Screenshot of the Project">
+        </div>
+
+        <div class="project-details-content">
+            <div class="project-details-text">
+                <h3>Overview</h3>
+                <p>The dual rasterizer project allows users to switch between software rasterizing and DirectX11
+                    rendering. Created for the Graphics Programming course @ DAE, it familiarized us with rasterization
+                    and the DirectX APIs.</p>
+                <h3>Features</h3>
+                <h4>General</h4>
+                <ul>
+                    <li><strong>Dual Rendering Modes</strong>: Toggle between DirectX and Software rendering modes.</li>
+                    <li><strong>Mesh Rotation</strong>: Enable or disable rotation of the mesh.</li>
+                    <li><strong>Rendering State Notifications</strong>: Console messages indicate the current state or
+                        mode after each control is triggered.</li>
+                </ul>
+
+                <h4>DirectX (Hardware) Mode</h4>
+                <ul>
+                    <li><strong>FireFX Mesh</strong>: Toggle the FireFX mesh.</li>
+                    <li><strong>Sample States</strong>: Cycle through different sample states (point, linear,
+                        anisotropic).</li>
+                    <li><strong>Cull Modes</strong>: Cycle through backface, frontface, and no culling.</li>
+                    <li><strong>Uniform ClearColor</strong>: Toggle the use of a uniform clear color.</li>
+                    <li><strong>FPS Printing</strong>: Toggle the display of FPS (frames per second).</li>
+                </ul>
+
+                <h4>Software Mode</h4>
+                <ul>
+                    <li><strong>Linear Filtering</strong>: Enable linear filtering.</li>
+                    <li><strong>Shading Modes</strong>: Cycle through different shading modes (Observed Area, Diffuse,
+                        Specular, Combined).</li>
+                    <li><strong>NormalMap Usage</strong>: Toggle the usage of NormalMap.</li>
+                    <li><strong>DepthBuffer Visualization</strong>: Toggle visualization of the depth buffer.</li>
+                    <li><strong>BoundingBox Visualization</strong>: Toggle visualization of the bounding box.</li>
+                    <li><strong>Cull Modes</strong>: Cycle through backface, frontface, and no culling.</li>
+                    <li><strong>Uniform ClearColor</strong>: Toggle the use of a uniform clear color.</li>
+                    <li><strong>FPS Printing</strong>: Toggle the display of FPS (frames per second).</li>
+                </ul>
+
+                <h3>Controls</h3>
+                <ul>
+                    <li><strong>F1</strong>: Toggle between DirectX and Software rendering modes.</li>
+                    <li><strong>F2</strong>: Enable/Disable Mesh Rotation.</li>
+                    <li><strong>F3</strong>: Toggle FireFX mesh (Hardware mode only).</li>
+                    <li><strong>F4</strong>: Cycle through Sample States for rendering (Anisotropic is Hardware mode
+                        only).</li>
+                    <li><strong>F5</strong>: Cycle through Shading modes for rendering (Software mode only).</li>
+                    <li><strong>F6</strong>: Toggle NormalMap usage (Software mode only).</li>
+                    <li><strong>F7</strong>: Toggle DepthBuffer Visualization (Software mode only).</li>
+                    <li><strong>F8</strong>: Toggle BoundingBox Visualization (Software mode only).</li>
+                    <li><strong>F9</strong>: Cycle through Cull modes (backface, frontface, none).</li>
+                    <li><strong>F10</strong>: Toggle the use of Uniform ClearColor.</li>
+                    <li><strong>F11</strong>: Toggle FPS Printing.</li>
+                </ul>
+                <h3>Technologies Used</h3>
+                <div class="tags">
+                    <div class="tag" style="background-color: #6488bc">
+                        <span>C++</span>
+                    </div>
+                    <div class="tag" style="background-color: #7eba15;">
+                        <span>DX11</span>
+                    </div>
+                    <!-- Add more tags as needed -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Additional Screenshots Section -->
+        <div class="project-screenshots">
+            <h3>Screenshots</h3>
+            <div id="project-grid">
+                <div class="project">
+                    <img src="../assets/images/Rasterizer/DualRasterizer_DirectX.png" alt="DirectX output">
+                    <div class="caption">DirectX output</div>
+                </div>
+                <div class="project">
+                    <img src="../assets/images/Rasterizer/DualRasterizer_Software.png" alt="Software output">
+                    <div class="caption">Software output</div>
+                </div>
+                <!-- Add more screenshots as needed -->
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Semih. All rights reserved.</p>
+    </footer>
+<script src="../script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+</body>
+
+</html>

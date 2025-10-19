@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico">
+    <!-- Preload locally hosted fonts -->
+    <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2"
+    crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff" as="font" type="font/woff" crossorigin="anonymous">
+    <!-- Stylesheet for the website -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div onclick="location.href='./index.html';" style="cursor: pointer;">
+            <h1>Semih's Portfolio</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html#projects">Projects</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank"
+                        title="Resume">Resume</a></li>
+                <li><a href="./index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="posts">
+        <h2>Recent posts</h2>
+        <a href="./assets/blogposts/npc-ai-pt1.html" class="post">
+            <div class="post-image">
+              <img src="./assets/images/Blogposts/UnrealAI/UnrealLogo.png" alt="Post Image">
+            </div>
+            <div class="post-content">
+              <h2 class="post-title">Voice of the Ocean - NPC AI - Part 1</h2>
+              <p class="post-description">Part 1 of a series on UE5's AI tools and how we're using them to implement NPC AI</p>
+            </div>
+          </a>
+        <a href="./assets/blogposts/makingof.html" class="post">
+          <div class="post-image">
+            <img src="./assets/images/Blogposts/MakingOfWebsite/favicon.png" alt="Post Image" style="image-rendering: crisp-edges; image-rendering: -moz-crisp-edges; image-rendering: pixelated;">
+          </div>
+          <div class="post-content">
+            <h2 class="post-title">Why did I make semihteke.com</h2>
+            <p class="post-description">Why I decided on creating a custom website from scratch</p>
+          </div>
+        </a>
+        <a href="./assets/blogposts/welcome.html" class="post">
+            <div class="post-image">
+              <img src="./assets/images/PROTO-CALL/PROTO_CALL.gif" alt="Post Image">
+            </div>
+            <div class="post-content">
+              <h2 class="post-title">Welcome!</h2>
+              <p class="post-description">This is the first post on my blog after I created it.</p>
+            </div>
+          </a>
+      </section>
+    
+    <footer>
+        <p>&copy; 2024 Semih. All rights reserved.</p>
+    </footer>
+<script src="./script.js"></script>
+</body>
+</html>

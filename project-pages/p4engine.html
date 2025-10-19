@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P4Engine - Bubble Bobble</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico">
+    <link rel="stylesheet" href="../assets/highlight/styles/agate.css">
+    <script src="../assets/highlight/highlight.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div onclick="location.href='../index.html';" style="cursor: pointer;">
+            <h1>Semih's Portfolio</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank"
+                        title="Resume">Resume</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Project Details Section -->
+    <section id="project-details">
+        <div class="project-header">
+            <h2>P4Engine - Bubble Bobble</h2>
+            <a href="https://github.com/SemihMT/P4Engine" target="_blank" class="github-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                    alt="GitHub Repository" width="40" height="40">
+            </a>
+        </div>
+        <hr>
+        <div class="project-details-image">
+            <img src="../assets/images/BubbleBobble/BubbleBobble.jpg" alt="Main Screenshot of the Project">
+        </div>
+
+        <div class="project-details-content">
+            <div class="project-details-text">
+                <h3>Overview</h3>
+                <p>
+                    This project comprises two main components: The game engine (P4Engine) written in modern C++ and a
+                    recreation of the classic Bubble Bobble game.
+                    The engine provides a foundation upon which others can build their own games, it includes
+                    fundamental features developed adhering to modern C++ core guidelines.
+                </p>
+                <p>
+                    Inspired by the book "Game Programming Patterns", the engine incorporates various design patterns to
+                    offer flexibility
+                    and extendibility.
+                </p>
+                <h3>Features</h3>
+                <ul>
+                    <li> <b>Scene Manager:</b> Manage different scenes within your game.</li>
+                    <li> <b>Renderer:</b> A rendering system for drawing graphics.</li>
+                    <li> <b>Service Locator:</b> A pattern to manage global access to services, with support for
+                        creating custom services.</li>
+                    <li> <b>Singleton Base Class:</b> Simplify the creation of singleton classes (use with caution :p ).
+                    </li>
+                    <li> <b>Time Manager:</b> A singleton class for easy access to frame times and total time.</li>
+                    <li> <b>Input Manager:</b> Support for XInput, facilitating game controller input.</li>
+                    <li> <b>Resource Manager:</b> Manage fonts and textures efficiently.</li>
+                    <li> <b>GameObject Base Class:</b> A foundational class for all game objects.</li>
+                    <li> <b>Component Base Class:</b> A base class for creating modular components that can be attached
+                        to game objects.</li>
+
+                </ul>
+
+                <h3>Bubble Bobble</h3>
+                <p>
+                    This repository includes a recreation of the classic Bubble Bobble game, built using P4Engine. The
+                    game demonstrates
+                    the engine's capabilities and serves as a practical example of its features. The game supports
+                    loading custom levels
+                    via PPM files.
+                </p>
+                <h4>Game Modes</h4>
+                <ul>
+                    <li><b>Single Player:</b> Enjoy the classic Bubble Bobble gameplay on your own.</li>
+                    <li><b>Co-Op:</b> Team up with a friend to tackle levels together.</li>
+                    <li><b>Versus Mode:</b> Compete against a friend in PvP mode where one player controls an enemy.
+                    </li>
+                </ul>
+                <h4>PPMEdit & Custom Levels</h4>
+                <p>
+                    The engine uses <code>.ppm</code> files to load levels. I went with <code>.ppm</code> files because
+                    they store color information, I wanted a visual representation of the level I created, inspired by
+                    PICO-8 which allows users to share their game creations using a png file.
+                    Other reasons include their simplicity and the support for comments that start with a <code>#</code>
+                    sign.
+                </p>
+                <p>
+                    I would have liked using a more widely supported image format such as <code>.bmp</code> or
+                    <code>.png</code> to allow users to create their levels in most other image editors, but adding
+                    metadata to those filetypes proved to be a pain. This is where PPMEdit comes in to the spotlight!
+                </p>
+                <p>
+                    In the interest of efficiency and extensibility, I created PPMEdit.
+                    PPMEdit is a level creator for the Bubble Bobble game that takes advantage of the way I have set up
+                    the level parser in-engine.
+                </p>
+                <p>
+                    PPMEdit allows me to iterate on my levels in a fun and efficient manner. I can paint the level in a
+                    simplified canvas, add metadata to the pixels that represented enemies or players to indicate their
+                    starting direction (metadata is not limited to this) and easily export and play the level in my
+                    engine.
+                </p>
+                <p>
+                    The <code>.ppm</code> parser in the engine allows you to register "game object creation functions"
+                    to colors. When the parser recognizes the registered color in
+                    the image, it will call the creation function you specified with any additional metadata that pixel
+                    might have had.
+                </p>
+                <p>
+                    You can do something similar to metadata. You can register handlers for the bits of metadata you
+                    provide. There are some already present but if you need something more, it's easily expandable.
+                </p>
+    </section>
+    <section id="code-snippets">
+        <h2>Code</h2>
+        <div class="code-card">
+            <div class="code-card-header" onclick="toggleCodeSnippet(this)">
+                <h3>PPM Level Parser</h3>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="code-content" style="display: none;">
+                <p>Setting up the parser with factory functions during initial loading of the game.</p>
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span>Parser Color Registration</span>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <pre><code class="language-cpp">
+auto parser = GameSettings::GetInstance().GetParser();
+
+//Registering the color {255,0,0} to create a game object with a TileComponent
+//Level 1
+parser-&gt;RegisterColor({ 255, 128, 192 }, [](const glm::ivec2&amp; pos, const std::optional&lt;LevelParser::Metadata&gt;&amp; /*metadata*/)
+{
+    auto tileObject = std::make_unique&lt;GameObject&gt;(glm::vec3{ pos.x,pos.y,0 });
+    int tileIdx{ 0 };
+    tileObject-&gt;AddComponent&lt;TileComponent&gt;(tileIdx, ColliderType::Wall);
+    return tileObject;
+});
+parser-&gt;RegisterColor({ 255, 128, 255 }, [](const glm::ivec2&amp; pos, const std::optional&lt;LevelParser::Metadata&gt;&amp; /*metadata*/)
+{
+    auto tileObject = std::make_unique&lt;GameObject&gt;(glm::vec3{ pos.x,pos.y,0 });
+    int tileIdx{ 0 };
+    tileObject-&gt;AddComponent&lt;TileComponent&gt;(tileIdx, ColliderType::Platform);
+    return tileObject;
+});
+//////
+// Level2
+parser-&gt;RegisterColor({ 255, 255, 0 }, [](const glm::ivec2&amp; pos, const std::optional&lt;LevelParser::Metadata&gt;&amp; /*metadata*/)
+{
+    auto tileObject = std::make_unique&lt;GameObject&gt;(glm::vec3{ pos.x,pos.y,0 });
+    int tileIdx{ 1 };
+    tileObject-&gt;AddComponent&lt;TileComponent&gt;(tileIdx, ColliderType::Wall);
+    return tileObject;
+});
+parser-&gt;RegisterColor({ 255, 128, 64 }, [](const glm::ivec2&amp; pos, const std::optional&lt;LevelParser::Metadata&gt;&amp; /*metadata*/)
+{
+    auto tileObject = std::make_unique&lt;GameObject&gt;(glm::vec3{ pos.x,pos.y,0 });
+    int tileIdx{ 1 };
+    tileObject-&gt;AddComponent&lt;TileComponent&gt;(tileIdx, ColliderType::Platform);
+    return tileObject;
+});
+/////////
+// Level3
+parser-&gt;RegisterColor({ 185, 7, 70 }, [](const glm::ivec2&amp; pos, const std::optional&lt;LevelParser::Metadata&gt;&amp; /*metadata*/)
+{
+    auto tileObject = std::make_unique&lt;GameObject&gt;(glm::vec3{ pos.x,pos.y,0 });
+    int tileIdx{ 8 };
+    tileObject-&gt;AddComponent&lt;TileComponent&gt;(tileIdx, ColliderType::Wall);
+    return tileObject;
+});
+parser-&gt;RegisterColor({ 105, 15, 150 }, [](const glm::ivec2&amp; pos, const std::optional&lt;LevelParser::Metadata&gt;&amp; /*metadata*/)
+{
+    auto tileObject = std::make_unique&lt;GameObject&gt;(glm::vec3{ pos.x,pos.y,0 });
+    int tileIdx{ 8 };
+    tileObject-&gt;AddComponent&lt;TileComponent&gt;(tileIdx, ColliderType::Platform);
+    return tileObject;
+});
+////////
+
+parser-&gt;RegisterColor({ 0,128,255 }, [](const glm::ivec2&amp; pos, const std::optional&lt;LevelParser::Metadata&gt;&amp; metadata)
+{
+    auto zenChanObject = std::make_unique&lt;GameObject&gt;(glm::vec3{ pos.x,pos.y,0 });
+    auto direction = std::get&lt;glm::vec3&gt;(metadata.value().metadataMap.at(&quot;direction&quot;));
+    zenChanObject-&gt;AddComponent&lt;ZenChanComponent&gt;(direction, ColliderType::Trigger);
+    return zenChanObject;
+});
+
+parser-&gt;RegisterColor({ 192,192,192 }, [](const glm::ivec2&amp; pos, const std::optional&lt;LevelParser::Metadata&gt;&amp; metadata)
+{
+    auto maitaObject = std::make_unique&lt;GameObject&gt;(glm::vec3{ pos.x,pos.y,0 });
+    auto direction = std::get&lt;glm::vec3&gt;(metadata.value().metadataMap.at(&quot;direction&quot;));
+    if (GameSettings::GetInstance().GetGameState() == GameSettings::GameState::Versus)
+    {
+        maitaObject-&gt;AddComponent&lt;MaitaVersusComponent&gt;(direction, ColliderType::Trigger);
+    }
+    else
+    {
+        maitaObject-&gt;AddComponent&lt;MaitaComponent&gt;(direction, ColliderType::Trigger);
+
+    }
+    return maitaObject;
+});
+parser-&gt;RegisterColor({ 0,255,0 }, [](const glm::ivec2&amp; pos, const std::optional&lt;LevelParser::Metadata&gt;&amp; metadata)
+{
+
+    auto player = std::make_unique&lt;GameObject&gt;(glm::vec3{ pos.x,pos.y,0 });
+    auto startingDirection = std::get&lt;glm::vec3&gt;(metadata.value().metadataMap.at(&quot;direction&quot;));
+    auto playerNumber = 1;
+    player-&gt;AddComponent&lt;PlayerComponent&gt;(playerNumber, startingDirection);
+    return player;
+});
+
+parser-&gt;RegisterColor({ 255,0,0 }, [](const glm::ivec2&amp; pos, const std::optional&lt;LevelParser::Metadata&gt;&amp; metadata)
+{
+
+    auto player = std::make_unique&lt;GameObject&gt;(glm::vec3{ pos.x,pos.y,0 });
+    auto startingDirection = std::get&lt;glm::vec3&gt;(metadata.value().metadataMap.at(&quot;direction&quot;));
+    auto playerNumber = 2;
+    player-&gt;AddComponent&lt;PlayerComponent&gt;(playerNumber, startingDirection);
+    return player;
+});
+                    </code></pre>
+                </div>
+                <p>This is the part of the parser that reads in metadata and sets up the information that will be used during object creation.</p>
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span>Metadata parsing</span>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <pre><code class="language-cpp">
+//List of metadata handler functions
+// Key: type of metadata to handle
+// value: handler function
+using MetadataHandler = std::function&lt;void(const std::vector&lt;std::string&gt;&, Metadata&)&gt;;
+std::unordered_map&lt;std::string, MetadataHandler&gt; m_metadataHandlers
+{
+    {"direction",[](const std::vector&lt;std::string&gt;& values, Metadata& data)
+    {
+        if (values.size() &gt;= 3)
+        data.StoreMetadata("direction",glm::vec3{ std::stof(values[0]), std::stof(values[1]), std::stof(values[2]) });
+    }},
+    {"speed",[](const std::vector&lt;std::string&gt;& values, Metadata& data)
+    {
+        if (!values.empty())
+        data.StoreMetadata("speed",std::stof(values[0]));
+    }},
+    {"player",[](const std::vector&lt;std::string&gt;& values, Metadata& data)
+    {
+        if (!values.empty())
+        data.StoreMetadata("player",std::stoi(values[0]));
+    }}
+};
+
+
+void dae::LevelParser::ParseMetadata(const std::string&amp; line)
+{
+    std::cout &lt;&lt; &quot;encountered metadata line: &quot; &lt;&lt; line &lt;&lt; &quot;\n&quot;;
+
+    // For reference, a metadata line is structured like this: &quot;# Metadata: (x, y) [type of metadata] [optional: values]
+    // Examples:
+    // # Metadata: (2, 13) direction 1 0 0
+    // # Metadata: (21, 12) speed 5
+    // Find the pixel for which the metadata is written
+    size_t start = line.find(&#039;(&#039;);
+    size_t comma = line.find(&#039;,&#039;, start);
+    size_t end = line.find(&#039;)&#039;, comma);
+
+    if (start != std::string::npos &amp;&amp; comma != std::string::npos &amp;&amp; end != std::string::npos)
+    {
+        int xCoord = std::stoi(line.substr(start + 1, comma - start - 1));
+        int yCoord = std::stoi(line.substr(comma + 1, end - comma - 1));
+
+        std::cout &lt;&lt; &quot;The x coordinate is: &quot; &lt;&lt; xCoord &lt;&lt; &quot;\n&quot;;
+        std::cout &lt;&lt; &quot;The y coordinate is: &quot; &lt;&lt; yCoord &lt;&lt; &quot;\n&quot;;
+
+        // Find metadata type
+        size_t metadataStart = end + 2;  // Skip &quot;) &quot;
+        size_t nextSpace = line.find(&#039; &#039;, metadataStart);
+        std::string metadataType = line.substr(metadataStart, nextSpace - metadataStart);
+
+        std::cout &lt;&lt; &quot;Metadata type: &quot; &lt;&lt; metadataType &lt;&lt; &quot;\n&quot;;
+
+        // Extract metadata values
+        std::vector&lt;std::string&gt; metadataValues;
+        std::istringstream valueStream(line.substr(nextSpace + 1));
+        std::string value;
+        while (valueStream &gt;&gt; value)
+        {
+            metadataValues.push_back(value);
+        }
+
+        std::cout &lt;&lt; &quot;Metadata values: &quot;;
+        for (const auto&amp; val : metadataValues)
+        {
+            std::cout &lt;&lt; val &lt;&lt; &quot; &quot;;
+        }
+        std::cout &lt;&lt; &quot;\n&quot;;
+
+        // Store metadata in the map
+        Metadata data{};
+        const auto it = m_metadataHandlers.find(metadataType);
+        if (it != m_metadataHandlers.end())
+        {
+            it-&gt;second(metadataValues, data);
+            m_pixelToMetadataMap[std::pair&lt;int, int&gt;{xCoord, yCoord}] = data;
+        }
+        else
+        {
+            std::cout &lt;&lt; &quot;Unknown or unsupported metadata type: [&quot; &lt;&lt; metadataType &lt;&lt; &quot;]\n&quot;;
+        }
+    }
+}
+                                </code></pre>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleCodeSnippet(element) {
+            const codeContent = element.nextElementSibling;
+            const toggleIcon = element.querySelector('.toggle-icon');
+
+            if (codeContent.style.display === "none") {
+                codeContent.style.display = "block";
+                toggleIcon.textContent = "-";
+            } else {
+                codeContent.style.display = "none";
+                toggleIcon.textContent = "+";
+            }
+        }
+
+        const allCodeBlockHeader = document.querySelectorAll('.code-block-header');
+        allCodeBlockHeader.forEach(element => {
+            element.addEventListener('click', function () {
+            const codeBlock = this.parentElement;
+            const toggleIcon = this.querySelector('.toggle-icon');
+
+            if (codeBlock.classList.contains('collapsed')) {
+                codeBlock.classList.remove('collapsed');
+                toggleIcon.textContent = '-';
+            } else {
+                codeBlock.classList.add('collapsed');
+                toggleIcon.textContent = '+';
+            }
+        });
+        });
+        const allCodeCardHeader = document.querySelectorAll('.code-card-header');
+        allCodeCardHeader.forEach(element => {
+            element.addEventListener('click', function () {
+            const codeBlock =  document.querySelector('.code-card');
+            if (codeBlock.classList.contains('collapsed')) {
+                codeBlock.classList.remove('collapsed');
+            } else {
+                codeBlock.classList.add('collapsed');
+            }
+        });
+        });
+        
+        // Initialize as collapsed
+        document.addEventListener('DOMContentLoaded', function () {
+            const codeBlock = document.querySelectorAll('.code-block');
+            codeBlock.forEach(element => {
+                element.classList.add('collapsed');
+            });
+            //codeBlock.classList.add('collapsed');
+            const codeCard = document.querySelectorAll('.code-card');
+            codeCard.forEach(element => {
+                element.classList.add('collapsed');
+            });
+            //codeCard.classList.add('collapsed');
+
+        });
+    </script>
+    <section>
+        <h3>Technologies Used</h3>
+        <div class="tags">
+            <div class="tag" style="background-color: #6488bc">
+                <span>C++</span>
+            </div>
+            <div class="tag">
+                <span>SDL2</span>
+            </div>
+            <div class="tag">
+                <span>GLM</span>
+            </div>
+            <div class="tag">
+                <span>Dear IMgui</span>
+            </div>
+            <div class="tag">
+                <span>PPMEdit</span>
+            </div>
+            <!-- Add more tags as needed -->
+        </div>
+        </div>
+
+        </div>
+
+        <!-- Additional Screenshots Section -->
+        <div class="project-screenshots">
+            <h3>Screenshots</h3>
+            <div id="project-grid">
+                <div class="project">
+                    <img src="../assets/images/BubbleBobble/BubbleBobble_gamemode_selection.png"
+                        alt="The Game Mode selection screen">
+                    <div class="caption">The gamemode selection screen</div>
+                </div>
+                <div class="project">
+                    <img src="../assets/images/BubbleBobble/BubbleBobble_singleplayer.png" alt="The Single Player Mode">
+                    <div class="caption">Single Player: Enjoy the classic Bubble Bobble gameplay on your own.</div>
+                </div>
+                <div class="project">
+                    <img src="../assets/images/BubbleBobble/BubbleBobble_coop.png" alt="The Co-Op Mode">
+                    <div class="caption">Co-Op: Team up with a friend to tackle levels together.</div>
+                </div>
+                <div class="project">
+                    <img src="../assets/images/BubbleBobble/BubbleBobble_versus.png" alt="The Versus Mode">
+                    <div class="caption">Versus Mode: Compete against a friend in PvP mode where one player controls an
+                        enemy.</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Semih. All rights reserved.</p>
+    </footer>
+    <script src="../script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+</body>
+
+</html>

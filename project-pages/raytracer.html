@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accelerated Raytracer</title>
+    <link rel="stylesheet" href="../styles.css">
+
+    <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico"><link rel="stylesheet" href="../assets/highlight/styles/agate.css">
+    <script src="../assets/highlight/highlight.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div onclick="location.href='../index.html';" style="cursor: pointer;">
+            <h1>Semih's Portfolio</h1>
+        </div>
+         <nav>
+            <ul>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank"
+                        title="Resume">Resume</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Project Details Section -->
+    <section id="project-details">
+        <div class="project-header">
+            <h2>Accelerated Raytracer</h2>
+            <a href="https://github.com/SemihMT/AcceleratedRaytracer" target="_blank" class="github-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                    alt="GitHub Repository" width="40" height="40">
+            </a>
+        </div>
+        <hr>
+        <div class="project-details-image">
+            <video preload="none" autoplay loop muted playsinline>
+                <source src="../assets/images/Raytracer/Raytracer.webm" type="video/webm">
+            </video>
+        </div>
+
+        <div class="project-details-content">
+            <div class="project-details-text">
+                <h3>Overview</h3>
+                <p>The retake project for Graphics Programming 1 @ Digital Arts & Entertainment.</p>
+                <h4> Raytracing Maths </h4>
+                <p>
+                    To implement raytracing, we needed to apply several key mathematical concepts like:
+                <ul>
+                    <li><b>Vector Math</b>: Extensive use of vector operations like addition, subtraction, dot products,
+                        and
+                        cross
+                        products to represent and manipulate 3D points, directions, and normals. </li>
+                    <li><b>Ray-Primitive Intersection</b>: Calculating the intersection point between a ray and various
+                        geometric
+                        primitives like spheres, planes, and triangles. This required solving quadratic equations and
+                        other
+                        geometric calculations. </li>
+                    <li><b>Lighting Calculations</b>: Computing the contribution of direct lighting, ambient lighting,
+                        and checking whether the pixel is in shadow to determine the final color of a pixel. This
+                        involved dot products, exponential functions, and color blending.</li>
+                </ul>
+
+                <h4>Bounding Volume Hierarchy (BVH)</h4>
+
+                The BVH is a tree-based acceleration structure used to speed up raytracing by reducing the number of
+                ray-primitive intersection tests. It works as follows:
+                <ol>
+                    <li><b>Construct the BVH</b>: The scene geometry is recursively split into axis-aligned bounding
+                        boxes
+                        (AABBs) to create a binary tree structure. The split axis and position are chosen to minimize
+                        the total volume of the child AABBs.</li>
+                    <li><b>Traverse the BVH</b>: When tracing a ray, we traverse the BVH tree, testing the ray against
+                        the
+                        AABBs. If the ray intersects an AABB, we continue down that branch of the tree. If not, we can
+                        skip that entire subtree.</li>
+                    <li><b>Optimize Traversal</b>: Several techniques are used to optimize BVH traversal, such as:
+                        <ul>
+                            <li>
+                                <b>Ray-AABB intersection</b>: Efficiently testing the ray against the AABBs using the
+                                slab
+                                method.
+                            </li>
+                            <li><b>Early ray termination</b>: Stopping the traversal as soon as we find a valid
+                                intersection.</li>
+                        </ul>
+                    </li>
+                </ol>
+                The BVH allows us to quickly cull large portions of the scene geometry, dramatically reducing the
+                number
+                of expensive ray-primitive intersection tests required. This results in a significant performance
+                improvement for raytracing complex scenes.
+                </p>
+
+                <h3>Features</h3>
+                <ul>
+                    <li><b>Accelerated Rendering using a BVH</b></li>
+                    <li><b>Toggling lighting modes</b>: Use F3 to toggle between different lighting modes.
+                    </li>
+                    <li><b>FPS Benchmark</b>: Use F6 to perform a FPS benchmark, this gets saved in
+                        benchmark.txt.</li>
+                </ul>
+                <h3>Controls</h3>
+                <ul>
+                    <li><b>F3</b>: Toggle between different lighting modes.</li>
+                    <li><b>F6</b>: Perform Benchmark.</li>
+                </ul>
+
+                <h3>Technologies Used</h3>
+                <div class="tags">
+                    <div class="tag" style="background-color: #6488bc">
+                        <span>C++</span>
+                    </div>
+                    <!-- Add more tags as needed -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Additional Screenshots Section -->
+        <div class="project-screenshots">
+            <h3>Screenshots</h3>
+            <div id="project-grid">
+                <div class="project">
+                    <img src="../assets/images/Raytracer/Raytracer_Reference.png" alt="Raytracer reference">
+                    <div class="caption">The reference scene</div>
+                </div>
+                <div class="project">
+                    <img src="../assets/images/Raytracer/Raytracer_BUNNY.png" alt="Raytracer bunny">
+                    <div class="caption">Rendering the Stanford Bunny</div>
+                </div>
+                <div class="project">
+                    <img src="../assets/images/Raytracer/Raytracer_EXTRA.png" alt="Raytracer extra">
+                    <div class="caption">A custom scene</div>
+                </div>
+                <!-- Add more screenshots as needed -->
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Semih. All rights reserved.</p>
+    </footer>
+<script src="../script.js"></script>
+
+    <script>hljs.highlightAll();</script>
+
+</body>
+
+</html>
