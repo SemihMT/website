@@ -1,4 +1,4 @@
-name: FTP Deploy
+name: FTP Deploy (Reliable)
 
 on:
   push:
@@ -13,45 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Install lftp
-        run: sudo apt-get update && sudo apt-get install -y lftp
-      
-      - name: Check files to upload
-        run: |
-          echo "Files in repository:"
-          ls -lah
-          echo "Total files to upload:"
-          find . -type f ! -path './.git/*' ! -path './.github/*' ! -path './node_modules/*' | wc -l
-      
-      - name: Deploy via FTP
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          FTP_PATH: ${{ secrets.FTP_PATH }}
-        run: |
-          lftp -c "
-            set ssl:verify-certificate no
-            set ftp:ssl-allow yes
-            set ftp:ssl-protect-data yes
-            set ftp:ssl-force yes
-            set net:timeout 30
-            set net:max-retries 3
-            set net:reconnect-interval-base 5
-            open -u $FTP_USERNAME,$FTP_PASSWORD ftps://$FTP_HOST
-            mirror -R \
-              --verbose \
-              --exclude .git/ \
-              --exclude .github/ \
-              --exclude .gitignore \
-              --exclude README.md \
-              --exclude node_modules/ \
-              --exclude .env \
-              --exclude .DS_Store \
-              --no-perms \
-              --parallel=3 \
-              ./ $FTP_PATH || exit 1
-          "
-      
-      - name: Deployment completed
-        run: echo "Deployment to ${{ secrets.FTP_HOST }} completed successfully"
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_PATH }}
+          protocol: ftps
+          port: 21
+          log-level: verbose
+          dangerous-salt-provider: ${{ secrets.FTP_HOST }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.env
+            **/.DS_Store
+            **/README.md
