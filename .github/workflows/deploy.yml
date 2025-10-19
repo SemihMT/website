@@ -23,7 +23,6 @@ jobs:
           protocol: ftps
           port: 21
           log-level: verbose
-          dangerous-salt-provider: ${{ secrets.FTP_HOST }}
           exclude: |
             **/.git*
             **/.git*/**
@@ -31,3 +30,4 @@ jobs:
             **/.env
             **/.DS_Store
             **/README.md
+            **/assets/highlight/**
