@@ -7,13 +7,14 @@ on:
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
-
+      
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
-
+      
       - name: Deploy via FTP
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
@@ -23,7 +24,21 @@ jobs:
         run: |
           lftp -c "
             set ssl:verify-certificate no
+            set ftp:ssl-allow yes
+            set ftp:ssl-protect-data yes
+            set ftp:ssl-force yes
             open -u $FTP_USERNAME,$FTP_PASSWORD ftps://$FTP_HOST
-            mirror -R --delete --verbose ./ $FTP_PATH
+            mirror -R \
+              --delete \
+              --verbose \
+              --exclude .git/ \
+              --exclude .github/ \
+              --exclude .gitignore \
+              --exclude README.md \
+              --exclude node_modules/ \
+              --exclude .env \
+              ./ $FTP_PATH || exit 1
           "
-
+      
+      - name: Deployment completed
+        run: echo "Deployment to ${{ secrets.FTP_HOST }} completed successfully"
