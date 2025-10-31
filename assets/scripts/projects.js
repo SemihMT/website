@@ -3,7 +3,7 @@ fetch("./assets/scripts/projects.json")
     .then(response => response.json())
     .then(projects => {
         const projectGrid = document.getElementById('project-grid');
-        
+
         const tagColors = {
             'C': '#486389',
             'Python': '#ccb043',
@@ -14,7 +14,7 @@ fetch("./assets/scripts/projects.json")
             'Vulkan': '#ac162c',
             'DX11': '#7eba15',
             'UE5': '#b96d26',
-            'CMake':'#78a3e2'
+            'CMake': '#78a3e2'
 
         };
 
@@ -69,7 +69,7 @@ fetch("./assets/scripts/projects.json")
                 const tagSpan = document.createElement('span');
                 tagSpan.className = 'tag';
                 tagSpan.textContent = tag;
-                
+
                 if (tagColors[tag]) {
                     tagSpan.style.backgroundColor = tagColors[tag];
                 } else {
