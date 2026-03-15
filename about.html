@@ -2,158 +2,151 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-   
-    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
-    <title>Semih Teke | About</title>
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semih Teke — About</title>
+
+  <meta name="description"
+    content="About Semih Teke — game developer and engine programmer with experience in C++, graphics programming, and tool development.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/about.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://semihteke.com/about.html">
+  <meta property="og:title" content="Semih Teke — About">
+  <meta property="og:description"
+    content="Game developer and engine programmer with experience in C++, graphics programming, and tool development.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/preview.png">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Semih Teke — About">
+  <meta name="twitter:description"
+    content="Game developer and engine programmer with experience in C++, graphics programming, and tool development.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/preview.png">
+
+  <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico">
+  <link rel="apple-touch-icon" href="./assets/icon/favicon-256.png">
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
-        <div onclick="location.href='./index.html';" style="cursor: pointer;">
-            <h1>Semih's Portfolio</h1>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="./index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="./index.html#projects">Projects</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./index.html#contact">Contact</a></li>
+        <li><a href="./assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <p class="page-eyebrow">Background</p>
+      <h1 class="page-title">About Me</h1>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: start;">
+      <div>
+        <h2 style="font-size:1.1rem; margin-bottom:1rem; color: var(--accent);">Skills & Studies</h2>
+        <p>
+          I've been studying Game Development at <span class="highlight">Digital Arts & Entertainment</span>
+          for the past few years, learning the ins-and-outs of <span class="highlight">modern C++</span>,
+          <span class="highlight">C#</span>, <span class="highlight">Python</span>,
+          <span class="highlight">tool development</span>, <span class="highlight">graphics programming</span> and more.
+        </p>
+        <p>
+          I've gained experience with: <span class="highlight">Visual Studio</span>,
+          <span class="highlight">Unity</span>, <span class="highlight">Unreal Engine</span>,
+          <span class="highlight">Maya</span>, <span class="highlight">Blender</span>,
+          <span class="highlight">Git & GitHub</span>, <span class="highlight">Perforce</span>.
+        </p>
+        <p>
+          In addition to technical skills, I'm known for being both <span class="highlight">independent</span>
+          and a strong <span class="highlight">team player</span>. I'm good at
+          <span class="highlight">giving and receiving constructive feedback</span>, praised for my
+          <span class="highlight">adaptability</span> and <span class="highlight">problem-solving</span>,
+          and I enjoy <span class="highlight">mentoring</span> others.
+        </p>
+
+        <h2 style="font-size:1.1rem; margin:2rem 0 1rem; color: var(--accent);">Career Aspirations</h2>
+        <p>
+          I'm a programmer with a strong foundation in graphics programming, as can be seen in my projects.
+          I'd like to leverage that experience to grow into <span class="highlight">engine</span> and
+          <span class="highlight">tool development</span> to become a more well-rounded developer.
+        </p>
+        <p>
+          Currently, my portfolio mostly reflects my graphics programming work, with exceptions like P4Engine.
+          I'm also working on projects aligned with engine and tool development in my free time.
+        </p>
+
+        <h2 style="font-size:1.1rem; margin:2rem 0 1rem; color: var(--accent);">Get In Touch</h2>
+        <p>
+          Feel free to reach out if you're interested in learning more about my skills, experience,
+          or career aspirations!
+        </p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/semih-mehmet-teke-59289b223" target="_blank" class="contact-link">
+            LinkedIn ↗
+          </a>
+          <a href="/cdn-cgi/l/email-protection#97e4f2fafefffab9e3f2fcf2d7f0faf6fefbb9f4f8fa" class="contact-link">
+            Email ↗
+          </a>
+          <a href="https://github.com/SemihMT" target="_blank" class="contact-link">
+            GitHub ↗
+          </a>
         </div>
-        <nav>
-            <ul>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="./img/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+      </div>
 
-    <section id="about">
-
-        <div class="about-content">
-            <!-- <div class="about-image">
-                <img src="./img/pfp9.png" alt="Semih's Professional Image">
-            </div> -->
-            <div class="about-text">
-                <h2>About Me</h2>
-                <h3>Skills & Studies </h3>
-                <p>
-                    I've been studying Game Development at Digital Arts & Entertainment for the past few years, learning
-                    the ins-and-outs of <span class="highlight">modern C++</span>, <span class="highlight">C#</span>, <span class="highlight">Python</span>,
-                    <span class="highlight">tool development</span>, <span
-                        class="highlight">graphics programming</span> and more.
-                </p>
-                <p>
-                    While studying, I've gained experience in quite a few relevant programs, such as: <span
-                        class="highlight">Visual
-                        Studio</span>, <span class="highlight">Unity</span>, <span class="highlight">Unreal
-                        Engine</span>, <span class="highlight">Maya</span>, <span class="highlight">Blender</span>,
-                    <span class="highlight">Git & Github</span>, <span class="highlight">Perforce</span>...
-                </p>
-                <p>
-                    In addition to my technical skills, I'm known for being both <span
-                        class="highlight">independent</span> and a strong <span class="highlight">team player</span>.
-                    I'm good at <span class="highlight">giving and receiving constructive feedback</span>, and I'm often
-                    praised for my <span class="highlight">adaptability</span>
-                    and <span class="highlight">problem-solving</span> abilities. I'm also skilled at <span
-                        class="highlight">mentoring</span> and enjoy sharing my knowledge with others.
-                </p>
-                <!-- <p>I've spent the past few years learning and improving my skills in game development and programming.
-                    My experience
-                    with <span class="highlight">Unity</span> and
-                    <span class="highlight">Unreal Engine</span> has given me a solid understanding of game engines and
-                    the
-                    ability to adapt to new
-                    technologies quickly. I've also developed a strong proficiency in <span class="highlight">modern
-                        C++</span> and <span class="highlight">C#</span>, which has
-                    allowed me to create tools and engines from scratch if need be.
-                </p>
-                <p>
-                    My ultimate career goal is to become an exceptional <span class="highlight">engine
-                        programmer</span>, where
-                    I can
-                    utilize my technical skills to
-                    optimize and improve game engines. However, I also love <span class="highlight">gameplay
-                        programming</span> and the art
-                    of crafting fun and engaging mechanics. I believe that a strong foundation in both engine and
-                    gameplay programming will enable me to create games that are not only fun, but also memorable.
-                </p> -->
-                <h3>Career Aspirations</h3>
-                <p>
-                    I'm currently on the lookout for an <span class="highlight">end-of-study internship</span> for the
-                    second semester as an <span class="highlight">engine programmer</span> or <span class="highlight">tool developer</span>.<br> (10 Feb. 2025 - 13 Jun.
-                    2025)
-                </p>
-                <p>
-                    I am a programmer with a strong foundation in graphics programming, as can be seen in my
-                    projects.
-                    However, I'd like to leverage my experience in graphics programming to learn more about
-                    engine qnd tool development in order to become a more well-rounded developer.
-                </p>
-                <p>
-                   Currently, my portfolio mostly reflects my graphics programming work, with some exceptions like P4Engine. 
-                   I am however working on projects that align more with engine and tool development in my free time.
-                </p>
-                <!-- <h3>Why Game Development?</h3>
-                <p>
-                    I grew up in a home where video games were (mostly) frowned upon, resulting in me never getting a
-                    flagship game console and only interacting with video games via my cousins and their PlayStation.
-                </p>
-                <p>
-                    This wasn't an issue for me, seeing as my cousins kept playing either that year's FIFA or one of the
-                    many shooter games they owned. I was never any good in either of those games anyway.
-                </p>
-                <p>
-                    But one day when I came to visit, they booted up this new game they bought. Where you play as a
-                    little sackboy, exploring every nook and cranny of the handmade-looking levels, finding stickers,
-                    decorating the world with them and so much more!
-                </p>
-                <p>
-                    The colorful design, the happy music, and most of all, the fun we had playing Little Big Planet
-                    opened my eyes to the potential of games as a medium.
-                </p>
-                <p>
-                    Following that realization, I played games with a new appreciation for their makers. This
-                    appreciation grew over time into a curiosity, which shaped my interests throughout middle and high
-                    school. I knew I wanted to create games like Little Big Planet, not just for myself, but also in the
-                    hopes of inspiring others to do the same.
-                </p>
-                <sub class="spoiler">
-                    No offense to FIFA or shooter games, I just wasn't good at them at the time :)
-                </sub> -->
-
-                <h2>Get In Touch</h2>
-                <p>
-                    Please feel free to reach out if you're interested in learning more about my skills, experience, or
-                    career aspirations!
-                    You can find me on <a href="https://www.linkedin.com/in/semih-mehmet-teke-59289b223"
-                        target="_blank">LinkedIn</a> or send me an
-                    <a href="mailto:semihm.teke@gmail.com" target="_blank">Email</a>, both can also be found below.<br>
-                    I look forward to hearing from you!
-                </p>
-            </div>
-
+      <div>
+        <h2 style="font-size:1.1rem; margin-bottom:1rem; color: var(--accent);">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-item">Modern C++</div>
+          <div class="skill-item">C#</div>
+          <div class="skill-item">Python</div>
+          <div class="skill-item">Vulkan</div>
+          <div class="skill-item">DirectX 11</div>
+          <div class="skill-item">OpenGL</div>
+          <div class="skill-item">Unreal Engine 5</div>
+          <div class="skill-item">Unity</div>
+          <div class="skill-item">CMake</div>
+          <div class="skill-item">Git & GitHub</div>
+          <div class="skill-item">Perforce</div>
+          <div class="skill-item">Tool Development</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>You can reach me at <a href="mailto:semihm.teke@gmail.com">semihm.teke@gmail.com</a>.</p>
-        <div>
-            <a href="https://github.com/SemihMT" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"
-                    width="40" height="40" style="filter: invert(1);">
-            </a>
-            <a href="https://www.linkedin.com/in/semih-mehmet-teke-59289b223" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn"
-                    width="40" height="40">
-            </a>
-
-        </div>
-    </section>
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
 
 
-    <footer>
-        <p>&copy; 2024 Semih. All rights reserved.</p>
-    </footer>
-<script src="./script.js"></script>
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+  </script>
 </body>
 
 </html>

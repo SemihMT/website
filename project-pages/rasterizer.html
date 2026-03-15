@@ -2,140 +2,151 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VulkanGin - Voxel Game</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico"><link rel="stylesheet" href="../assets/highlight/styles/agate.css">
-    <script src="../assets/highlight/highlight.min.js"></script>
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semih Teke — Dual Rasterizer</title>
 
+  <meta name="description"
+    content="A graphics programming project implementing both a software rasterizer and a DirectX 11 hardware renderer, switchable at runtime. Built for the Graphics Programming course at DAE.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/project-pages/rasterizer.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://semihteke.com/project-pages/rasterizer.html">
+  <meta property="og:title" content="Dual Rasterizer — Semih Teke">
+  <meta property="og:description"
+    content="A graphics programming project implementing both a software rasterizer and a DirectX 11 hardware renderer, switchable at runtime.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/Rasterizer/DualRasterizer_DirectX.png">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dual Rasterizer — Semih Teke">
+  <meta name="twitter:description"
+    content="A graphics programming project implementing both a software rasterizer and a DirectX 11 hardware renderer, switchable at runtime.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/Rasterizer/DualRasterizer_DirectX.png">
+
+  <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico">
+  <link rel="apple-touch-icon" href="../assets/icon/favicon-256.png">
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <div onclick="location.href='../index.html';" style="cursor: pointer;">
-            <h1>Semih's Portfolio</h1>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+
+    <a href="../index.html#projects" class="post-back">← Projects</a>
+
+    <div class="project-detail-header">
+      <div>
+        <p class="page-eyebrow">Solo Project</p>
+        <h1 class="project-detail-title">Dual Rasterizer</h1>
+        <div class="post-meta">
+          <span>2024</span>
+          <span class="post-meta-dot">·</span>
+          <span>Graphics Programming course</span>
+          <span class="post-meta-dot">·</span>
+          <span>C++ / DirectX 11</span>
         </div>
-         <nav>
-            <ul>
-                <li><a href="../index.html#projects">Projects</a></li>
-                <li><a href="../blog.html">Blog</a></li>
-                <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank"
-                        title="Resume">Resume</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+      </div>
+      <a href="https://github.com/SemihMT/DualRasterizer" target="_blank" class="project-link-btn">
+        GitHub ↗
+      </a>
+    </div>
 
-    <!-- Project Details Section -->
-    <section id="project-details">
-        <div class="project-header">
-            <h2>Dual Rasterizer</h2>
-            <a href="https://github.com/SemihMT/DualRasterizer" target="_blank" class="github-link">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-                    alt="GitHub Repository" width="40" height="40">
-            </a>
-        </div>
-        <hr>
-        <div class="project-details-image">
-            <img src="../assets/images/Rasterizer/DualRasterizer_DirectX.png" alt="Main Screenshot of the Project">
-        </div>
+    <div class="tags" style="margin-bottom: 2rem;">
+      <span class="tag" data-tag="C++">C++</span>
+      <span class="tag" data-tag="DX11">DX11</span>
+      <span class="tag" data-tag="School">School</span>
+    </div>
 
-        <div class="project-details-content">
-            <div class="project-details-text">
-                <h3>Overview</h3>
-                <p>The dual rasterizer project allows users to switch between software rasterizing and DirectX11
-                    rendering. Created for the Graphics Programming course @ DAE, it familiarized us with rasterization
-                    and the DirectX APIs.</p>
-                <h3>Features</h3>
-                <h4>General</h4>
-                <ul>
-                    <li><strong>Dual Rendering Modes</strong>: Toggle between DirectX and Software rendering modes.</li>
-                    <li><strong>Mesh Rotation</strong>: Enable or disable rotation of the mesh.</li>
-                    <li><strong>Rendering State Notifications</strong>: Console messages indicate the current state or
-                        mode after each control is triggered.</li>
-                </ul>
+    <div class="project-media">
+      <img src="../assets/images/Rasterizer/DualRasterizer_DirectX.png" alt="Dual Rasterizer — DirectX output">
+    </div>
+    <h2>Overview</h2>
+    <p>
+      This project was developed for the Graphics Programming course at DAE. It features two
+      implementations of the same renderer: a fully hand-written software rasterizer running on
+      the CPU, and a hardware-accelerated version built with DirectX 11 on the GPU. A runtime
+      hotkey allows switching between the two, making it easy to compare the results directly.
+      The main goal of the project was to gain a deeper understanding of how rasterization works
+      under the hood before relying on a graphics API.
+    </p>
 
-                <h4>DirectX (Hardware) Mode</h4>
-                <ul>
-                    <li><strong>FireFX Mesh</strong>: Toggle the FireFX mesh.</li>
-                    <li><strong>Sample States</strong>: Cycle through different sample states (point, linear,
-                        anisotropic).</li>
-                    <li><strong>Cull Modes</strong>: Cycle through backface, frontface, and no culling.</li>
-                    <li><strong>Uniform ClearColor</strong>: Toggle the use of a uniform clear color.</li>
-                    <li><strong>FPS Printing</strong>: Toggle the display of FPS (frames per second).</li>
-                </ul>
+    <h2>Technical Highlights</h2>
+    <ul>
+      <li><strong>Software rasterizer:</strong> Implemented a complete rasterization pipeline in C++,
+        including vertex transformations, triangle clipping, barycentric interpolation,
+        perspective-correct UV mapping, depth buffering, normal mapping, and a Phong shading
+        model with multiple visualization modes (observed area, diffuse, specular, and combined).</li>
 
-                <h4>Software Mode</h4>
-                <ul>
-                    <li><strong>Linear Filtering</strong>: Enable linear filtering.</li>
-                    <li><strong>Shading Modes</strong>: Cycle through different shading modes (Observed Area, Diffuse,
-                        Specular, Combined).</li>
-                    <li><strong>NormalMap Usage</strong>: Toggle the usage of NormalMap.</li>
-                    <li><strong>DepthBuffer Visualization</strong>: Toggle visualization of the depth buffer.</li>
-                    <li><strong>BoundingBox Visualization</strong>: Toggle visualization of the bounding box.</li>
-                    <li><strong>Cull Modes</strong>: Cycle through backface, frontface, and no culling.</li>
-                    <li><strong>Uniform ClearColor</strong>: Toggle the use of a uniform clear color.</li>
-                    <li><strong>FPS Printing</strong>: Toggle the display of FPS (frames per second).</li>
-                </ul>
+      <li><strong>DirectX 11 renderer:</strong> Recreated the same scene using DirectX 11 with
+        full device and swap chain setup, HLSL vertex and pixel shaders, texture sampling with
+        point, linear, and anisotropic filtering, and configurable culling modes.</li>
 
-                <h3>Controls</h3>
-                <ul>
-                    <li><strong>F1</strong>: Toggle between DirectX and Software rendering modes.</li>
-                    <li><strong>F2</strong>: Enable/Disable Mesh Rotation.</li>
-                    <li><strong>F3</strong>: Toggle FireFX mesh (Hardware mode only).</li>
-                    <li><strong>F4</strong>: Cycle through Sample States for rendering (Anisotropic is Hardware mode
-                        only).</li>
-                    <li><strong>F5</strong>: Cycle through Shading modes for rendering (Software mode only).</li>
-                    <li><strong>F6</strong>: Toggle NormalMap usage (Software mode only).</li>
-                    <li><strong>F7</strong>: Toggle DepthBuffer Visualization (Software mode only).</li>
-                    <li><strong>F8</strong>: Toggle BoundingBox Visualization (Software mode only).</li>
-                    <li><strong>F9</strong>: Cycle through Cull modes (backface, frontface, none).</li>
-                    <li><strong>F10</strong>: Toggle the use of Uniform ClearColor.</li>
-                    <li><strong>F11</strong>: Toggle FPS Printing.</li>
-                </ul>
-                <h3>Technologies Used</h3>
-                <div class="tags">
-                    <div class="tag" style="background-color: #6488bc">
-                        <span>C++</span>
-                    </div>
-                    <div class="tag" style="background-color: #7eba15;">
-                        <span>DX11</span>
-                    </div>
-                    <!-- Add more tags as needed -->
-                </div>
-            </div>
+      <li><strong>Runtime renderer switching:</strong> Both renderers operate on the same scene
+        data and camera system. Pressing <code>F1</code> toggles between the CPU and GPU renderers
+        at runtime, allowing immediate visual comparison.</li>
 
-        </div>
+      <li><strong>Debug visualizations:</strong> The software renderer includes optional overlays
+        such as depth buffer and bounding box views, which help illustrate how the rasterization
+        process works internally.</li>
+    </ul>
 
-        <!-- Additional Screenshots Section -->
-        <div class="project-screenshots">
-            <h3>Screenshots</h3>
-            <div id="project-grid">
-                <div class="project">
-                    <img src="../assets/images/Rasterizer/DualRasterizer_DirectX.png" alt="DirectX output">
-                    <div class="caption">DirectX output</div>
-                </div>
-                <div class="project">
-                    <img src="../assets/images/Rasterizer/DualRasterizer_Software.png" alt="Software output">
-                    <div class="caption">Software output</div>
-                </div>
-                <!-- Add more screenshots as needed -->
-            </div>
-        </div>
+    <h2>Screenshots</h2>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="../assets/images/Rasterizer/DualRasterizer_DirectX.png" alt="DirectX 11 output">
+        <div class="screenshot-caption">DirectX 11 hardware output</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="../assets/images/Rasterizer/DualRasterizer_Software.png" alt="Software rasterizer output">
+        <div class="screenshot-caption">Software rasterizer output</div>
+      </div>
+    </div>
 
-    </section>
+  </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Semih. All rights reserved.</p>
-    </footer>
-<script src="../script.js"></script>
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
 
-    <script>hljs.highlightAll();</script>
 
+  <script src="../assets/scripts/syncHLjs.js"></script>
+  <script src="../assets/scripts/tags.js"></script>
+  <script>
+    applyTagColors();
+
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+  </script>
 </body>
 
 </html>

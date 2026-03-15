@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ↓ Change this -->
+  <title>Semih Teke — Project Name</title>
+
+  <!-- ↓ Change description and URL for each project -->
+  <meta name="description" content="Project description here — one or two sentences summarising what the project is.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/project-pages/your-project-slug.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://semihteke.com/project-pages/your-project-slug.html">
+  <meta property="og:title" content="Project Name — Semih Teke">
+  <meta property="og:description" content="Project description here.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/preview.png">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Project Name — Semih Teke">
+  <meta name="twitter:description" content="Project description here.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/preview.png">
+
+  <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico">
+  <link rel="apple-touch-icon" href="../assets/icon/favicon-256.png">
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- Remove these two lines if the project has no code snippets -->
+  <link id="hljs-dark" rel="stylesheet" href="../assets/highlight/styles/atom-one-dark.css">
+  <link id="hljs-light" rel="stylesheet" href="../assets/highlight/styles/panda-syntax-light.css" disabled>
+  <script src="../assets/highlight/highlight.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+
+    <!-- ─── Header ──────────────────────────────────────────────────
+         Available elements in this section:
+
+         BACK LINK:     <a href="../index.html#projects" class="post-back">← Projects</a>
+         EYEBROW:       <p class="page-eyebrow">Project</p>
+         TITLE:         <h1 class="project-detail-title">Project Name</h1>
+         GITHUB LINK:   <a href="https://github.com/SemihMT/REPO" target="_blank" class="project-link-btn">GitHub ↗</a>
+         TAGS:          <span class="tag" data-tag="C++">C++</span>
+         META:          <div class="post-meta"> year · team size etc. </div>
+    ────────────────────────────────────────────────────────────── -->
+
+    <a href="../index.html#projects" class="post-back">← Projects</a>
+
+    <div class="project-detail-header">
+      <div>
+        <p class="page-eyebrow">Project</p>
+        <!-- ↓ Change title -->
+        <h1 class="project-detail-title">Project Name Here</h1>
+        <div class="post-meta">
+          <span>YYYY</span>
+          <!-- Optional: add more context separated by · -->
+          <!-- <span class="post-meta-dot">·</span><span>Solo project</span> -->
+        </div>
+      </div>
+      <!-- Remove this block if no external link -->
+      <a href="https://github.com/SemihMT/REPO" target="_blank" class="project-link-btn">
+        GitHub ↗
+      </a>
+    </div>
+
+    <!-- ↓ Add or remove tags. data-tag must match a key in assets/scripts/tags.js -->
+    <div class="tags" style="margin-bottom: 2rem;">
+      <span class="tag" data-tag="C++">C++</span>
+    </div>
+
+    <!-- ─── Hero media ───────────────────────────────────────────────
+         Use a video OR an image, not both.
+         Video:  <video preload="none" autoplay loop muted playsinline><source src="..." type="video/webm"></video>
+         Image:  <img src="..." alt="Project screenshot">
+    ────────────────────────────────────────────────────────────── -->
+    <div class="project-media">
+      <video preload="none" autoplay loop muted playsinline>
+        <source src="../assets/images/YOURPROJECT/preview.webm" type="video/webm">
+      </video>
+    </div>
+
+    <!-- ─── Content ─────────────────────────────────────────────────
+         Available elements:
+
+         HEADING 2:      <h2>Section Title</h2>
+         HEADING 3:      <h3>Subsection</h3>
+         PARAGRAPH:      <p>Text here.</p>
+         LIST:           <ul><li><strong>Feature:</strong> Description.</li></ul>
+         INLINE CODE:    <code>someFunction()</code>
+         CALLOUT:        <div class="callout">Note text.</div>
+
+         CODE CARD (collapsible):
+           <div class="code-card">
+             <div class="code-card-header" onclick="toggleCard(this)">
+               <h3>Sample Title</h3><span class="toggle-icon">+</span>
+             </div>
+             <div class="code-content">
+               <pre><code class="language-cpp">// code here</code></pre>
+             </div>
+           </div>
+
+         SCREENSHOT GRID:
+           <div class="screenshots-grid">
+             <div class="screenshot-item">
+               <img src="../assets/images/YOURPROJECT/shot.jpg" alt="Caption">
+               <div class="screenshot-caption">Caption text.</div>
+             </div>
+           </div>
+    ────────────────────────────────────────────────────────────── -->
+
+    <h2>Overview</h2>
+    <p>Describe what this project is and why you made it.</p>
+
+    <h2>My Contributions</h2>
+    <ul>
+      <li><strong>Feature A:</strong> What you did and why it was interesting.</li>
+      <li><strong>Feature B:</strong> Another contribution.</li>
+    </ul>
+
+    <h2>Technical Highlights</h2>
+    <p>Talk about interesting technical aspects of the project.</p>
+
+    <!-- Example collapsible code card — uncomment to use
+    <div class="code-card">
+      <div class="code-card-header" onclick="toggleCard(this)">
+        <h3>Interesting Code Sample</h3>
+        <span class="toggle-icon">+</span>
+      </div>
+      <div class="code-content">
+        <pre><code class="language-cpp">// your code here</code></pre>
+      </div>
+    </div>
+    -->
+
+    <h2>Screenshots</h2>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="../assets/images/YOURPROJECT/screenshot1.jpg" alt="Screenshot 1">
+        <div class="screenshot-caption">Caption describing this screenshot.</div>
+      </div>
+      <!-- Copy screenshot-item block to add more -->
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
+
+
+  <script src="../assets/scripts/syncHLjs.js"></script>
+  <script src="../assets/scripts/tags.js"></script>
+  <script>
+    applyTagColors();
+    hljs.highlightAll();
+
+    // Collapsible code cards
+    function toggleCard(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.toggle-icon');
+      const open = content.style.display === 'block';
+      content.style.display = open ? 'none' : 'block';
+      icon.textContent = open ? '+' : '−';
+    }
+
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+  </script>
+</body>
+
+</html>

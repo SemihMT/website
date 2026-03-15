@@ -2,149 +2,169 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VulkanGin - Voxel Game</title>
-    <link rel="stylesheet" href="../styles.css">
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semih Teke — BoomBastic: Calavera Carnaval</title>
 
-    <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico"><link rel="stylesheet" href="../assets/highlight/styles/agate.css">
-    <script src="../assets/highlight/highlight.min.js"></script>
+  <meta name="description"
+    content="A couch co-op party game for up to 4 players — pass and throw an exploding piñata bomb in a Day of the Dead-themed graveyard. Built in Unity with C#.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/project-pages/boombastic.html">
 
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://semihteke.com/project-pages/boombastic.html">
+  <meta property="og:title" content="BoomBastic: Calavera Carnaval — Semih Teke">
+  <meta property="og:description"
+    content="A couch co-op party game for up to 4 players — pass and throw an exploding piñata bomb in a Day of the Dead-themed graveyard.">
+  <meta property="og:image" content="https://img.itch.zone/aW1hZ2UvMTkzNzE1Ni8xMjMxNTA5My5qcGc=/794x1000/C14ECK.jpg">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BoomBastic: Calavera Carnaval — Semih Teke">
+  <meta name="twitter:description"
+    content="A couch co-op party game for up to 4 players — pass and throw an exploding piñata bomb in a Day of the Dead-themed graveyard.">
+  <meta name="twitter:image" content="https://img.itch.zone/aW1hZ2UvMTkzNzE1Ni8xMjMxNTA5My5qcGc=/794x1000/C14ECK.jpg">
+
+  <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico">
+  <link rel="apple-touch-icon" href="../assets/icon/favicon-256.png">
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <div onclick="location.href='../index.html';" style="cursor: pointer;">
-            <h1>Semih's Portfolio</h1>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+
+    <a href="../index.html#projects" class="post-back">← Projects</a>
+
+    <div class="project-detail-header">
+      <div>
+        <p class="page-eyebrow">Group Project</p>
+        <h1 class="project-detail-title">BoomBastic: Calavera Carnaval</h1>
+        <div class="post-meta">
+          <span>2024</span>
+          <span class="post-meta-dot">·</span>
+          <span>Group project</span>
+          <span class="post-meta-dot">·</span>
+          <span>Unity / C#</span>
         </div>
-        <nav>
-            <ul>
-                <li><a href="../index.html#projects">Projects</a></li>
-                <li><a href="../blog.html">Blog</a></li>
-                <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank"
-                        title="Resume">Resume</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+      </div>
+      <a href="https://thorquato-peters.itch.io/boombastic" target="_blank" class="project-link-btn">
+        itch.io ↗
+      </a>
+    </div>
 
-    <!-- Project Details Section -->
-    <section id="project-details">
-        <div class="project-header">
-            <h2>Boombastic: Calavera Carnaval</h2>
-            <a href="https://thorquato-peters.itch.io/boombastic" target="_blank" class="github-link">
-                <img src="https://static.itch.io/images/itchio-textless-black.svg" alt="Itch io page" width="40"
-                    height="40">
-            </a>
-        </div>
-        <hr>
-        <div class="project-details-image">
-            <video preload="none" autoplay loop muted playsinline>
-                <source src="../assets/images/Boombastic/Boombastic.webm" type="video/webm">
-            </video>
-        </div>
+    <div class="tags" style="margin-bottom: 2rem;">
+      <span class="tag" data-tag="C#">C#</span>
+      <span class="tag" data-tag="Unity">Unity</span>
+      <span class="tag" data-tag="Group">Group</span>
+      <span class="tag" data-tag="School">School</span>
+    </div>
 
-        <div class="project-details-content">
-            <div class="project-details-text">
-                <h3>Overview</h3>
-                <p>
-                    Boombastic: Calavera Carnaval is a game we had to make during our "Game Projects" course.
-                    We were randomly gathered into teams with an (almost) even distribution of developers & artists.
-                    Our goal was to create a couch Co-Op game from start to finish using either Unreal Engine or Unity.
-                    During the whole development process we were guided by two amazing team leads, Alex & Tristan, who
-                    gave us the necessary feedback to push through some of the roadblocks.
-                </p>
-                <p>
-                    After getting acquianted with the team, we started brainstorming for the perfect Co-Op game.
-                    We went through ideas such as farming and destroying each others' crops, ragdoll parkour where you'd
-                    need to help each other to progress and some variation of "playing tag".
-                </p>
-                <p>
-                    Tag was a nice idea, but we couldn't immediately see how we would translate that to our videogame,
-                    when one of us suggested that we could add some fun chaos to the mix by incorporating a ball-like
-                    object. Kind of like "hot potato" they said.
-                </p>
-                <p>
-                    When we got confirmation from our team leads that this idea would be feasible, we immediately went
-                    to work. And a short 5 months later Boombastic was born.
-                </p>
-                <h3>My Contributions</h3>
-                <p>
-                    As one of the programmers I worked on:
-                </p>
-                <ul>
-                    <li><b>The Bomb:</b> the bomb has special physics when thrown to ensure chaos while keeping the
-                        gameplay fair.</li>
-                    <li><b>World Elements:</b> the pickup to add dashes & traps to slow the players down.</li>
-                    <li><b>Dash:</b> allowing players to evade the bomb even when cornered.</li>
-                    <li><b>Scene Management:</b> switching scenes and dynamically changing them depending on who won &
-                        who lost.</li>
-                </ul>
-                <h3>Features</h3>
+    <div class="project-media">
+      <video preload="none" autoplay loop muted playsinline>
+        <source src="../assets/images/Boombastic/Boombastic.webm" type="video/webm">
+      </video>
+    </div>
 
-                <ul>
-                    <li>Multiplayer gameplay for up to 4 players.</li>
-                    <li>Set in a Day of the Dead-themed graveyard.</li>
-                    <li>Players pass and throw an exploding piñata bomb.</li>
-                    <li>Replenish dashes by consuming items from the ofrenda altar.</li>
-                    <li>Win by being the last skeleton standing after the bomb explodes.</li>
-                    <li>Quick and chaotic rounds of action.</li>
-                </ul>
+    <h2>Overview</h2>
+    <p>
+      BoomBastic is a couch co-op party game for up to four players, developed during the Game Projects
+      course. Set in a Day of the Dead inspired graveyard, players pass and throw an exploding piñata
+      bomb between each other. The last skeleton standing when it detonates wins. Rounds are short,
+      chaotic, and designed for quick, replayable fun.
+    </p>
 
-                <h3>Technologies Used</h3>
-                <div class="tags">
-                    <div class="tag" style="background-color: #6488bc">
-                        <span>C#</span>
-                    </div>
-                    <div class="tag">
-                        <span>Unity</span>
-                    </div>
-                    <!-- Add more tags as needed -->
-                </div>
-            </div>
+    <p>
+      The concept started as a simple "hot potato" brainstorming idea. We wanted something immediately
+      understandable, physically expressive, and fun to play even with people who had never touched the
+      game before. After pitching the concept and getting approval from our team leads, we developed and
+      shipped the project over the course of five months.
+    </p>
 
-        </div>
+    <h2>My Contributions</h2>
+    <ul>
+      <li><strong>The bomb:</strong> Implemented custom physics behaviour for the bomb when thrown,
+        including the arc, spin, and bounce behaviour. The goal was to keep the gameplay chaotic and
+        unpredictable while still feeling fair and controllable.</li>
 
-        <!-- Additional Screenshots Section -->
-        <div class="project-screenshots">
-            <h3>Screenshots</h3>
-            <div id="project-grid">
-                <div class="project">
-                    <img src="https://img.itch.zone/aW1hZ2UvMTkzNzE1Ni8xMjMxNTAzNS5qcGc=/794x1000/jxjQeV.jpg"
-                        alt="Screenshot 1">
-                    <div class="caption">The main menu screen</div>
-                </div>
-                <div class="project">
-                    <img src="https://img.itch.zone/aW1hZ2UvMTkzNzE1Ni8xMjMxNTA5My5qcGc=/794x1000/C14ECK.jpg"
-                        alt="Screenshot 2">
-                    <div class="caption">The Boombastic Logo</div>
-                </div>
-                <div class="project">
-                    <img src="https://img.itch.zone/aW1hZ2UvMTkzNzE1Ni8xMjMxNTAzOC5qcGc=/794x1000/KEMVNz.jpg"
-                        alt="Screenshot 3">
-                    <div class="caption">Red meeting his maker</div>
-                </div>
-                <div class="project">
-                    <img src="https://img.itch.zone/aW1hZ2UvMTkzNzE1Ni8xMjMxNTIwNS5qcGc=/794x1000/Hz5gV2.jpg"
-                        alt="Screenshot 3">
-                    <div class="caption">A mexican standoff</div>
-                </div>
-                <!-- Add more screenshots as needed -->
-            </div>
-        </div>
+      <li><strong>Dash mechanic:</strong> Built the dash system that allows players to quickly evade
+        the bomb when cornered, including cooldown handling, directional input, and a short
+        invincibility window during the dodge.</li>
 
-    </section>
+      <li><strong>World pickups & traps:</strong> Implemented ofrenda altar pickups that replenish
+        dashes, as well as floor traps that slow players down. Both systems include visual feedback
+        and tuned timing to support the game's pacing.</li>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Semih. All rights reserved.</p>
-    </footer>
-<script src="../script.js"></script>
+      <li><strong>Scene management:</strong> Implemented scene transitions and the dynamic end-screen
+        logic that determines the winner and displays the correct result for each player.</li>
+    </ul>
 
-    <script>hljs.highlightAll();</script>
+    <h2>Screenshots</h2>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="https://img.itch.zone/aW1hZ2UvMTkzNzE1Ni8xMjMxNTAzNS5qcGc=/794x1000/jxjQeV.jpg"
+          alt="Main menu screen">
+        <div class="screenshot-caption">Main menu screen</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="https://img.itch.zone/aW1hZ2UvMTkzNzE1Ni8xMjMxNTA5My5qcGc=/794x1000/C14ECK.jpg" alt="BoomBastic logo">
+        <div class="screenshot-caption">BoomBastic logo</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="https://img.itch.zone/aW1hZ2UvMTkzNzE1Ni8xMjMxNTAzOC5qcGc=/794x1000/KEMVNz.jpg"
+          alt="Red meeting his maker">
+        <div class="screenshot-caption">Red meeting his maker</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="https://img.itch.zone/aW1hZ2UvMTkzNzE1Ni8xMjMxNTIwNS5qcGc=/794x1000/Hz5gV2.jpg"
+          alt="A mexican standoff">
+        <div class="screenshot-caption">A mexican standoff</div>
+      </div>
+    </div>
 
+  </div>
+
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
+
+
+  <script src="../assets/scripts/syncHLjs.js"></script>
+  <script src="../assets/scripts/tags.js"></script>
+  <script>
+    applyTagColors();
+
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+  </script>
 </body>
 
 </html>

@@ -1,92 +1,72 @@
-// projects.js
-fetch("./assets/scripts/projects.json")
-    .then(response => response.json())
-    .then(projects => {
-        const projectGrid = document.getElementById('project-grid');
+// Projects data — edit this array to add/remove projects
+const PROJECTS = [
 
-        const tagColors = {
-            'C': '#486389',
-            'Python': '#ccb043',
-            'C++': '#6488bc',
-            'School': '#154c79',
-            'Group': '#454545',
-            'C#': '#4285f4',
-            'Vulkan': '#ac162c',
-            'DX11': '#7eba15',
-            'UE5': '#b96d26',
-            'CMake': '#78a3e2'
+  {
+    title: "NexusLib",
+    link: "./project-pages/nexuslib.html",
+    mediaSrc: "./assets/images/nexuslib/NexusLogo.png",
+    tags: ["C++", "CMake", "School", "CI/CD",],
+    description: "Cross-platform networking library for C++ designed for simplicity and performance."
+  },
+  {
+    title: "Voxel Editor",
+    link: "./project-pages/voxelgame.html",
+    mediaSrc: "./assets/images/Voxelgame/voxelgame.webm",
+    tags: ["C++", "Vulkan", "CMake", "School"],
+    description: "A procedural voxel world generator and editor built with Vulkan."
+  },
+  {
+    title: "Voice of the Ocean",
+    link: "./project-pages/voiceoftheocean.html",
+    mediaSrc: "./assets/images/VOTO/header.jpg",
+    tags: ["C++", "UE5", "School", "Group"],
+    description: "A single-player action-adventure game with unique mechanics using the player's voice."
+  },
+  {
+    title: "P4Engine — Bubble Bobble",
+    link: "./project-pages/p4engine.html",
+    mediaSrc: "./assets/images/BubbleBobble/BubbleBobble.jpg",
+    tags: ["C++", "GPP", "School"],
+    description: "A game engine & game made from scratch for the programming 4 course."
+  },
+  {
+    title: "PPMEdit",
+    link: "./project-pages/ppmedit.html",
+    mediaSrc: "./assets/images/PPMEdit/ColorPicker.webm",
+    tags: ["Python", "TKinter"],
+    description: "A custom level editor for my custom engine. Inspired by PICO-8's P8PNG cartridge format."
+  },
 
-        };
 
-        projects.forEach(project => {
-            // Create project div
-            const projectDiv = document.createElement('div');
-            projectDiv.className = 'project';
-            projectDiv.style.cursor = 'pointer';
-            projectDiv.onclick = () => location.href = project.link;
+  {
+    title: "BoomBastic",
+    link: "./project-pages/boombastic.html",
+    mediaSrc: "./assets/images/Boombastic/Boombastic.webm",
+    tags: ["C#", "Unity", "Group", "School"],
+    description: "Co-op game with mechanics based on hot potato. Multiplayer chaos for up to 4 players."
+  },
 
-            // if (project.priority) {
-            //     const priority = project.priority.trim();
-            //     if (priority.toLowerCase() === 'normal') {
-            //         projectDiv.classList.add('priority-normal');
-            //     } else if (priority.toLowerCase() === 'high') {
-            //         projectDiv.classList.add('priority-high');
-            //     }
-            // }
-            // Add image or video
-            if (project.videoSrc) {
-                const video = document.createElement('video');
-                video.preload = "none";
-                video.autoplay = true;
-                video.loop = true;
-                video.muted = true;
-                video.playsInline = true;
-                const source = document.createElement('source');
-                source.src = project.videoSrc;
-                source.type = "video/webm";
-                video.appendChild(source);
-                projectDiv.appendChild(video);
-            } else if (project.imageSrc) {
-                const img = document.createElement('img');
-                img.src = project.imageSrc;
-                img.alt = `Screenshot of ${project.title}`;
-                projectDiv.appendChild(img);
-            }
+];
 
-            // Add project info
-            const infoDiv = document.createElement('div');
-            infoDiv.className = 'project-info';
 
-            // Add title
-            const title = document.createElement('h3');
-            title.textContent = project.title;
-            infoDiv.appendChild(title);
-
-            // Add tags
-            const tagsDiv = document.createElement('div');
-            tagsDiv.className = 'tags';
-            project.tags.forEach(tag => {
-                const tagSpan = document.createElement('span');
-                tagSpan.className = 'tag';
-                tagSpan.textContent = tag;
-
-                if (tagColors[tag]) {
-                    tagSpan.style.backgroundColor = tagColors[tag];
-                } else {
-                    tagSpan.style.backgroundColor = '#454545';
-                }
-
-                tagsDiv.appendChild(tagSpan);
-            });
-            infoDiv.appendChild(tagsDiv);
-
-            // Add description
-            const description = document.createElement('p');
-            description.textContent = project.description;
-            infoDiv.appendChild(description);
-
-            projectDiv.appendChild(infoDiv);
-            projectGrid.appendChild(projectDiv);
-        });
-    })
-    .catch(error => console.error('Error loading projects:', error));
+// ── Archive ──────────────────────────────────────────────────
+// Projects here won't appear in the main grid.
+// Same fields as PROJECTS but no mediaSrc needed.
+// ─────────────────────────────────────────────────────────────
+const ARCHIVED_PROJECTS = [
+  // Example — uncomment and fill in to add an archived project:
+  {
+    title: "Dual Rasterizer",
+    link: "./project-pages/rasterizer.html",
+    mediaSrc: "./assets/images/Rasterizer/DualRasterizer_DirectX.png",
+    tags: ["C++", "DX11", "School"],
+    description: "A combination rasterizer — software and hardware — built with DirectX 11."
+  },
+  {
+    title: "Raytracer",
+    link: "./project-pages/raytracer.html",
+    mediaSrc: "./assets/images/Raytracer/Raytracer.webm",
+    tags: ["C++", "School"],
+    description: "A software ray tracer with BVH acceleration structure."
+  },
+];

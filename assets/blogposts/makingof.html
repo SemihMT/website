@@ -2,63 +2,134 @@
 <html lang="en">
 
 <head>
+    <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Making of SemihTeke.com</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../icon/favicon.ico">
-    <!-- Preload locally hosted fonts -->
+    <title>Semih Teke — Why did I make SemihTeke.com</title>
+
+    <meta name="description"
+        content="Why I decided to build my portfolio website from scratch instead of using a website builder — and what I learned along the way.">
+    <meta name="author" content="Semih Teke">
+    <link rel="canonical" href="https://semihteke.com/assets/blogposts/makingof.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://semihteke.com/assets/blogposts/makingof.html">
+    <meta property="og:title" content="Why did I make SemihTeke.com — Semih Teke">
+    <meta property="og:description"
+        content="Why I decided to build my portfolio website from scratch instead of using a website builder — and what I learned along the way.">
+    <meta property="og:image" content="https://semihteke.com/assets/images/preview.png">
+    <meta property="og:site_name" content="Semih Teke">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why did I make SemihTeke.com — Semih Teke">
+    <meta name="twitter:description"
+        content="Why I decided to build my portfolio website from scratch instead of using a website builder.">
+    <meta name="twitter:image" content="https://semihteke.com/assets/images/preview.png">
+
+    <link rel="icon" type="image/x-icon" href="../../assets/icon/favicon.ico">
+    <link rel="apple-touch-icon" href="../../assets/icon/favicon-256.png">
     <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2"
         crossorigin="anonymous">
-    <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff" as="font" type="font/woff" crossorigin="anonymous">
-    <!-- Stylesheet for the website -->
     <link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body>
-    <header>
-        <div onclick="location.href='../../index.html';" style="cursor: pointer;">
-            <h1>Semih's Portfolio</h1>
-        </div>
-        <nav>
-            <ul>
+
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="../../index.html" class="nav-logo">ST<span>.dev</span></a>
+            <ul class="nav-links">
                 <li><a href="../../index.html#projects">Projects</a></li>
                 <li><a href="../../blog.html">Blog</a></li>
-                <li><a href="../resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank" title="Resume">Resume</a></li>
+                <li><a href="../../about.html">About</a></li>
                 <li><a href="../../index.html#contact">Contact</a></li>
+                <li><a href="../../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
+                <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+                            class="theme-toggle-icon"></span></button></li>
             </ul>
-        </nav>
-    </header>
-    <section id="content">
-        <h1>Why did I make SemihTeke.com</h1>
-        <hr>
-        <p>I love creating things. I love learning. I love expressing myself through what I make.
-            That&#39;s it, that&#39;s literally why I decided on making this website from scratch. </p>
-        <p>It was summertime and I knew I needed a portfolio for the career fair DAE organizes. I thought about using a
-            website builder like Wordpress, Wix, Squarespace or the 1001 other ones out there. I tried some of them, but
-            ultimately I felt restricted. </p>
-        <p>Making the website was challenging, especially because I had never done web development before. I chose the
-            most basic tech stack there was: HTML5, CSS3 and Javascript without any frameworks and got to work. Using
-            resources from all around the web, I learned and applied what I&#39;d learned directly to my website. One of
-            the most influential resources I&#39;ve used was <a href="https://www.theodinproject.com/">The Odin
-                Project</a>, a curated curriculum of resources designed to make a full stack developer out of everyone
-            that follows it. </p>
-        <p>I spent my off time on the website, trying things out. Seeking feedback from my family and friends to gauge
-            what works and what doesn&#39;t. It&#39;s been a satisfying process, albeit sometimes tiring and
-            frustrating. Especially when trying to host self-made C &amp; C++ games by using Emscripten to port them to
-            WASM &amp; WebGL. </p>
-        <p>I&#39;m proud of this website and what it has become; I&#39;ll probably rewrite it once I get better at web
-            development sometime in the future. I&#39;d like to have a set of tools directly integrated into VSCode or
-            create my own text editor that is directly connected to the FTPS server this website lives on, allowing for
-            easier creation &amp; editing of webpages. But that&#39;s for future me.</p>
-        <p>Thanks for reading! <br>
-            -Semih</p>
+        </div>
+    </nav>
 
-    </section>
-    <footer>
-        <p>&copy; 2024 Semih. All rights reserved.</p>
+    <div class="container">
+        <div class="post-layout">
+
+            <header class="post-header">
+                <a href="../../blog.html" class="post-back">← Blog</a>
+                <h1 class="post-title">Why did I make SemihTeke.com</h1>
+                <div class="post-meta">
+                    <span>2024</span>
+                    <span class="post-meta-dot">·</span>
+                    <span>3 min read</span>
+                </div>
+            </header>
+
+            <hr class="post-divider">
+
+            <article class="post-body">
+
+                <p>
+                    I love creating things. I love learning. I love expressing myself through what I make.
+                    That's it, that's literally why I decided on making this website from scratch.
+                </p>
+                <p>
+                    It was summertime and I knew I needed a portfolio for the career fair DAE organizes.
+                    I thought about using a website builder like Wordpress, Wix, Squarespace or the 1001
+                    other ones out there. I tried some of them, but ultimately I felt restricted.
+                </p>
+                <p>
+                    Making the website was challenging, especially because I had never done web development
+                    before. I chose the most basic tech stack there was: HTML5, CSS3 and Javascript without
+                    any frameworks, and got to work. Using resources from all around the web, I learned and
+                    applied what I'd learned directly to my website. One of the most influential resources
+                    I used was <a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a>,
+                    a curated curriculum designed to take anyone through full stack development from scratch.
+                </p>
+                <p>
+                    I spent my off time on the website, trying things out and seeking feedback from family
+                    and friends to gauge what works and what doesn't. It's been a satisfying process, albeit
+                    sometimes tiring and frustrating, especially when trying to host self-made C and C++ games
+                    by using Emscripten to port them to WASM and WebGL.
+                </p>
+                <p>
+                    I'm proud of this website and what it has become. I'll probably rewrite it once I get
+                    better at web development sometime in the future. I'd like to have a set of tools directly
+                    integrated into VSCode, or create my own text editor connected directly to the FTPS server
+                    this website lives on, allowing for easier creation and editing of pages. But that's for
+                    future me.
+                </p>
+                <p>Thanks for reading!<br>— Semih</p>
+
+            </article>
+
+            <footer class="post-footer">
+                <a href="../../blog.html" class="btn btn-ghost">← Back to Blog</a>
+            </footer>
+
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <span>© 2026 Semih Teke</span>
+        <span>Built by hand, no frameworks</span>
     </footer>
+
     <script src="../../script.js"></script>
+    <script src="../../assets/scripts/tags.js"></script>
+    <script>
+        applyTagColors();
+
+        const toggle = document.getElementById('themeToggle');
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (saved === 'light' || (!saved && !prefersDark)) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+        toggle.addEventListener('click', () => {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+            localStorage.setItem('theme', isLight ? 'dark' : 'light');
+        });
+    </script>
 </body>
 
 </html>

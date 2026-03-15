@@ -2,120 +2,404 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semih's Portfolio</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico">
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semih Teke — Game Developer & Engine Programmer</title>
 
-    <!-- Preload and load Google Material Symbols with font-display swap -->
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0"
-        as="style">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0">
-    </noscript>
+  <!-- ─── SEO ─── -->
+  <meta name="description"
+    content="Portfolio of Semih Teke — game developer and engine programmer specialising in graphics, engine development, and tooling.">
+  <meta name="author" content="Semih Teke">
+  <meta name="keywords"
+    content="game developer, engine programmer, tools developer, graphics programming, C++, Unreal Engine, portfolio">
+  <link rel="canonical" href="https://semihteke.com/">
 
-    <!-- Preload locally hosted fonts -->
-    <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff" as="font" type="font/woff" crossorigin="anonymous">
+  <!-- ─── Open Graph (Discord, LinkedIn, Slack, Facebook) ─── -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://semihteke.com/">
+  <meta property="og:title" content="Semih Teke — Game Developer & Engine Programmer">
+  <meta property="og:description"
+    content="Game developer and engine programmer specialising in graphics, engine development, and tooling.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Semih Teke">
+  <meta property="og:locale" content="en_US">
 
-    <!-- Stylesheet for the website -->
-    <link rel="stylesheet" href="styles.css">
+  <!-- ─── Twitter / X card ─── -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://semihteke.com/">
+  <meta name="twitter:title" content="Semih Teke — Game Developer & Engine Programmer">
+  <meta name="twitter:description"
+    content="Game developer and engine programmer specialising in graphics, engine development, and tooling.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/preview.png">
 
+  <!-- ─── Favicon ─── -->
+  <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.svg">
+  <link rel="apple-touch-icon" href="./assets/icon/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/assets/fonts/KodeMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <header>
-        <div onclick="location.href='./index.html';" style="cursor: pointer;">
-            <h1>Semih's Portfolio</h1>
+  <!-- ─── Nav ─── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="./index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="./assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"
+            title="Toggle light/dark mode"><span class="theme-toggle-icon"></span></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─── -->
+  <section id="hero">
+    <div class="hero-grid">
+      <div>
+        <p class="hero-eyebrow">Game Developer & Engine Programmer</p>
+        <h1 class="hero-name">Semih<br><span class="accent">Teke</span></h1>
+        <p class="hero-bio">
+          I'm a technical developer with a passion for <strong>graphics programming</strong>,
+          <strong>engine development</strong> and <strong>tooling</strong>. I love building the
+          systems that empower others to create.
+        </p>
+        <p class="hero-availability">
+          <span class="availability-dot"></span>
+          Open to new opportunities — engine, tools, or gameplay roles
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-ghost">Get In Touch</a>
         </div>
-        <nav>
-            <ul>
-                <li><a href="./index.html#projects">Projects</a></li>
-                <li><a href="./blog.html">Blog</a></li>
-                <li><a href="./assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank"
-                        title="Resume">Resume</a></li>
-                <li><a href="./index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-    <section id="about">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>Welcome!</h2>
-                <p>
-                    I'm <span class="highlight">Semih</span>, a game developer and alumnus of <span
-                        class="highlight">Digital
-                        Arts & Entertainment's</span> <span class="highlight">Game Development</span> course.
-                </p>
-                <p>
-                    I'm highly technical and enjoy tinkering and learning how things work at a deeper level. My passion
-                    lies in creating software that empowers others to create, which is why
-                    I'm aspiring to become an <span class="highlight">engine programmer/tool developer</span>.
-                </p>
-                <p>
-                    Throughout my studies, I've gained experience in, among other things, <span
-                        class="highlight">graphics</span> and
-                    <span class="highlight">tool development</span>.
-                </p>
-                <p>
-                    Beyond technical skills, I'm known for being both independent and a strong team player.
-                    I excel at giving and receiving constructive feedback, am praised for my adaptability
-                    and problem-solving abilities and I enjoy mentoring and sharing my knowledge with others.
-                </p>
-                <p>
-                    Feel free to browse through my projects down below.<br>
-                    The top right of each project contains a link to its corresponding repository or website.
-                </p>
-            </div>
-        </div>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <div id="project-grid"></div>
-    </section>
-    <script src="./assets/scripts/projects.js"></script>
-
-    <section id="recent-blogposts">
-        <h2>Recent Posts</h2>
-    </section>
-    <script src="./assets/scripts/blogpostgatherer.js"></script>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>You can reach me at <a href="mailto:semihm.teke@gmail.com">semihm.teke@gmail.com</a>.</p>
+      </div>
+      <div class="hero-stats">
         <div>
-            <a href="https://github.com/SemihMT" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub"
-                    width="40" height="40" style="filter: invert(1);">
-            </a>
-            <a href="https://www.linkedin.com/in/semih-mehmet-teke-59289b223" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn"
-                    width="40" height="40">
-            </a>
-            <a href="https://bsky.app/profile/retorikal.bsky.social" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Bluesky_Logo.svg/600px-Bluesky_Logo.svg.png"
-                    alt="Bluesky" width="40" height="40">
-            </a>
-
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Projects</div>
         </div>
-    </section>
+        <div>
+          <div class="stat-num">C++</div>
+          <div class="stat-label">Primary Lang</div>
+        </div>
+        <div>
+          <div class="stat-num">DAE</div>
+          <div class="stat-label">Alumnus</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-line"></div>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Semih. All rights reserved.</p>
-        <a href="https://librecounter.org/referer/show" target="_blank">
-            <img src="https://librecounter.org/counter.svg" referrerPolicy="unsafe-url" width="20" />
-        </a>
-    </footer>
-    <script src="./script.js"></script>
+  <!-- ─── Projects ─── -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Work</p>
+      <h2 class="section-title">Projects</h2>
+      <div id="project-grid">
+        <!-- Populated by projects.js -->
+      </div>
+
+      <!-- ─── Archive ─── -->
+      <div class="archive">
+        <button class="archive-toggle" id="archiveToggle" aria-expanded="false">
+          <span>Archive</span>
+          <span class="archive-toggle-icon">↓</span>
+        </button>
+        <div class="archive-list" id="archiveList">
+          <!-- Populated from ARCHIVED_PROJECTS array in script -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Blog ─── -->
+  <section id="blog">
+    <div class="container">
+      <p class="section-label">Writing</p>
+      <h2 class="section-title">Blog</h2>
+      <div id="posts-list">
+        <!-- Populated by blogpostgatherer.js -->
+      </div>
+      <div style="margin-top:1.5rem;">
+        <a href="./blog.html" class="btn btn-ghost">All Posts →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── About ─── -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">Background</p>
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I've been studying Game Development at <strong>Digital Arts & Entertainment</strong>,
+            mastering <strong>modern C++</strong>, <strong>graphics programming</strong>,
+            <strong>C#</strong>, <strong>Python</strong>, and tool development.
+          </p>
+          <p>
+            I'm highly technical and enjoy tinkering to understand how things work at a deeper level.
+            My passion lies in creating software that empowers others, which is why I'm aspiring
+            to become an <strong>engine programmer</strong> or <strong>tool developer</strong>.
+          </p>
+          <p>
+            Beyond technical skills, I'm known for being both independent and a strong team player.
+            I excel at giving and receiving constructive feedback, and I enjoy mentoring and
+            sharing my knowledge with others.
+          </p>
+        </div>
+        <div>
+          <div class="skills-grid">
+            <div class="skill-item">Modern C++</div>
+            <div class="skill-item">C#</div>
+            <div class="skill-item">Python</div>
+            <div class="skill-item">Vulkan / DX11</div>
+            <div class="skill-item">Graphics Programming</div>
+            <div class="skill-item">Tool Development</div>
+            <div class="skill-item">Unreal Engine 5</div>
+            <div class="skill-item">Unity</div>
+            <div class="skill-item">CMake</div>
+            <div class="skill-item">Git & Perforce</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Contact ─── -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Get in touch</p>
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-inner">
+        <div class="contact-email">
+          <a href="mailto:semihm.teke@gmail.com">semihm.teke@gmail.com</a>
+        </div>
+        <div class="contact-links">
+          <a href="https://github.com/SemihMT" target="_blank" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/semih-mehmet-teke-59289b223" target="_blank" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
+
+  <!-- ─── Scripts ─── -->
+  <script src="./assets/scripts/projects.js"></script>
+  <script src="./assets/scripts/posts.js"></script>
+  <script src="./assets/scripts/tags.js"></script>
+  <script>
+    // Projects loaded from ./assets/scripts/projects.js
+    // Blog posts loaded from ./assets/scripts/posts.js
+    // Tag colors loaded from ./assets/scripts/tags.js
+
+    const VIDEO_EXTS = ['webm', 'mp4', 'ogg', 'mov'];
+    const IMAGE_EXTS = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'avif'];
+
+    function buildMedia(src, title) {
+      const ext = src.split('.').pop().toLowerCase();
+      const media = document.createElement('div');
+      media.className = 'project-card-media';
+
+      if (VIDEO_EXTS.includes(ext)) {
+        const vid = document.createElement('video');
+        vid.preload = 'none'; vid.autoplay = true; vid.loop = true;
+        vid.muted = true; vid.playsInline = true;
+        const source = document.createElement('source');
+        source.src = src;
+        source.type = `video/${ext}`;
+        vid.appendChild(source);
+        media.appendChild(vid);
+      } else if (IMAGE_EXTS.includes(ext)) {
+        const img = document.createElement('img');
+        img.src = src; img.alt = title;
+        media.appendChild(img);
+      } else {
+        const ph = document.createElement('div');
+        ph.className = 'project-card-media-placeholder';
+        ph.textContent = title[0];
+        media.appendChild(ph);
+      }
+      return media;
+    }
+
+    // ── Render projects ──
+    function renderProjects() {
+      const grid = document.getElementById('project-grid');
+      PROJECTS.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.onclick = () => location.href = p.link;
+
+        card.appendChild(buildMedia(p.mediaSrc, p.title));
+
+        // Body
+        const body = document.createElement('div');
+        body.className = 'project-card-body';
+
+        const title = document.createElement('div');
+        title.className = 'project-card-title';
+        title.textContent = p.title;
+        body.appendChild(title);
+
+        const desc = document.createElement('div');
+        desc.className = 'project-card-desc';
+        desc.textContent = p.description;
+        body.appendChild(desc);
+
+        const tags = document.createElement('div');
+        tags.className = 'project-card-tags';
+        p.tags.forEach(t => {
+          const span = document.createElement('span');
+          span.className = 'tag';
+          span.dataset.tag = t;
+          span.textContent = t;
+          tags.appendChild(span);
+        });
+        body.appendChild(tags);
+
+        card.appendChild(body);
+        grid.appendChild(card);
+      });
+    }
+
+    // ── Render blog posts ──
+    function renderBlogPosts() {
+      const list = document.getElementById('posts-list');
+      const visible = BLOG_POSTS.filter(p => !p.draft);
+      visible.forEach((post, i) => {
+        const row = document.createElement('a');
+        row.className = 'post-row';
+        row.href = post.href;
+        row.innerHTML = `
+          <span class="post-num">${String(i + 1).padStart(2, '0')}</span>
+          <span class="post-title-text">${post.title}</span>
+          <span class="post-desc">${post.desc}</span>
+          <span class="post-arrow">→</span>
+        `;
+        list.appendChild(row);
+      });
+    }
+
+    renderProjects();
+    renderBlogPosts();
+
+
+
+    function renderArchive() {
+      const list = document.getElementById('archiveList');
+      if (ARCHIVED_PROJECTS.length === 0) {
+        document.querySelector('.archive').style.display = 'none';
+        return;
+      }
+      list.innerHTML = ARCHIVED_PROJECTS.map(p => {
+        const ext = (p.mediaSrc || '').split('.').pop().toLowerCase();
+        const isVideo = ['webm', 'mp4', 'ogg', 'mov'].includes(ext);
+        const isImage = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'avif'].includes(ext);
+
+        let mediaHTML = `<div class="archive-card-placeholder">${p.title[0]}</div>`;
+        if (isVideo) {
+          mediaHTML = `<video preload="none" autoplay loop muted playsinline>
+            <source src="${p.mediaSrc}" type="video/${ext}">
+          </video>`;
+        } else if (isImage) {
+          mediaHTML = `<img src="${p.mediaSrc}" alt="${p.title}">`;
+        }
+
+        return `
+          <a href="${p.link}" class="archive-card">
+            <div class="archive-card-media">${mediaHTML}</div>
+            <div class="archive-card-body">
+              <div class="archive-card-title">${p.title}</div>
+              <div class="archive-card-desc">${p.description}</div>
+              <div class="archive-card-tags">
+                ${p.tags.map(t => `<span class="tag" data-tag="${t}">${t}</span>`).join('')}
+              </div>
+            </div>
+          </a>
+        `;
+      }).join('');
+    }
+
+    function initArchiveToggle() {
+      const btn = document.getElementById('archiveToggle');
+      const list = document.getElementById('archiveList');
+      btn.addEventListener('click', () => {
+        const open = list.classList.toggle('archive-list--open');
+        btn.setAttribute('aria-expanded', open);
+        btn.querySelector('.archive-toggle-icon').textContent = open ? '↑' : '↓';
+      });
+    }
+
+    renderArchive();
+    applyTagColors();
+    initArchiveToggle();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Scroll to hash on page load (e.g. index.html#projects)
+    window.addEventListener('load', () => {
+      window.scrollTo(0, 0);
+      const hash = window.location.hash;
+      if (hash) {
+        setTimeout(() => {
+          document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    });
+  </script>
+
+  <script>
+    // ─── Theme toggle ───
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+  </script>
 </body>
 
 </html>

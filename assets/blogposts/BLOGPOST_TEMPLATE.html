@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ↓ Change this -->
+  <title>Semih Teke — Post Title Here</title>
+
+  <!-- ↓ Change description and URL for each post -->
+  <meta name="description" content="Post description here — one or two sentences summarising what the post covers.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/assets/blogposts/your-post-slug.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://semihteke.com/assets/blogposts/your-post-slug.html">
+  <meta property="og:title" content="Post Title Here — Semih Teke">
+  <meta property="og:description" content="Post description here.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/preview.png">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Post Title Here — Semih Teke">
+  <meta name="twitter:description" content="Post description here.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/preview.png">
+
+  <link rel="icon" type="image/x-icon" href="../../assets/icon/favicon.ico">
+  <link rel="apple-touch-icon" href="../../assets/icon/favicon-256.png">
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../styles.css">
+  <!-- Include highlight.js only if you have code blocks, otherwise remove these two lines -->
+  <link rel="stylesheet" href="../../assets/highlight/styles/agate.css">
+  <script src="../../assets/highlight/highlight.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="../../index.html#projects">Projects</a></li>
+        <li><a href="../../blog.html">Blog</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+        <li><a href="../../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- ─── Post Header ─── -->
+      <header class="post-header">
+        <a href="../../blog.html" class="post-back">← Blog</a>
+        <!-- ↓ Change the series label or remove the <p> entirely if not part of a series -->
+        <p class="post-series">Series Name — Part N</p>
+        <!-- ↓ Change title -->
+        <h1 class="post-title">Post Title Here</h1>
+        <!-- ↓ Change date and reading time -->
+        <div class="post-meta">
+          <span>Month DD, YYYY</span>
+          <span class="post-meta-dot">·</span>
+          <span>N min read</span>
+        </div>
+        <!-- ↓ Add or remove tags. data-tag must match a key in assets/scripts/tags.js -->
+        <div class="post-tags">
+          <span class="tag" data-tag="Tag1">Tag1</span>
+          <span class="tag" data-tag="Tag2">Tag2</span>
+        </div>
+      </header>
+
+      <hr class="post-divider">
+
+      <!-- ─── Post Body ─────────────────────────────────────────────
+           Available elements:
+
+           PARAGRAPH:       <p>Text here.</p>
+
+           HEADING 2:       <h2>Section Title</h2>
+           HEADING 3:       <h3>Subsection</h3>
+           HEADING 4:       <h4>Sub-subsection</h4>
+
+           INLINE CODE:     <code>someFunction()</code>
+           CODE BLOCK:      <pre><code class="language-cpp">// code here</code></pre>
+
+           UNORDERED LIST:  <ul><li>Item</li></ul>
+           ORDERED LIST:    <ol><li>Item</li></ol>
+
+           BLOCKQUOTE:      <blockquote>Quote text.</blockquote>
+
+           CALLOUT BOX:     <div class="callout">Note text here.</div>
+
+           IMAGE:           <figure>
+                              <img src="path/to/image.png" alt="Description">
+                              <figcaption>Caption text.</figcaption>
+                            </figure>
+
+           HORIZONTAL RULE: <hr class="post-divider">
+      ────────────────────────────────────────────────────────────── -->
+
+      <article class="post-body">
+
+        <p>Opening paragraph here.</p>
+
+        <h2>First Section</h2>
+        <p>Section content here.</p>
+
+        <h3>Subsection</h3>
+        <p>Subsection content.</p>
+
+        <!-- Example code block -->
+        <pre><code class="language-cpp">// Example code
+void MyFunction() {
+    // ...
+}</code></pre>
+
+        <!-- Example callout -->
+        <div class="callout">
+          This is a callout box, good for tips, warnings or notes.
+        </div>
+
+        <h2>Closing Section</h2>
+        <p>Wrap up thoughts here.</p>
+
+      </article>
+
+      <!-- ─── References (remove if not needed) ─── -->
+      <aside class="post-references">
+        <h4>References</h4>
+        <ul>
+          <li><a href="#">Link Title</a></li>
+        </ul>
+      </aside>
+
+      <!-- ─── Post Footer ─── -->
+      <footer class="post-footer">
+        <a href="../../blog.html" class="btn btn-ghost">← Back to Blog</a>
+      </footer>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
+
+  <script src="../../assets/scripts/tags.js"></script>
+  <!-- Remove if no code blocks -->
+  <script>hljs.highlightAll(); applyTagColors();</script>
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) document.documentElement.setAttribute('data-theme', 'light');
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+  </script>
+</body>
+
+</html>

@@ -2,144 +2,297 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Making of SemihTeke.com</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../icon/favicon.ico">
-    <!-- Preload locally hosted fonts -->
-    <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff" as="font" type="font/woff" crossorigin="anonymous">
-    <!-- Stylesheet for the website -->
-    <link rel="stylesheet" href="../../styles.css">
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semih Teke — Voice of the Ocean: NPC AI Part 1</title>
+
+  <meta name="description"
+    content="A deep dive into Unreal Engine 5's AI toolset — Behavior Trees, Blackboards, and the Environment Query System — used to build underwater creature AI for Voice of the Ocean.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/assets/blogposts/npc-ai-pt1.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://semihteke.com/assets/blogposts/npc-ai-pt1.html">
+  <meta property="og:title" content="NPC AI in Unreal Engine 5 — Semih Teke">
+  <meta property="og:description"
+    content="A deep dive into Unreal Engine 5's AI toolset — Behavior Trees, Blackboards, and the Environment Query System — used to build underwater creature AI.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/preview.png">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NPC AI in Unreal Engine 5 — Semih Teke">
+  <meta name="twitter:description"
+    content="A deep dive into Unreal Engine 5's AI toolset — Behavior Trees, Blackboards, and the Environment Query System.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/preview.png">
+
+  <link rel="icon" type="image/x-icon" href="../../assets/icon/favicon.ico">
+  <link rel="apple-touch-icon" href="../../assets/icon/favicon-256.png">
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body>
-    <header>
-        <div onclick="location.href='../../index.html';" style="cursor: pointer;">
-            <h1>Semih's Portfolio</h1>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="../../index.html#projects">Projects</a></li>
+        <li><a href="../../blog.html">Blog</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../index.html#contact">Contact</a></li>
+        <li><a href="../../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="post-layout">
+
+      <header class="post-header">
+        <a href="../../blog.html" class="post-back">← Blog</a>
+        <p class="post-series">Voice of the Ocean — Part 1</p>
+        <h1 class="post-title">NPC AI in Unreal Engine 5</h1>
+        <div class="post-meta">
+          <span>2024</span>
+          <span class="post-meta-dot">·</span>
+          <span>8 min read</span>
         </div>
-        <nav>
-            <ul>
-                <li><a href="../../index.html#projects">Projects</a></li>
-                <li><a href="../../blog.html">Blog</a></li>
-                <li><a href="../resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank" title="Resume">Resume</a></li>
-                <li><a href="../../index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section id="content">
-        <h1>Voice of the Ocean - NPC AI - Part 1</h1>
-        <hr>
-        <p>The last few months, my team and I have been hard at work, creating an underwater world. Touched by the lack of humans. Reclaimed by nature.</p>
-        <p>We&#39;re making a game with a narrative and unique gameplay, using the player&#39;s voice to interact with the world. One of the things the player can interact with, are sea animals. Mainly pufferfish and sharks.</p>
-        <p>I&#39;ve been given the task of programming the AI of these underwater creatures. I&#39;d like to go over my thought process and how I am implementing these behaviors. </p>
-        <h2 id="some-context">Some context</h2>
-        <p>Before diving into how I&#39;m implementing the AI, I&#39;d like to go over the development environment and some terminology that&#39;s linked to the AI systems.</p>
-        <p>This is the first part of a multi-part blogpost.</p>
-        <h3 id="the-engine">The Engine</h3>
-        <p>We&#39;re using Unreal Engine 5.4 to develop our game, known for its rendering capabilities and triple-A nature it was a good fit for our project where visuals and narrative are key.</p>
-        <h3 id="unreal-s-ai-tools">Unreal&#39;s AI Tools</h3>
-        <p>Unreal comes pre packaged with tools that make programming and setting up NPC AI easier. I&#39;ll be listing the ones I use and add what I have since learned about them. </p>
-        <h4 id="ai-controller">AI Controller</h4>
-        <p>This is a subclass of the Controller class that enables the AI systems to &quot;Possess&quot; the controlled pawn/character and take control of their movement.</p>
-        <h4 id="behavior-tree">Behavior Tree</h4>
-        <p>Behavior Trees are assets that define the actions an AI takes. The AI&#39;s behavior is composed by the developer by placing composite nodes and tasks in the order that they should fire, from top to bottom and from left to right. </p>
-        <h4 id="composite-nodes">Composite Nodes</h4>
-        <p>Composite nodes are nodes that don&#39;t execute any logic themselves. They are used to structure the behavior tree and can control the flow of execution depending on the success or failure of the tasks the composite contains.</p>
-        <p>There are two main composite nodes:</p>
-        <ol>
-        <li><strong>The Selector</strong>: This composite executes the nodes below it until one of them returns a success. Think of this like selecting the most suitable task. When the nodes below a selector are arranged correctly (higher priority to the left), the selector will go through all of them until it finds one that returns a success and if it can&#39;t find one, will return a failure.</li>
-        <li><strong>The Sequence</strong>: This one executes all the sub nodes, again from left to right, but only returns successful if <strong>all</strong> the sub nodes returns a success. If even one fails, the whole sequence fails. As the name suggests, this composite is used to define a set of actions that need to happen in a <strong>sequence</strong> that can&#39;t be changed.  </li>
-        </ol>
-        <p>Besides returning &quot;Succeeded&quot; or &quot;Failed&quot;, task nodes can also return &quot;Aborted&quot; and &quot;InProgress&quot;.
-        The last one being useful when a task needs a certain condition to be met before the behavior tree&#39;s execution moves along.</p>
-        <h4 id="blackboard">Blackboard</h4>
-        <p>The blackboard is a data container that is linked to a Behavior Tree. It allows the developer to set &quot;Keys&quot; at runtime and retrieve their values to make the AI aware of various things in the game world. </p>
-        <h4 id="behavior-tree-tasks">Behavior Tree Tasks</h4>
-        <p>The behavior tree that unreal provides does not come with a whole lot of variety in tasks. So it&#39;s up to the developer to create custom tasks, either by Blueprints or by native C++. The latter being harder to develop, but more performant.</p>
-        <p>These tasks derive from a base BTTask class that defines the set of functions the developer is allowed to override. The most basic one being &quot;ExecuteTask&quot;.</p>
-        <p>While tasks are easy to create and use, it&#39;s best to think modularly when creating them. Create them with reusability in mind. Leverage the fact that Tasks can access the Blackboard.</p>
-        <h4 id="environment-query-system">Environment Query System</h4>
-        <p>This is an additional system Unreal Engine provides that allows AI agents to query their surroundings for a target location or actor.</p>
-        <h4 id="the-environment-query">The Environment Query</h4>
-        <p>This is the asset that defines what the query actually contains. The query consists of a <strong>Generator</strong> and <strong>Tests</strong>, where the Generator generates an <strong>item</strong> and the tests can filter and/or score them. </p>
-        <h4 id="generators">Generators</h4>
-        <p>Using Generators we can generate:</p>
+        <div class="post-tags">
+          <span class="tag" data-tag="UE5">UE5</span>
+          <span class="tag" data-tag="C++">C++</span>
+          <span class="tag" data-tag="AI">AI</span>
+          <span class="tag" data-tag="School">School</span>
+        </div>
+      </header>
+
+      <hr class="post-divider">
+
+      <article class="post-body">
+
+        <p>
+          Over the past few months, my team and I have been building an underwater world touched by the absence
+          of humans and reclaimed by nature.
+        </p>
+        <p>
+          The game combines narrative and unique gameplay, allowing the player to interact with the world
+          using their voice. One of the main interaction systems involves sea creatures, primarily pufferfish
+          and sharks.
+        </p>
+        <p>
+          My role has been programming the AI for these underwater creatures. In this series, I'll share my
+          thought process and how I implement their behaviors.
+        </p>
+
+        <h2>Some Context</h2>
+        <p>
+          Before diving into the implementation, it helps to cover the development environment and key
+          terminology tied to Unreal Engine's AI systems. This is the first part of a multi-part series.
+        </p>
+
+        <h3>The Engine</h3>
+        <p>
+          We are using <strong>Unreal Engine 5.4</strong>. Its rendering capabilities and proven track record make it a
+          natural choice for a project where visuals and narrative are central.
+        </p>
+
+        <h2>Unreal's AI Tools</h2>
+        <p>
+          Unreal provides several tools that simplify programming and iterating on NPC AI. Below are the
+          systems I've been using and what I've learned about each.
+        </p>
+
+        <h3>AI Controller</h3>
+        <p>
+          An AI Controller is a subclass of <code>Controller</code> that allows AI systems to possess a pawn
+          or character and take control of its movement.
+        </p>
+
+        <h3>Behavior Tree</h3>
+        <p>
+          Behavior Trees define the actions an AI takes. Developers create behavior by arranging composite
+          nodes and tasks in the order they should execute, generally from top to bottom and left to right.
+        </p>
+
+        <h4>Composite Nodes</h4>
+        <p>
+          Composite nodes themselves do not execute logic; they structure the tree and control execution
+          flow based on the success or failure of child nodes. The two main types are:
+        </p>
         <ul>
-        <li>Actors of a specific Class</li>
-        <li>the current location of the <strong>Query Context</strong> (more on this later) that is querying</li>
-        <li>a set of points around a Context in various shapes:<ul>
-        <li><strong>Circle</strong></li>
-        <li><strong>Cone</strong></li>
-        <li><strong>Donut</strong></li>
-        <li><strong>Grid</strong></li>
-        <li><strong>Pathing Grid</strong></li>
+          <li>
+            <strong>Selector</strong> — Executes child nodes until one succeeds. It chooses the most
+            appropriate action from a prioritized list, picking the first one that succeeds.
+          </li>
+          <li>
+            <strong>Sequence</strong> — Executes all child nodes and only succeeds if all succeed. If
+            any child fails, the entire sequence fails. This is used to define ordered steps that must
+            all complete.
+          </li>
         </ul>
-        </li>
-        </ul>
-        <p>If these are not enough, Unreal also provides us with a way to make custom generators using Blueprints or native C++, just like with behavior tree tasks. These then derive from <code>EnvQueryGenerator_BlueprintBase</code> and <code>EnvQueryGenerator</code> respectively.</p>
-        <h4 id="query-contexts">Query Contexts</h4>
-        <p>Query Contexts define a frame of reference from which a generator or test will operate. A simple example of this is the <code>Querier</code> context that returns the actor that is performing the Environment Query. </p>
-        <p>Contexts can provide generators and tests with one of the following:</p>
+
+        <div class="callout">
+          Task nodes can also return <strong>Aborted</strong> or <strong>InProgress</strong>, in addition
+          to <strong>Succeeded</strong> and <strong>Failed</strong>. <strong>InProgress</strong> is useful
+          when a task requires a condition to be met before continuing execution.
+        </div>
+
+        <h4>Blackboard</h4>
+        <p>
+          The Blackboard is a data container linked to a Behavior Tree. It allows reading and writing
+          named keys at runtime, making the AI aware of events in the game world, such as player
+          position or whether an enemy is within range.
+        </p>
+
+        <h4>Behavior Tree Tasks</h4>
+        <p>
+          Unreal's built-in task library is limited, so custom tasks are often required. Tasks can be
+          created in Blueprints or C++. C++ tasks inherit from <code>BTTask</code> and override
+          functions like <code>ExecuteTask</code>.
+        </p>
+
+        <div class="callout">
+          Design tasks with modularity and reusability in mind. Use Blackboard keys to share state
+          between tasks instead of hardcoding values.
+        </div>
+
+        <h2>Environment Query System (EQS)</h2>
+        <p>
+          EQS allows AI agents to query their surroundings for a target location or actor. This is
+          especially useful for positioning logic, such as finding a safe spot to flee or the nearest
+          hiding spot.
+        </p>
+
+        <h3>The Environment Query Asset</h3>
+        <p>
+          Each query is defined by a <strong>Generator</strong> and one or more <strong>Tests</strong>.
+          The Generator produces candidate items (locations or actors), and the Tests filter or score
+          them to find the best result.
+        </p>
+
+        <h4>Generators</h4>
+        <p>
+          Generators can produce:
+        </p>
         <ul>
-        <li><strong>A single actor</strong></li>
-        <li><strong>A set of actors</strong></li>
-        <li><strong>A single location</strong></li>
-        <li><strong>A set of locations</strong></li>
+          <li>Actors of a specific class</li>
+          <li>The current location of the query context</li>
+          <li>
+            A set of points around a context in various shapes: <strong>Circle</strong>,
+            <strong>Cone</strong>, <strong>Donut</strong>, <strong>Grid</strong>, or
+            <strong>Pathing Grid</strong>
+          </li>
         </ul>
-        <p>Of course, Unreal has some Contexts ready to use for us:</p>
+        <p>
+          Custom generators can be created by deriving from
+          <code>EnvQueryGenerator_BlueprintBase</code> (Blueprints) or
+          <code>EnvQueryGenerator</code> (C++).
+        </p>
+
+        <h4>Query Contexts</h4>
+        <p>
+          Contexts define the frame of reference for generators and tests. The built-in
+          <code>Querier</code> context returns the actor running the query. Contexts can provide a
+          single actor, multiple actors, a single location, or multiple locations.
+        </p>
         <ul>
-        <li><strong>EnvQueryContext_Item</strong>: This is the item generated by a generator, could be a location or an actor.</li>
-        <li><strong>EnvQueryContext_Querier</strong>: This is the Pawn that is currently possessed by the AI Controller that is executing the Behavior Tree this Environment Query was fired from.</li>
+          <li><strong>EnvQueryContext_Item</strong> — The item generated by the generator.</li>
+          <li><strong>EnvQueryContext_Querier</strong> — The pawn possessed by the AI Controller.</li>
         </ul>
-        <p>Contexts are very useful if we have certain logic that needs to be performed around a certain actor or location. Creating our own Contexts is as easy as creating a Blueprint derived from <code>EnvQueryContext_BlueprintBase</code> or if C++ is preferred <code>EnvQueryContext</code>.</p>
-        <h4 id="tests">Tests</h4>
-        <p>Tests are used to score and/or filter items produced by generators. Filtering outright removes an item that doesn&#39;t pass a test, while scoring determines the &quot;best&quot; item out of all of them.</p>
-        <p>Each node can be filtered based on a min &amp; max value or if a boolean value matches. This depends on the test type its returned value type. </p>
-        <p>Scoring has a similar setup. Raw test values can:</p>
+        <p>
+          Custom contexts can be created by deriving from <code>EnvQueryContext_BlueprintBase</code> or
+          <code>EnvQueryContext</code>.
+        </p>
+
+        <h4>Tests</h4>
+        <p>
+          Tests score or filter the items generated by a generator. Filtering removes items that do
+          not meet criteria, while scoring determines the best option among the remaining candidates.
+        </p>
+        <p>
+          Scores can be clamped, weighted, and normalized, either absolutely (0 as the base) or relatively
+          (lowest score as base). The scoring method can be Constant, Linear, Square, Inverse Linear, or
+          Square Root.
+        </p>
+        <p>
+          Built-in tests include:
+        </p>
         <ul>
-        <li>be clamped between a min &amp; max</li>
-        <li>have a weight multiplier applied to them</li>
-        <li>be normalized using either 0 as the base value (Absolute Normalization) or the lowest of the test scores (Relative Normalization) </li>
+          <li><strong>Distance</strong> — Measures direct distance between item and context.</li>
+          <li><strong>Dot</strong> — Calculates the dot product of two vectors, useful for angle checks.</li>
+          <li><strong>Gameplay Tags</strong> — Finds actors with specific tags.</li>
+          <li><strong>Overlap</strong> — Checks if a shape at the item's location overlaps a collision channel.</li>
+          <li><strong>Pathfinding / Pathfinding Batch</strong> — Checks if a navigation path exists and can score by
+            path cost or length.</li>
+          <li><strong>Project</strong> — Projects items inside geometry back onto the navmesh.</li>
+          <li><strong>Trace</strong> — Performs line or shape traces, useful for line-of-sight checks.</li>
         </ul>
-        <p>Test values are scored based on a scoring equation that is also up to the developer:</p>
+        <p>
+          Custom tests can be implemented in C++ by deriving from <code>EnvQueryTest</code>. Blueprint
+          support for custom tests is not currently available.
+        </p>
+
+        <h2>End of Part 1</h2>
+        <p>
+          This concludes the overview of Unreal's AI tools and systems I'm using. In the next part, I'll
+          dive into the specific behaviors I'm implementing for pufferfish and sharks.
+        </p>
+        <p>Thanks for reading!</p>
+
+      </article>
+
+      <aside class="post-references">
+        <h4>References</h4>
         <ul>
-        <li><strong>Constant</strong></li>
-        <li><strong>Linear</strong></li>
-        <li><strong>Square</strong></li>
-        <li><strong>Inverse Linear</strong></li>
-        <li><strong>Square root</strong></li>
+          <li><a
+              href="https://dev.epicgames.com/documentation/en-us/unreal-engine/environment-query-system-overview-in-unreal-engine"
+              target="_blank">Unreal Documentation — EQS Overview</a></li>
+          <li><a
+              href="https://dev.epicgames.com/documentation/en-us/unreal-engine/eqs-node-reference-tests-in-unreal-engine"
+              target="_blank">Unreal Documentation — EQS Tests</a></li>
+          <li><a
+              href="https://dev.epicgames.com/documentation/en-us/unreal-engine/eqs-node-reference-generators-in-unreal-engine"
+              target="_blank">Unreal Documentation — EQS Generators</a></li>
+          <li><a
+              href="https://dev.epicgames.com/documentation/en-us/unreal-engine/eqs-node-reference-contexts-in-unreal-engine"
+              target="_blank">Unreal Documentation — EQS Query Contexts</a></li>
+          <li><a href="https://www.thegames.dev/?p=70" target="_blank">The Games Dev — BTTasks in C++</a></li>
+          <li><a
+              href="https://github.com/jeremyabel/UnrealEngine-4.11-ofr-portals/tree/master/Engine/Source/Runtime/AIModule"
+              target="_blank">GitHub — Unreal AI Module</a></li>
         </ul>
-        <p>The equation maps the raw scores to the chosen equation, making the scoring more intuitive and easier to work with.</p>
-        <p>Unreal Engine comes with a list of tests that can be very useful in a variety of situations and again, if you need more or these test just don&#39;t cut it for you, you can create your own through C++ code. Currently, there seems to be no support for creating tests through Blueprints.</p>
-        <p>The built-in tests are: </p>
-        <ul>
-        <li><strong>Distance</strong>: Returns the direct distance between the Item and the chosen Context.</li>
-        <li><strong>Dot</strong>: Returns the dot product of two vectors, useful when we need an item at an angle from the Context.</li>
-        <li><strong>Gameplay Tags</strong>: This allows you to find specific actors that math the tag you enter</li>
-        <li><strong>Overlap</strong>: This test allows you to define a shape, a collision channel and an offset from the item this test runs on. If the shape overlaps anything in the collision channel, the test fails/succeeds. Depending on whether the &quot;bool match&quot; option is set or not.</li>
-        <li><strong>Pathfinding &amp; Pathfinding Batch</strong>: This test is used to determine if a path exists to the item in question, you can get the path&#39;s cost and also it&#39;s length to test against. (this requires a navmesh to be present)</li>
-        <li><strong>Project</strong>: Will project the resulting item (that may be blocked or inside a wall) back onto the navmesh.</li>
-        <li><strong>Trace</strong>: Will use a line/shape trace and return if the trace hit something. Useful for determining what the AI agent can/cannot see in the game world.</li>
-        </ul>
-        <h2 id="end-of-part-1">End of part 1</h2>
-        <p>Thanks for reading! This was an overview of what I know and have learned thus far, which allowed me to implement the behaviors I&#39;ll specify in the next posts.</p>
-        <p>Hope to see you there!</p>
-        <p>References: <br>
-        <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/environment-query-system-overview-in-unreal-engine">Unreal Documentation - EQS</a><br>
-        <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/eqs-node-reference-tests-in-unreal-engine">Unreal Documentation - EQS - Tests</a><br>
-        <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/eqs-node-reference-generators-in-unreal-engine">Unreal Documentation - EQS - Generators</a><br>
-        <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/eqs-node-reference-contexts-in-unreal-engine">Unreal Documentation - EQS - Query Contexts</a><br>
-        <a href="https://www.thegames.dev/?p=70">The Games Dev - All about BTTasks in C++</a><br>
-        <a href="https://github.com/jeremyabel/UnrealEngine-4.11-ofr-portals/tree/master/Engine/Source/Runtime/AIModule">Github - Unreal AI Module</a></p>
-        
-    </section>
-    <footer>
-        <p>&copy; 2024 Semih. All rights reserved.</p>
-    </footer>
-    <script src="../../script.js"></script>
+      </aside>
+
+      <footer class="post-footer">
+        <a href="../../blog.html" class="btn btn-ghost">← Back to Blog</a>
+      </footer>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
+
+  <script src="../../script.js"></script>
+  <script src="../../assets/scripts/tags.js"></script>
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) document.documentElement.setAttribute('data-theme', 'light');
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+    applyTagColors();
+  </script>
 </body>
 
 </html>

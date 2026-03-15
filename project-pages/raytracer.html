@@ -2,158 +2,156 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accelerated Raytracer</title>
-    <link rel="stylesheet" href="../styles.css">
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semih Teke — Accelerated Raytracer</title>
 
-    <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico"><link rel="stylesheet" href="../assets/highlight/styles/agate.css">
-    <script src="../assets/highlight/highlight.min.js"></script>
+  <meta name="description"
+    content="A software ray tracer with a BVH acceleration structure built from scratch in C++, capable of rendering the Stanford Bunny in real time.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/project-pages/raytracer.html">
 
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://semihteke.com/project-pages/raytracer.html">
+  <meta property="og:title" content="Accelerated Raytracer — Semih Teke">
+  <meta property="og:description"
+    content="A software ray tracer with a BVH acceleration structure built from scratch in C++, capable of rendering the Stanford Bunny in real time.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/Raytracer/Raytracer_BUNNY.png">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Accelerated Raytracer — Semih Teke">
+  <meta name="twitter:description"
+    content="A software ray tracer with a BVH acceleration structure built from scratch in C++, capable of rendering the Stanford Bunny in real time.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/Raytracer/Raytracer_BUNNY.png">
+
+  <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.ico">
+  <link rel="apple-touch-icon" href="../assets/icon/favicon-256.png">
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <div onclick="location.href='../index.html';" style="cursor: pointer;">
-            <h1>Semih's Portfolio</h1>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+
+    <a href="../index.html#projects" class="post-back">← Projects</a>
+
+    <div class="project-detail-header">
+      <div>
+        <p class="page-eyebrow">Solo Project</p>
+        <h1 class="project-detail-title">Accelerated Raytracer</h1>
+        <div class="post-meta">
+          <span>2024</span>
+          <span class="post-meta-dot">·</span>
+          <span>Graphics Programming course</span>
+          <span class="post-meta-dot">·</span>
+          <span>C++</span>
         </div>
-         <nav>
-            <ul>
-                <li><a href="../index.html#projects">Projects</a></li>
-                <li><a href="../blog.html">Blog</a></li>
-                <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank"
-                        title="Resume">Resume</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+      </div>
+      <a href="https://github.com/SemihMT/AcceleratedRaytracer" target="_blank" class="project-link-btn">
+        GitHub ↗
+      </a>
+    </div>
 
-    <!-- Project Details Section -->
-    <section id="project-details">
-        <div class="project-header">
-            <h2>Accelerated Raytracer</h2>
-            <a href="https://github.com/SemihMT/AcceleratedRaytracer" target="_blank" class="github-link">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-                    alt="GitHub Repository" width="40" height="40">
-            </a>
-        </div>
-        <hr>
-        <div class="project-details-image">
-            <video preload="none" autoplay loop muted playsinline>
-                <source src="../assets/images/Raytracer/Raytracer.webm" type="video/webm">
-            </video>
-        </div>
+    <div class="tags" style="margin-bottom: 2rem;">
+      <span class="tag" data-tag="C++">C++</span>
+      <span class="tag" data-tag="School">School</span>
+    </div>
 
-        <div class="project-details-content">
-            <div class="project-details-text">
-                <h3>Overview</h3>
-                <p>The retake project for Graphics Programming 1 @ Digital Arts & Entertainment.</p>
-                <h4> Raytracing Maths </h4>
-                <p>
-                    To implement raytracing, we needed to apply several key mathematical concepts like:
-                <ul>
-                    <li><b>Vector Math</b>: Extensive use of vector operations like addition, subtraction, dot products,
-                        and
-                        cross
-                        products to represent and manipulate 3D points, directions, and normals. </li>
-                    <li><b>Ray-Primitive Intersection</b>: Calculating the intersection point between a ray and various
-                        geometric
-                        primitives like spheres, planes, and triangles. This required solving quadratic equations and
-                        other
-                        geometric calculations. </li>
-                    <li><b>Lighting Calculations</b>: Computing the contribution of direct lighting, ambient lighting,
-                        and checking whether the pixel is in shadow to determine the final color of a pixel. This
-                        involved dot products, exponential functions, and color blending.</li>
-                </ul>
+    <div class="project-media">
+      <video preload="none" autoplay loop muted playsinline>
+        <source src="../assets/images/Raytracer/Raytracer.webm" type="video/webm">
+      </video>
+    </div>
 
-                <h4>Bounding Volume Hierarchy (BVH)</h4>
+    <h2>Overview</h2>
+    <p>
+      A software ray tracer built from scratch in C++ for the Graphics Programming 1 retake at DAE.
+      The renderer casts rays per pixel, computes intersections with scene geometry, and evaluates
+      direct lighting, shadows, and shading entirely on the CPU. The key technical challenge was making
+      it fast enough to render complex meshes, something I solved by implementing a Bounding Volume Hierarchy
+      to dramatically reduce the number of ray-primitive intersection tests.
+    </p>
 
-                The BVH is a tree-based acceleration structure used to speed up raytracing by reducing the number of
-                ray-primitive intersection tests. It works as follows:
-                <ol>
-                    <li><b>Construct the BVH</b>: The scene geometry is recursively split into axis-aligned bounding
-                        boxes
-                        (AABBs) to create a binary tree structure. The split axis and position are chosen to minimize
-                        the total volume of the child AABBs.</li>
-                    <li><b>Traverse the BVH</b>: When tracing a ray, we traverse the BVH tree, testing the ray against
-                        the
-                        AABBs. If the ray intersects an AABB, we continue down that branch of the tree. If not, we can
-                        skip that entire subtree.</li>
-                    <li><b>Optimize Traversal</b>: Several techniques are used to optimize BVH traversal, such as:
-                        <ul>
-                            <li>
-                                <b>Ray-AABB intersection</b>: Efficiently testing the ray against the AABBs using the
-                                slab
-                                method.
-                            </li>
-                            <li><b>Early ray termination</b>: Stopping the traversal as soon as we find a valid
-                                intersection.</li>
-                        </ul>
-                    </li>
-                </ol>
-                The BVH allows us to quickly cull large portions of the scene geometry, dramatically reducing the
-                number
-                of expensive ray-primitive intersection tests required. This results in a significant performance
-                improvement for raytracing complex scenes.
-                </p>
+    <h2>Technical Highlights</h2>
+    <ul>
+      <li><strong>BVH construction:</strong> Scene geometry is recursively subdivided into
+        axis-aligned bounding boxes (AABBs), building a binary tree. Each node splits along its
+        longest axis at the midpoint, with triangles partitioned by centroid position using an
+        in-place swap. Recursion terminates when a node contains two or fewer triangles.</li>
+      <li><strong>BVH traversal:</strong> Ray-AABB intersection uses the slab method which is fast, branchless,
+        and numerically stable. Entire subtrees are skipped when the ray misses the parent AABB, with
+        early termination once the closest hit is confirmed.</li>
+      <li><strong>Shading pipeline:</strong> Per-pixel evaluation of direct lighting (with shadow rays),
+        ambient contribution, and a Phong model: observed area, diffuse, and specular terms computed
+        separately and composited, togglable at runtime for debugging.</li>
+      <li><strong>Möller-Trumbore triangle intersection:</strong> Initially implemented the naive
+        approach by finding the ray-plane intersection first, then testing whether the point is inside the
+        triangle using per-edge cross products. Replaced it with Möller-Trumbore, which skips the
+        plane intersection entirely and computes barycentric <code>u</code>/<code>v</code> coordinates
+        directly from the determinant, saving several operations per test. The original implementation
+        is still visible as commented-out code in the source.</li>
+    </ul>
 
-                <h3>Features</h3>
-                <ul>
-                    <li><b>Accelerated Rendering using a BVH</b></li>
-                    <li><b>Toggling lighting modes</b>: Use F3 to toggle between different lighting modes.
-                    </li>
-                    <li><b>FPS Benchmark</b>: Use F6 to perform a FPS benchmark, this gets saved in
-                        benchmark.txt.</li>
-                </ul>
-                <h3>Controls</h3>
-                <ul>
-                    <li><b>F3</b>: Toggle between different lighting modes.</li>
-                    <li><b>F6</b>: Perform Benchmark.</li>
-                </ul>
+    <h2>Screenshots</h2>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="../assets/images/Raytracer/Raytracer_Reference.png" alt="Reference scene">
+        <div class="screenshot-caption">Reference scene — spheres, planes, and direct lighting</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="../assets/images/Raytracer/Raytracer_BUNNY.png" alt="Stanford Bunny">
+        <div class="screenshot-caption">Stanford Bunny rendered with BVH acceleration</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="../assets/images/Raytracer/Raytracer_EXTRA.png" alt="Custom scene">
+        <div class="screenshot-caption">Custom scene</div>
+      </div>
+    </div>
 
-                <h3>Technologies Used</h3>
-                <div class="tags">
-                    <div class="tag" style="background-color: #6488bc">
-                        <span>C++</span>
-                    </div>
-                    <!-- Add more tags as needed -->
-                </div>
-            </div>
+  </div>
 
-        </div>
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
 
-        <!-- Additional Screenshots Section -->
-        <div class="project-screenshots">
-            <h3>Screenshots</h3>
-            <div id="project-grid">
-                <div class="project">
-                    <img src="../assets/images/Raytracer/Raytracer_Reference.png" alt="Raytracer reference">
-                    <div class="caption">The reference scene</div>
-                </div>
-                <div class="project">
-                    <img src="../assets/images/Raytracer/Raytracer_BUNNY.png" alt="Raytracer bunny">
-                    <div class="caption">Rendering the Stanford Bunny</div>
-                </div>
-                <div class="project">
-                    <img src="../assets/images/Raytracer/Raytracer_EXTRA.png" alt="Raytracer extra">
-                    <div class="caption">A custom scene</div>
-                </div>
-                <!-- Add more screenshots as needed -->
-            </div>
-        </div>
 
-    </section>
+  <script src="../assets/scripts/syncHLjs.js"></script>
+  <script src="../assets/scripts/tags.js"></script>
+  <script>
+    applyTagColors();
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Semih. All rights reserved.</p>
-    </footer>
-<script src="../script.js"></script>
-
-    <script>hljs.highlightAll();</script>
-
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+  </script>
 </body>
 
 </html>
