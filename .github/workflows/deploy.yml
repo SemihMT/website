@@ -1,18 +1,31 @@
 name: FTP Deploy (Reliable)
-
 on:
   push:
     branches: [main]
-
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
+      - name: Inject cache-busting version
+        run: |
+          VERSION="${{ github.sha }}"
+          SHORT="${VERSION:0:8}"
+          # Replace asset references in all HTML files
+          find . -name "*.html" | xargs sed -i \
+            -e "s/styles\.css\"/styles.css?v=${SHORT}\"/g" \
+            -e "s/styles\.css'/styles.css?v=${SHORT}'/g" \
+            -e "s/projects\.js\"/projects.js?v=${SHORT}\"/g" \
+            -e "s/projects\.js'/projects.js?v=${SHORT}'/g" \
+            -e "s/tags\.js\"/tags.js?v=${SHORT}\"/g" \
+            -e "s/tags\.js'/tags.js?v=${SHORT}'/g" \
+            -e "s/posts\.js\"/posts.js?v=${SHORT}\"/g" \
+            -e "s/posts\.js'/posts.js?v=${SHORT}'/g"
+
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
