@@ -42,10 +42,11 @@
         <li><a href="./blog.html">Blog</a></li>
         <li><a href="./about.html">About</a></li>
         <li><a href="./index.html#contact">Contact</a></li>
-        <li><a href="./assets/resume/SemihMehmetTeke_Resume.pdf" target="_blank">Resume ↗</a></li>
+        <li><a href="./assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
         <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
               class="theme-toggle-icon"></span></button></li>
       </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
@@ -57,48 +58,44 @@
 
     <div style="display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: start;">
       <div>
-        <h2 style="font-size:1.1rem; margin-bottom:1rem; color: var(--accent);">Skills & Studies</h2>
+        <h2 style="font-size:1.1rem; margin-bottom:1rem; color: var(--accent);">Background</h2>
         <p>
-          I've been studying Game Development at <span class="highlight">Digital Arts & Entertainment</span>
-          for the past few years, learning the ins-and-outs of <span class="highlight">modern C++</span>,
-          <span class="highlight">C#</span>, <span class="highlight">Python</span>,
-          <span class="highlight">tool development</span>, <span class="highlight">graphics programming</span> and more.
+          I'm a graduate of <span class="highlight">Digital Arts & Entertainment</span> where I studied
+          game development with a focus on <span class="highlight">modern C++</span>,
+          <span class="highlight">graphics programming</span>, and <span class="highlight">tool development</span>.
+          Since graduating I've been teaching <span class="highlight">Python</span> and computer science
+          to high school students, and serving as Regional Coordinator for
+          <span class="highlight">vzw Jet</span> across East and West Flanders, leading events,
+          youth camps, and career mentoring for hundreds of young people.
         </p>
         <p>
-          I've gained experience with: <span class="highlight">Visual Studio</span>,
-          <span class="highlight">Unity</span>, <span class="highlight">Unreal Engine</span>,
-          <span class="highlight">Maya</span>, <span class="highlight">Blender</span>,
-          <span class="highlight">Git & GitHub</span>, <span class="highlight">Perforce</span>.
-        </p>
-        <p>
-          In addition to technical skills, I'm known for being both <span class="highlight">independent</span>
-          and a strong <span class="highlight">team player</span>. I'm good at
-          <span class="highlight">giving and receiving constructive feedback</span>, praised for my
-          <span class="highlight">adaptability</span> and <span class="highlight">problem-solving</span>,
-          and I enjoy <span class="highlight">mentoring</span> others.
+          Those experiences have made me a better communicator and a more patient problem solver.
+          They've also made it clearer that building software is where I want to be.
         </p>
 
-        <h2 style="font-size:1.1rem; margin:2rem 0 1rem; color: var(--accent);">Career Aspirations</h2>
+        <h2 style="font-size:1.1rem; margin:2rem 0 1rem; color: var(--accent);">What I'm After</h2>
         <p>
-          I'm a programmer with a strong foundation in graphics programming, as can be seen in my projects.
-          I'd like to leverage that experience to grow into <span class="highlight">engine</span> and
-          <span class="highlight">tool development</span> to become a more well-rounded developer.
+          My instinct as a developer is to go deeper, to understand how systems fit together
+          rather than just making them work. That's what draws me to
+          <span class="highlight">engine</span> and <span class="highlight">tool development</span>:
+          building the things that let other developers do their best work.
         </p>
         <p>
-          Currently, my portfolio mostly reflects my graphics programming work, with exceptions like P4Engine.
-          I'm also working on projects aligned with engine and tool development in my free time.
+          I don't have decades of engine credits to my name yet, but I have a solid foundation in
+          <span class="highlight">graphics programming</span>, a completed networking library,
+          and a genuine interest in systems design that I'm actively building on.
         </p>
 
         <h2 style="font-size:1.1rem; margin:2rem 0 1rem; color: var(--accent);">Get In Touch</h2>
         <p>
-          Feel free to reach out if you're interested in learning more about my skills, experience,
-          or career aspirations!
+          If you're working on something interesting in the engine, tools, or gameplay space,
+          I'd love to hear about it.
         </p>
         <div class="contact-links">
           <a href="https://www.linkedin.com/in/semih-mehmet-teke-59289b223" target="_blank" class="contact-link">
             LinkedIn ↗
           </a>
-          <a href="/cdn-cgi/l/email-protection#97e4f2fafefffab9e3f2fcf2d7f0faf6fefbb9f4f8fa" class="contact-link">
+          <a href="mailto:semihm.teke@gmail.com" class="contact-link">
             Email ↗
           </a>
           <a href="https://github.com/SemihMT" target="_blank" class="contact-link">
@@ -127,13 +124,12 @@
     </div>
   </div>
 
-  <img src="https://librecounter.org/hidden.svg" referrerPolicy="unsafe-url" width="0" />
   <footer class="site-footer">
-    <span>© 2026 Semih Teke</span>
-    <span>Just a text editor and a browser</span>
+    <span>© 2025 Semih Teke</span>
+    <span>Built by hand, no frameworks</span>
   </footer>
 
-
+  <script src="./script.js"></script>
   <script>
     const toggle = document.getElementById('themeToggle');
     const saved = localStorage.getItem('theme');
@@ -147,6 +143,33 @@
       localStorage.setItem('theme', isLight ? 'dark' : 'light');
       syncHljsTheme();
     });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      // Toggle open/close + X animation
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+      });
+      // Close on link click
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        });
+      });
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        }
+      });
+    }
+
   </script>
 </body>
 
