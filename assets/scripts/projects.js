@@ -36,7 +36,13 @@ const PROJECTS = [
     tags: ["Python", "TKinter"],
     description: "A custom level editor for my custom engine. Inspired by PICO-8's P8PNG cartridge format."
   },
-
+  {
+    title: "SemihTeke.com",
+    link: "./project-pages/semihteke-com.html",
+    mediaSrc: "./assets/images/Website/preview.png",
+    tags: ["CI/CD"],
+    description: "The site you're on right now. Built from scratch in plain HTML, CSS and JS with automated deployment."
+  },
 
   {
     title: "BoomBastic",
@@ -69,4 +75,5 @@ const ARCHIVED_PROJECTS = [
     tags: ["C++", "School"],
     description: "A software ray tracer with BVH acceleration structure."
   },
+
 ];

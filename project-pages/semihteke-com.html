@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semih Teke — SemihTeke.com</title>
+
+  <meta name="description"
+    content="The portfolio website you're looking at right now. Built from scratch in HTML, CSS and JavaScript with no frameworks, a CI/CD deployment pipeline, and a full redesign in 2025.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/project-pages/semihteke-com.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://semihteke.com/project-pages/semihteke-com.html">
+  <meta property="og:title" content="SemihTeke.com — Semih Teke">
+  <meta property="og:description"
+    content="The portfolio website you're looking at right now. Built from scratch in HTML, CSS and JavaScript with no frameworks.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/preview.png">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SemihTeke.com — Semih Teke">
+  <meta name="twitter:description"
+    content="The portfolio website you're looking at right now. Built from scratch in HTML, CSS and JavaScript with no frameworks.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/preview.png">
+
+  <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/icon/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles.css">
+  <link id="hljs-dark" rel="stylesheet" href="../assets/highlight/styles/atom-one-dark.css">
+  <link id="hljs-light" rel="stylesheet" href="../assets/highlight/styles/atom-one-light.css" disabled>
+  <script src="../assets/highlight/highlight.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../assets/resume/SemihMehmetTeke_Resume_Public.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+
+    <a href="../index.html#projects" class="post-back">← Projects</a>
+
+    <div class="project-detail-header">
+      <div>
+        <p class="page-eyebrow">Ongoing Project</p>
+        <h1 class="project-detail-title">SemihTeke.com</h1>
+        <div class="post-meta">
+          <span>2024 — present</span>
+          <span class="post-meta-dot">·</span>
+          <span>Solo project</span>
+          <span class="post-meta-dot">·</span>
+          <span>HTML / CSS / JS</span>
+        </div>
+      </div>
+      <a href="https://github.com/SemihMT/website" target="_blank" class="project-link-btn">
+        GitHub ↗
+      </a>
+    </div>
+
+    <div class="tags" style="margin-bottom: 2rem;">
+      <span class="tag" data-tag="CI/CD">CI/CD</span>
+    </div>
+
+    <div class="project-media">
+      <img src="../assets/images/Website/preview.png" alt="SemihTeke.com screenshot">
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      This is the site you're on right now. I built the first version around September of 2024
+      to have something to show at
+      <a href="https://www.unwrap.be/news/this-was-unwrap-2024" target="_blank">UNWRAP 2024</a>, a game industry
+      festival in Kortrijk where DAE runs a career fair connecting students with
+      studios ranging from indie to AAA. It was my first time doing any web development, so I picked
+      the simplest possible stack: plain HTML, CSS, and JavaScript. I wanted
+      to build something I actually understood end to end rather than fighting with generic website builders.
+    </p>
+    <p>
+      The original version got the job done but the design was rough and the codebase had grown
+      messy. In 2026 I did a full redesign from the ground up, which is what you're looking at now.
+    </p>
+
+    <h2>Technical Highlights</h2>
+    <ul>
+      <li><strong>No frameworks & build tools:</strong> Everything is written in HTML, CSS, and
+        vanilla JavaScript. The CSS uses custom properties so switching between dark and light themes
+        is just swapping a single variable.</li>
+      <li><strong>Data-driven project and blog rendering:</strong> Projects and blog posts are defined
+        as JavaScript arrays in <code>projects.js</code> and <code>posts.js</code>. Adding a new project
+        or post means adding one object to an array and the renderer handles the rest.</li>
+      <li><strong>Automated deployment:</strong> A GitHub Actions workflow builds and deploys to the
+        host over FTP on every push to main. It also injects a cache-busting version string derived
+        from the commit hash into every asset URL, so browsers don't cache unnecessarily and always get the latest
+        version of the site.</li>
+    </ul>
+
+    <div class="code-card">
+      <div class="code-card-header" onclick="toggleCard(this)">
+        <h3>Cache-busting on deploy</h3>
+        <span class="toggle-icon">+</span>
+      </div>
+      <div class="code-content" style="display:none;">
+        <p>A single step in the GitHub Actions workflow injects the short commit hash into every
+          asset URL before the files are uploaded. Browsers see a new URL on every deploy and
+          skip the cache.</p>
+        <pre><code class="language-yaml"> - name: Inject cache-busting version
+        run: |
+          VERSION="${{ github.sha }}"
+          SHORT="${VERSION:0:8}"
+          find . -name "*.html" | xargs sed -i \
+            -e "s/styles\.css\"/styles.css?v=${SHORT}\"/g" \
+            -e "s/styles\.css'/styles.css?v=${SHORT}'/g" \
+            -e "s/projects\.js\"/projects.js?v=${SHORT}\"/g" \
+            -e "s/projects\.js'/projects.js?v=${SHORT}'/g" \
+            -e "s/tags\.js\"/tags.js?v=${SHORT}\"/g" \
+            -e "s/tags\.js'/tags.js?v=${SHORT}'/g" \
+            -e "s/posts\.js\"/posts.js?v=${SHORT}\"/g" \
+            -e "s/posts\.js'/posts.js?v=${SHORT}'/g"</code></pre>
+      </div>
+    </div>
+
+    <h2>What I learned</h2>
+    <p>
+      Hosting is more involved than I expected. Getting files to a server is the easy part, understanding how browsers
+      cache those files and why a visitor might be looking at a version
+      of your site from three deploys ago, is a different problem entirely. That's what led to the
+      cache-busting setup in the CI pipeline.
+    </p>
+    <p>
+      I also had to learn about media optimization, which matters more on the web than anywhere else I'd worked before.
+      Videos that worked fine locally would tank page load times. So I had to find solutions without degrading the
+      quality of the media too much.
+    </p>
+    <p>
+      Another thing I struggled with was browser compatibility. Something that looks perfect in one browser
+      renders completely differently in another and some HTML or CSS features have limited or
+      inconsistent support depending on where you're running. What a headache.
+    </p>
+    <p>
+      More of a reminder than a new lesson : use
+      variables.
+      CSS custom properties for colours, spacing, and typography meant that changing the entire
+      feel of the site was a matter of editing a handful of values in one place. Going in I knew
+      this mattered, but I didn't appreciate just how much until I tried to make a global change
+      without them.
+    </p>
+
+
+    <h2>Screenshots</h2>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="../assets/images/Website/homepage_old.png" alt="Old homepage">
+        <div class="screenshot-caption">My old homepage</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
+
+  <script src="../assets/scripts/tags.js"></script>
+  <script>
+    applyTagColors();
+    hljs.highlightAll();
+
+    function toggleCard(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.toggle-icon');
+      const open = content.style.display === 'block';
+      content.style.display = open ? 'none' : 'block';
+      icon.textContent = open ? '+' : '−';
+    }
+
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+      });
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

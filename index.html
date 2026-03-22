@@ -84,7 +84,7 @@
       </div>
       <div class="hero-stats">
         <div>
-          <div class="stat-num">8+</div>
+          <div class="stat-num" id="stat-project-count">0</div>
           <div class="stat-label">Projects</div>
         </div>
         <div>
@@ -364,6 +364,10 @@
     renderArchive();
     applyTagColors();
     initArchiveToggle();
+
+    // Update project count in hero
+    const total = PROJECTS.length + ARCHIVED_PROJECTS.length;
+    document.getElementById('stat-project-count').textContent = total + '+';
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
