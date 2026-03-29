@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semih Teke - DevFlow</title>
+
+  <meta name="description"
+    content="DevFlow is a Unity Editor tool suite targeting common workflow friction points: play mode data loss, cluttered hierarchies, lost scene positions, and missing script warnings.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/project-pages/DevFlow.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://semihteke.com/project-pages/DevFlow.html">
+  <meta property="og:title" content="DevFlow - Semih Teke">
+  <meta property="og:description" content="A Unity Editor tool suite targeting common workflow friction points.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/DevFlow/main.png">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DevFlow - Semih Teke">
+  <meta name="twitter:description" content="A Unity Editor tool suite targeting common workflow friction points.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/DevFlow/main.png">
+
+  <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/icon/apple-touch-icon.png">
+
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles.css">
+  <link id="hljs-dark" rel="stylesheet" href="../assets/highlight/styles/atom-one-dark.css">
+  <link id="hljs-light" rel="stylesheet" href="../assets/highlight/styles/panda-syntax-light.css" disabled>
+  <script src="../assets/highlight/highlight.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../assets/resume/SemihMehmetTeke_Resume.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+
+    <a href="../index.html#projects" class="post-back">← Projects</a>
+
+    <div class="project-detail-header">
+      <div>
+        <p class="page-eyebrow">Tool Dev Project</p>
+        <h1 class="project-detail-title">DevFlow</h1>
+        <div class="post-meta">
+          <span>2026</span>
+          <span class="post-meta-dot">·</span><span>Solo project</span>
+          <span class="post-meta-dot">·</span><span>Unity 6.3 LTS</span>
+        </div>
+      </div>
+      <a href="https://assetstore.unity.com/packages/slug/369324" target="_blank" class="project-link-btn">
+        Unity Asset Store ↗
+      </a>
+    </div>
+
+    <div class="tags" style="margin-bottom: 2rem;">
+      <span class="tag" data-tag="C#">C#</span>
+      <span class="tag" data-tag="Unity">Unity</span>
+    </div>
+
+    <div class="project-media">
+      <img src="../assets/images/DevFlow/main.png" alt="DevFlow Unity Editor tool suite">
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      DevFlow is a suite of Unity Editor tools I built under a shared namespace, targeting friction points I kept
+      running into during development. Every tool is editor-only with zero runtime impact.
+    </p>
+    <p>
+      It came out of a simple observation: time lost to small workflow problems compounds quickly. Losing inspector
+      tweaks after play mode ends. Losing your place in a large scene. DevFlow fixes those things.
+    </p>
+
+    <h2>Tools</h2>
+
+    <h3>01 - Play Mode Preserver</h3>
+    <p>
+      When you change a component value in the Inspector during play mode, Unity throws it away the moment you stop.
+      Play Mode Preserver watches for those edits and presents a per-field keep/discard dialog on exit. Changes are
+      grouped by GameObject and component. Transform axes are tracked independently, so you can keep a Y-axis position
+      change and discard X and Z from the same drag.
+    </p>
+    <p>
+      It hooks into both <code>Undo.postprocessModifications</code> and <code>ObjectChangeEvents</code> to catch
+      inspector edits and scene-view gizmo drags. On exit, only touched components are serialized while values are still
+      live, then diffed field by field against a snapshot taken at play mode entry.
+    </p>
+
+    <h3>02 - Hierarchy Organizer</h3>
+    <p>
+      Visual separators that divide the hierarchy into named sections, plus per-GameObject row color tinting and icon
+      badges. Separators are <code>EditorOnly</code> GameObjects that render as a horizontal rule with a centered label
+      and get stripped from builds entirely. Settings persist to <code>ProjectSettings/</code> as JSON so they're shared
+      across the team via source control.
+    </p>
+
+    <h3>03 - Scene Bookmarks</h3>
+    <p>
+      Saves and restores Scene View camera positions with thumbnail previews, grouped by scene. Useful on large scenes
+      where navigating back to a specific area costs real time. Bookmarks store the pivot point, rotation, and zoom
+      level. Cross-scene jumps prompt you to save first, then open the target scene before jumping.
+    </p>
+
+    <h3>04 - Playtest Notes</h3>
+    <p>
+      A lightweight note window designed to stay open alongside the game view. Notes are tagged, timestamped, and tied
+      to the active scene at the time of creation. A keyboard shortcut opens a quick-add popup without breaking focus
+      from the game view. Tags are <strong>Bug</strong>, <strong>Idea</strong>, <strong>Todo</strong>, and
+      <strong>Question</strong>, each color-coded on the note card.
+    </p>
+
+    <h3>05 - Missing Script Finder</h3>
+    <p>
+      Scans the active scene, all project prefabs, or both for broken MonoBehaviour references and removes them in one
+      click. Results show as clickable cards that ping the object in the hierarchy. Useful after any refactor that moves
+      or renames scripts.
+    </p>
+
+    <h2>Technical Highlights</h2>
+
+    <h3>Stable object identification across the play mode boundary</h3>
+    <p>
+      The trickiest part of Play Mode Preserver was giving every GameObject a key that's stable before and after play
+      mode, even when multiple objects share the same name. I settled on sibling-indexed hierarchy paths:
+      <code>Root[0]/Child[2]/Grandchild[0]</code>. The bracketed number is the sibling index at each level, which
+      disambiguates identically named objects. Display paths in the change dialog strip the indices for readability.
+    </p>
+
+    <h3>Persistence strategy</h3>
+    <p>
+      All settings go to <code>ProjectSettings/</code> rather than <code>EditorPrefs</code>. <code>EditorPrefs</code> is
+      machine-local and can't be shared across a team. The sole exception is the Play Mode Preserver enabled toggle,
+      stored in <code>SessionState</code> so it resets to enabled on every editor launch and can't be accidentally left
+      off permanently.
+    </p>
+
+    <h3>Build safety</h3>
+    <p>
+      The <code>DevFlowSeparator</code> component hides itself from the Add Component menu using
+      <code>[AddComponentMenu("")]</code> and self-destructs outside the editor via an <code>[ExecuteInEditMode]</code>
+      Awake guard. The <code>EditorOnly</code> tag is the build-time safety net, but the guard is there as a second
+      layer.
+    </p>
+
+    <div class="callout">
+      All DevFlow files must live inside a folder named <code>Editor</code> or inside an assembly definition scoped to
+      editor platforms. This ensures no editor code is ever compiled into a game build.
+    </div>
+
+    <h2>Screenshots</h2>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="../assets/images/DevFlow/PlaymodePreserver.png" alt="Play Mode Preserver change dialog">
+        <div class="screenshot-caption">The Play Mode Preserver dialog, showing per-field keep and discard controls
+          grouped by GameObject and component.</div>
+      </div>
+      <div class="screenshot-item">
+        <img src="../assets/images/DevFlow/hierarchy-organizer.png"
+          alt="Hierarchy Organizer with separators and color-coded rows">
+        <div class="screenshot-caption">Hierarchy Organizer separators, custom icons and row tinting applied to a scene.
+        </div>
+      </div>
+      <div class="screenshot-item">
+        <img src="../assets/images/DevFlow/scene-bookmarks.png" alt="Scene Bookmarks panel with thumbnail previews">
+        <div class="screenshot-caption">Scene Bookmarks panel showing saved camera positions with thumbnail previews.
+        </div>
+      </div>
+      <div class="screenshot-item">
+        <img src="../assets/images/DevFlow/playtest-notes.png" alt="Playtest Notes window">
+        <div class="screenshot-caption">Playtest Notes with tagged, timestamped entries tied to the active scene.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <img src="https://librecounter.org/hidden.svg" referrerPolicy="unsafe-url" width="0" />
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
+
+  <script src="../assets/scripts/syncHLjs.js"></script>
+  <script src="../assets/scripts/tags.js"></script>
+  <script>
+    applyTagColors();
+    hljs.highlightAll();
+
+    function toggleCard(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.toggle-icon');
+      const open = content.style.display === 'block';
+      content.style.display = open ? 'none' : 'block';
+      icon.textContent = open ? '+' : '−';
+    }
+
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+      });
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

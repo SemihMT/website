@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ↓ Change this -->
+  <title>Semih Teke — Project Name</title>
+
+  <!-- ↓ Change description and URL for each project -->
+  <meta name="description" content="A zen factory game I worked on during my internship at Happy Volcano.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/project-pages/Modulus.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://semihteke.com/project-pages/Modulus.html">
+  <meta property="og:title" content="Modulus - Internship @ Happy Volcano — Semih Teke">
+  <meta property="og:description" content="A zen factory game I worked on during my internship at Happy Volcano.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/Modulus/Keyart-Logo.png">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Modulus - Internship @ Happy Volcano — Semih Teke">
+  <meta name="twitter:description" content="A zen factory game I worked on during my internship at Happy Volcano.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/Modulus/Keyart-Logo.png">
+
+  <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/icon/apple-touch-icon.png">
+
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- Remove these two lines if the project has no code snippets -->
+  <link id="hljs-dark" rel="stylesheet" href="../assets/highlight/styles/atom-one-dark.css">
+  <link id="hljs-light" rel="stylesheet" href="../assets/highlight/styles/panda-syntax-light.css" disabled>
+  <script src="../assets/highlight/highlight.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../assets/resume/SemihMehmetTeke_Resume.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+
+    <!-- ─── Header ──────────────────────────────────────────────────
+         Available elements in this section:
+
+         BACK LINK:     <a href="../index.html#projects" class="post-back">← Projects</a>
+         EYEBROW:       <p class="page-eyebrow">Project</p>
+         TITLE:         <h1 class="project-detail-title">Project Name</h1>
+         GITHUB LINK:   <a href="https://github.com/SemihMT/REPO" target="_blank" class="project-link-btn">GitHub ↗</a>
+         TAGS:          <span class="tag" data-tag="C++">C++</span>
+         META:          <div class="post-meta"> year · team size etc. </div>
+    ────────────────────────────────────────────────────────────── -->
+
+    <a href="../index.html#projects" class="post-back">← Projects</a>
+
+    <div class="project-detail-header">
+      <div>
+        <p class="page-eyebrow">Internship Project</p>
+        <!-- ↓ Change title -->
+        <h1 class="project-detail-title">Modulus - Internship @ Happy Volcano</h1>
+        <div class="post-meta">
+          <span>Feb 2025 - Jun 2025</span>
+          <!-- Optional: add more context separated by · -->
+          <span class="post-meta-dot">·</span><span>Unity</span>
+          <span class="post-meta-dot">·</span><span>C#</span>
+          <span class="post-meta-dot">·</span><span>Agile</span>
+        </div>
+      </div>
+      <!-- Remove this block if no external link -->
+      <a href="https://store.steampowered.com/app/2779120/Modulus_Factory_Automation/" target="_blank"
+        class="project-link-btn">
+        Steam ↗
+      </a>
+    </div>
+
+    <!-- ↓ Add or remove tags. data-tag must match a key in assets/scripts/tags.js -->
+    <div class="tags" style="margin-bottom: 2rem;">
+      <span class="tag" data-tag="C#">C#</span>
+      <span class="tag">Internship</span>
+      <span class="tag">Editor Tooling</span>
+    </div>
+
+    <!-- ─── Hero media ───────────────────────────────────────────────
+         Use a video OR an image, not both.
+         Video:  <video preload="none" autoplay loop muted playsinline><source src="..." type="video/webm"></video>
+         Image:  <img src="..." alt="Project screenshot">
+    ────────────────────────────────────────────────────────────── -->
+    <div class="project-media">
+      <img src="../assets/images/Modulus/Keyart-Logo.png" alt="Modulus key art">
+    </div>
+
+    <!-- ─── Content ─────────────────────────────────────────────────
+         Available elements:
+
+         HEADING 2:      <h2>Section Title</h2>
+         HEADING 3:      <h3>Subsection</h3>
+         PARAGRAPH:      <p>Text here.</p>
+         LIST:           <ul><li><strong>Feature:</strong> Description.</li></ul>
+         INLINE CODE:    <code>someFunction()</code>
+         CALLOUT:        <div class="callout">Note text.</div>
+
+         CODE CARD (collapsible):
+           <div class="code-card">
+             <div class="code-card-header" onclick="toggleCard(this)">
+               <h3>Sample Title</h3><span class="toggle-icon">+</span>
+             </div>
+             <div class="code-content">
+               <pre><code class="language-cpp">// code here</code></pre>
+             </div>
+           </div>
+
+         SCREENSHOT GRID:
+           <div class="screenshots-grid">
+             <div class="screenshot-item">
+               <img src="../assets/images/YOURPROJECT/shot.jpg" alt="Caption">
+               <div class="screenshot-caption">Caption text.</div>
+             </div>
+           </div>
+    ────────────────────────────────────────────────────────────── -->
+
+    <h2>Overview</h2>
+    <p><a href="https://www.happyvolcano.com/" target="_blank">Happy Volcano</a> is a Belgian indie studio behind
+      <a href="https://www.yousuckatparking.cc/" target="_blank">You Suck at Parking</a>
+      and <a href="https://www.thealmostgone.com/" target="_blank">The Almost Gone</a>. During my
+      final-year
+      internship, I joined their team as a programmer on Modulus, a factory automation game with resource management,
+      progression systems and a zen-like building loop.
+      I had no experience with factory games going in which was part of why I applied.
+    </p>
+
+    <h2>What I worked on</h2>
+    <p>
+      Over four months I shipped features across gameplay systems, editor tooling, and UI, working within a real agile
+      pipeline with daily standups, sprint planning, merge request reviews, and milestone playtests.
+    </p>
+    <ul>
+      <li><strong>Tech Tree:</strong> My biggest feature, built together with fellow intern Rupert. A fully interactive
+        node graph with panning, zooming, MVC architecture, canvas line drawing, and a complete save/load system
+        integrated with Modulus's persistent ScriptableObject framework. Getting Line drawing to work in Unity's UI
+        system was the tricky part of this feature. It required a custom class deriving from <code>Graphic</code> that
+        generated a mesh from scratch. The tech tree made it into the publisher build.</li>
+      <li><strong>Rank & XP system:</strong> Designed and implemented a configurable rank progression system using
+        ScriptableObject events and a custom inspector UI. Started from a napkin sketch of what the HUD should show and
+        ended with a fully functional system that fed into the Expansion Permits I built later.</li>
+      <li><strong>The Manual:</strong> A full-screen in-game reference guide for Modulus's operators and mechanics. I
+        built the UI from a PSD mockup, designed a modular ScriptableObject-based page system mimicking with multiple
+        page-element types, and manually authored 173 SOs for the final page content. I also hit a subtle bug where
+        videos worked in the editor but not in Steam builds. Traced it to Unity not shipping video assets, fixed it by
+        moving them to <code>StreamingAssets/</code> and swapping serialized <code>VideoClip</code> references for path
+        strings.</li>
+      <li><strong>Editor Tooling:</strong> Built a localization inspector that previews localization keys in English
+        in-editor and a <code>[LocaKey]</code> custom attribute for use in ScriptableObjects outside
+        <code>MonoBehaviour</code> contexts. This tool improved the QOL for the whole team.
+      </li>
+      <li><Strong>Datashards, Expansion Permits, Production Graph:</Strong> Implemented the Datashards currency system
+        and HUD, the Expansion Permits economy layer built on top of it, and reworked the Production Graph UI with
+        filtering, tooltips, colored lines, and hourly/lifetime stats views.</li>
+      <li><strong>Bug Fixes:</strong> Investigated and resolved an operator synchronization bug where a cutter updated
+        before an upstream assembler, causing throughput stalls. Diagnosing required understanding the custom update
+        logic for the operators and proposing solutions carefully to not break other systems that depend on it.</li>
+    </ul>
+
+    <h2>Things I learned</h2>
+    <h3>Technically:</h3>
+    <p>Unity editor scripting, ScriptableObject architecture, persistent save systems, UI mesh generation, and how to
+      navigate a codebase I didn't write.</p>
+    <h3>Professionally:</h3>
+    <p>I learned to ask for a kickoff meeting before touching a feature. Early in the internship I implemented the
+      Datashards system without consulting the team. There was already a foundation in place. That was extra work a
+      fifteen-minute conversation would've prevented.</p>
+
+    <p>The feedback that stuck with me most came from Oliver, one of the senior developers. During an MR review he told
+      me "The perceived complexity of a feature should increase the deeper you go into the code. The entry point should
+      read like a table of contents.". I try to stick to this principle as much as I can now, and red flags start to
+      raise when my code starts to get complicated.
+      I finished the internship more confident working in large codebases, more communicative, and clearer about the
+      kind of developer I want to be.</p>
+  </div>
+
+  <img src="https://librecounter.org/hidden.svg" referrerPolicy="unsafe-url" width="0" />
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
+
+
+  <script src="../assets/scripts/syncHLjs.js"></script>
+  <script src="../assets/scripts/tags.js"></script>
+  <script>
+    applyTagColors();
+    hljs.highlightAll();
+
+    // Collapsible code cards
+    function toggleCard(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.toggle-icon');
+      const open = content.style.display === 'block';
+      content.style.display = open ? 'none' : 'block';
+      icon.textContent = open ? '+' : '−';
+    }
+
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      // Toggle open/close + X animation
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+      });
+      // Close on link click
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        });
+      });
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

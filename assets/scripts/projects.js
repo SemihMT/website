@@ -30,6 +30,34 @@ const PROJECTS = [
     description: "A game engine & game made from scratch for the programming 4 course."
   },
   {
+    title: "DevFlow - Unity Editor Tool Suite",
+    link: "./project-pages/DevFlow.html",
+    mediaSrc: "./assets/images/DevFlow/main.png",
+    tags: ["C#", "Editor Tooling"],
+    description: "A suite of five editor tools built to eliminate the small frustrations that slow down development."
+  },
+  {
+    title: "Modulus - Internship @ Happy Volcano",
+    link: "./project-pages/Modulus.html",
+    mediaSrc: "./assets/images/Modulus/Keyart-Logo.png",
+    tags: ["C#", "Internship", "Editor Tooling"],
+    description: "A zen factory automation game I worked on as gameplay and tool developer during my internship."
+  },
+  {
+    title: "Dual Rasterizer",
+    link: "./project-pages/rasterizer.html",
+    mediaSrc: "./assets/images/Rasterizer/DualRasterizer_DirectX.png",
+    tags: ["C++", "DX11", "School"],
+    description: "A combination rasterizer — software and hardware — built with DirectX 11."
+  },
+  {
+    title: "Raytracer",
+    link: "./project-pages/raytracer.html",
+    mediaSrc: "./assets/images/Raytracer/Raytracer.webm",
+    tags: ["C++", "School"],
+    description: "A software ray tracer with BVH acceleration structure."
+  },
+  {
     title: "PPMEdit",
     link: "./project-pages/ppmedit.html",
     mediaSrc: "./assets/images/PPMEdit/ColorPicker.webm",
@@ -61,19 +89,6 @@ const PROJECTS = [
 // ─────────────────────────────────────────────────────────────
 const ARCHIVED_PROJECTS = [
   // Example — uncomment and fill in to add an archived project:
-  {
-    title: "Dual Rasterizer",
-    link: "./project-pages/rasterizer.html",
-    mediaSrc: "./assets/images/Rasterizer/DualRasterizer_DirectX.png",
-    tags: ["C++", "DX11", "School"],
-    description: "A combination rasterizer — software and hardware — built with DirectX 11."
-  },
-  {
-    title: "Raytracer",
-    link: "./project-pages/raytracer.html",
-    mediaSrc: "./assets/images/Raytracer/Raytracer.webm",
-    tags: ["C++", "School"],
-    description: "A software ray tracer with BVH acceleration structure."
-  },
+
 
 ];
