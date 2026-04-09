@@ -29,13 +29,13 @@ const PROJECTS = [
     tags: ["C++", "GPP", "School"],
     description: "A game engine & game made from scratch for the programming 4 course."
   },
-  {
-    title: "DevFlow - Unity Editor Tool Suite",
-    link: "./project-pages/DevFlow.html",
-    mediaSrc: "./assets/images/DevFlow/main.png",
-    tags: ["C#", "Editor Tooling"],
-    description: "A suite of five editor tools built to eliminate the small frustrations that slow down development."
-  },
+  // {
+  //   title: "DevFlow - Unity Editor Tool Suite",
+  //   link: "./project-pages/DevFlow.html",
+  //   mediaSrc: "./assets/images/DevFlow/main.png",
+  //   tags: ["C#", "Editor Tooling"],
+  //   description: "A suite of five editor tools built to eliminate the small frustrations that slow down development."
+  // },
   {
     title: "Modulus - Internship @ Happy Volcano",
     link: "./project-pages/Modulus.html",
