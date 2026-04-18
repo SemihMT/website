@@ -1,6 +1,12 @@
 // Projects data — edit this array to add/remove projects
 const PROJECTS = [
-
+  {
+    title: "Cadmium - Cross Platform Game Engine",
+    link: "./project-pages/cadmium.html",
+    mediaSrc: "./assets/images/Cadmium/Cadmium-main.png",
+    tags: ["C++", "CMake", "CI/CD", "Engine dev", "WIP"],
+    description: "A cross-platform game engine, built from scratch in C++ for the web."
+  },
   {
     title: "NexusLib",
     link: "./project-pages/nexuslib.html",

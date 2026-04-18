@@ -399,6 +399,63 @@ nav.site-nav {
   background: var(--surface2);
 }
 
+/* ─── Roadmap cards ─── */
+.roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.roadmap-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.roadmap-item:last-child {
+  border-bottom: none;
+}
+
+.roadmap-item:nth-child(odd) {
+  background: var(--surface);
+}
+
+.roadmap-item:nth-child(even) {
+  background: var(--surface2);
+}
+
+.roadmap-icon {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  min-width: 1.5rem;
+  padding-top: 0.1rem;
+  display: inline-block;
+  color: var(--accent);
+}
+
+.roadmap-item:nth-child(even) .roadmap-icon {
+  color: var(--accent2);
+}
+
+.roadmap-title {
+  font-size: 0.85rem;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+.roadmap-desc {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
 .project-card-media img,
 .project-card-media video {
   width: 100%;

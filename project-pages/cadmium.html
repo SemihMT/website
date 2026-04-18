@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>var t = localStorage.getItem("theme"); var d = window.matchMedia("(prefers-color-scheme: dark)").matches; if (t === "light" || (!t && !d)) document.documentElement.setAttribute("data-theme", "light");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ↓ Change this -->
+  <title>Semih Teke — Project Name</title>
+
+  <!-- ↓ Change description and URL for each project -->
+  <meta name="description" content="Cadmium - Cross-platform game engine built from scratch.">
+  <meta name="author" content="Semih Teke">
+  <link rel="canonical" href="https://semihteke.com/project-pages/cadmium.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://semihteke.com/project-pages/cadmium.html">
+  <meta property="og:title" content="Cadmium — Semih Teke">
+  <meta property="og:description" content="Cadmium - Cross-platform game engine built from scratch.">
+  <meta property="og:image" content="https://semihteke.com/assets/images/preview.png">
+  <meta property="og:site_name" content="Semih Teke">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cadmium — Semih Teke">
+  <meta name="twitter:description" content="Cadmium - Cross-platform game engine built from scratch.">
+  <meta name="twitter:image" content="https://semihteke.com/assets/images/preview.png">
+
+  <link rel="icon" type="image/x-icon" href="../assets/icon/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/icon/apple-touch-icon.png">
+
+  <link rel="preload" href="/assets/fonts/RedHatMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles.css">
+  <!-- Remove these two lines if the project has no code snippets -->
+  <link id="hljs-dark" rel="stylesheet" href="../assets/highlight/styles/atom-one-dark.css">
+  <link id="hljs-light" rel="stylesheet" href="../assets/highlight/styles/panda-syntax-light.css" disabled>
+  <script src="../assets/highlight/highlight.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">ST<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../assets/resume/SemihMehmetTeke_Resume.pdf" target="_blank">Resume ↗</a></li>
+        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode"><span
+              class="theme-toggle-icon"></span></button></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem;">
+
+    <!-- ─── Header ──────────────────────────────────────────────────
+         Available elements in this section:
+
+         BACK LINK:     <a href="../index.html#projects" class="post-back">← Projects</a>
+         EYEBROW:       <p class="page-eyebrow">Project</p>
+         TITLE:         <h1 class="project-detail-title">Project Name</h1>
+         GITHUB LINK:   <a href="https://github.com/SemihMT/REPO" target="_blank" class="project-link-btn">GitHub ↗</a>
+         TAGS:          <span class="tag" data-tag="C++">C++</span>
+         META:          <div class="post-meta"> year · team size etc. </div>
+    ────────────────────────────────────────────────────────────── -->
+
+    <a href="../index.html#projects" class="post-back">← Projects</a>
+
+    <div class="project-detail-header">
+      <div>
+        <p class="page-eyebrow">Solo Project</p>
+        <!-- ↓ Change title -->
+        <h1 class="project-detail-title">Cadmium</h1>
+        <div class="post-meta">
+          <span>2026 - present</span>
+          <!-- Optional: add more context separated by · -->
+          <span class="post-meta-dot">·</span><span>Solo project</span>
+          <span class="post-meta-dot">·</span><span>C++ / SDL3 / ImGui / Emscripten</span>
+        </div>
+      </div>
+      <!-- Remove this block if no external link -->
+      <a href="https://github.com/SemihMT/Cadmium" target="_blank" class="project-link-btn">
+        GitHub ↗
+      </a>
+    </div>
+
+    <!-- ↓ Add or remove tags. data-tag must match a key in assets/scripts/tags.js -->
+    <div class="tags" style="margin-bottom: 2rem;">
+      <span class="tag" data-tag="C++">C++</span>
+      <span class="tag" data-tag="SDL3">SDL3</span>
+      <span class="tag" data-tag="ImGui">ImGui</span>
+      <span class="tag" data-tag="CMake">CMake</span>
+      <span class="tag" data-tag="Emscripten">Emscripten</span>
+      <span class="tag" data-tag="Lua">Lua</span>
+      <span class="tag" data-tag="WIP">WIP</span>
+    </div>
+
+    <!-- ─── Hero media ───────────────────────────────────────────────
+         Use a video OR an image, not both.
+         Video:  <video preload="none" autoplay loop muted playsinline><source src="..." type="video/webm"></video>
+         Image:  <img src="..." alt="Project screenshot">
+    ────────────────────────────────────────────────────────────── -->
+    <div class="project-media">
+      <canvas id="canvas" oncontextmenu="event.preventDefault()" style="display: block; max-width: 100%; height: auto;">
+      </canvas>
+      <script>
+        var Module = {
+          canvas: document.getElementById('canvas'),
+          locateFile: function (path) {
+            return 'https://semihmt.github.io/Cadmium/' + path;
+          }
+        };
+      </script>
+      <script src="https://semihmt.github.io/Cadmium/cadmium-sandbox.js"></script>
+    </div>
+
+    <!-- ─── Content ─────────────────────────────────────────────────
+         Available elements:
+
+         HEADING 2:      <h2>Section Title</h2>
+         HEADING 3:      <h3>Subsection</h3>
+         PARAGRAPH:      <p>Text here.</p>
+         LIST:           <ul><li><strong>Feature:</strong> Description.</li></ul>
+         INLINE CODE:    <code>someFunction()</code>
+         CALLOUT:        <div class="callout">Note text.</div>
+
+         CODE CARD (collapsible):
+           <div class="code-card">
+             <div class="code-card-header" onclick="toggleCard(this)">
+               <h3>Sample Title</h3><span class="toggle-icon">+</span>
+             </div>
+             <div class="code-content">
+               <pre><code class="language-cpp">// code here</code></pre>
+             </div>
+           </div>
+
+         SCREENSHOT GRID:
+           <div class="screenshots-grid">
+             <div class="screenshot-item">
+               <img src="../assets/images/YOURPROJECT/shot.jpg" alt="Caption">
+               <div class="screenshot-caption">Caption text.</div>
+             </div>
+           </div>
+    ────────────────────────────────────────────────────────────── -->
+
+    <h2>Overview</h2>
+    <p>
+      Cadmium is a cross-platform game engine I'm building from scratch in C++, targeting both
+      native desktop and the browser via WebAssembly. The goal is to have a self-contained environment
+      where developers can write, run, and iterate on games entirely in the browser without having to install anything
+      on their end.
+    </p>
+    <p>
+      The project is driven by curiosity more than necessity. I wanted to understand what actually
+      happens inside an engine and how I could replicate the systems that power successful engines like Unity, Godot and
+      Unreal. I wanted to learn how you make something that runs identically on Windows and in a browser tab. Building
+      it myself is the only way to find out.
+    </p>
+    <p>
+      Cadmium is not finished. It's an active work in progress and this page reflects where it
+      currently is, not where I want it to be.
+    </p>
+    <p>
+      The latest version of Cadmium is hosted on Github Pages using a CI/CD pipline. For ease of access, the canvas on
+      that page is
+      also rendered here using an <code>iframe</code>.
+    </p>
+    <!-- Technical highlights -->
+    <h2>Technical Highlights</h2> <span>(as of 04/2026)</span>
+    <h3>Native and WebAssembly in harmony</h3>
+    <p>
+      The build system uses CMakePresets to switch cleanly between native Clang builds and
+      Emscripten without touching the source. The game loop abstraction handles the fundamental
+      difference between the two targets: native uses a <code>while</code> loop and
+      Emscripten uses <code>emscripten_set_main_loop</code>. The logic is hidden behind a
+      single <code>Engine::Run()</code> call.
+    </p>
+
+    <h3>Application interface</h3>
+    <p>
+      Users interact with the engine through a simple <code>Application</code> base class
+      with lifecycle hooks: <code>OnStart</code>, <code>OnUpdate</code>, <code>OnFixedUpdate</code>,
+      <code>OnRender</code>, <code>OnEvent</code>, and <code>OnShutdown</code>. Only
+      <code>OnRender</code> is required.
+    </p>
+
+    <h3>Fixed timestep with variable rendering</h3>
+    <p>
+      Physics and game logic run at a fixed 60Hz via an accumulator pattern, decoupled from
+      the render rate. <code>OnFixedUpdate</code> fires at consistent intervals regardless of
+      frame time, while <code>OnUpdate</code> and <code>OnRender</code> run as fast as the
+      hardware allows or at the requested frequency by using the <code>SetTargetFPS()</code> function.
+    </p>
+
+    <h3>ImGui as an optional compile-time feature</h3>
+    <p>
+      ImGui support is gated behind a <code>CADMIUM_IMGUI</code> CMake option. When enabled,
+      the engine initializes and drives the ImGui frame lifecycle automatically, and exposes
+      an <code>OnImGuiRender</code> hook on the Application. When disabled, ImGui is stripped
+      entirely from the build. This way people can write debug UI to their heart's content and have it be removed
+      completely without manual work.
+    </p>
+
+    <h3>Dependency management via FetchContent</h3>
+    <p>
+      All external dependencies (SDL3, ImGui, Catch2,...) are pulled at configure time via
+      CMake's FetchContent with pinned release tags. A shared cache directory prevents
+      redundant downloads across clean builds. This keeps things easy in my opinion, no
+      manual setup on a new machine beyond having CMake, Ninja, and a compiler. You do need an internet connection
+      though, which is a con.
+    </p>
+
+
+    <!-- Architecture -->
+    <div class="section-label">Architecture</div>
+    <p>
+      The project is split into three CMake targets:
+    <ol>
+      <li>
+        <strong><code>cadmium-engine</code></strong> is a static
+        library that knows nothing about games. It owns the window, the renderer, the loop, and
+        the platform abstractions.
+      </li>
+      <li><strong><code>cadmium-sandbox</code></strong> is an executable that links against
+        the engine and implements the <code>Application</code> interface. It's essentially where I make my demo apps.
+      </li>
+      <li><strong><code>cadmium-editor</code></strong>is a WIP target, currently
+        a placeholder, that will eventually host the ImGui-based editor with its own asset browser and code editor.</li>
+    </ol>
+    </p>
+    <p>
+      The include and source directories are separated — <code>engine/include/cadmium/</code>
+      is the public API surface, <code>engine/src/</code> is implementation detail. Consumers
+      include <code>&lt;cadmium/core/Engine.hpp&gt;</code> and see nothing they don't need to.
+    </p>
+
+    <div class="code-card">
+      <div class="code-card-header" onclick="toggleCard(this)">
+        <h3>Project structure</h3>
+        <span class="toggle-icon">+</span>
+      </div>
+      <div class="code-content" style="display:none;">
+        <pre><code>cadmium/
+├── cmake/
+│   ├── dependencies.cmake   # FetchContent declarations
+│   ├── helpers.cmake        # copy_sdl_to_output()
+│   └── imgui.cmake          # imgui-lib target
+├── engine/
+│   ├── include/cadmium/
+│   │   └── core/
+│   │       ├── engine.hpp
+│   │       ├── application.hpp
+│   │       └── timer.hpp
+│   └── src/core/
+│       └── engine.cpp
+├── editor/
+├── sandbox/
+│   └── src/main.cpp
+├── tests/
+│   └── engine/
+│       ├── test_timer.cpp
+│       └── test_engine.cpp
+└── CMakePresets.json</code></pre>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="code-card-header" onclick="toggleCard(this)">
+        <h3>Minimal application example</h3>
+        <span class="toggle-icon">+</span>
+      </div>
+      <div class="code-content">
+        <pre><code>#include &lt;cadmium/core/engine.hpp&gt;
+#include &lt;cadmium/core/application.hpp&gt;
+
+class MyGame : public Cadmium::Application {
+public:
+    void OnRender(SDL_Renderer* renderer) override {
+        // draw here
+    }
+
+    void OnEvent(SDL_Event& event) override {
+        if (event.type == SDL_EVENT_KEY_DOWN)
+            if (event.key.key == SDLK_ESCAPE)
+                Quit();
+    }
+};
+
+int main() {
+    Cadmium::Engine engine(
+        std::make_unique&lt;MyGame&gt;(),
+        "My Game", 1280, 720
+    );
+    engine.SetTargetFPS(60);
+    engine.Run();
+}</code></pre>
+      </div>
+    </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section>
+      <div class="section-label">Roadmap</div>
+      <p>
+        Each milestone builds directly on the previous one. No renderer abstraction before there's something worth
+        abstracting and no scripting API before there are objects to script.
+      </p>
+
+      <div class="roadmap">
+
+        <div class="roadmap-item">
+          <span class="roadmap-icon">✓</span>
+          <div class="roadmap-content">
+            <div class="roadmap-title">Window and game loop</div>
+            <div class="roadmap-desc">SDL3 window, fixed timestep accumulator, native and Emscripten targets building
+              cleanly.</div>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <span class="roadmap-icon">✓</span>
+          <div class="roadmap-content">
+            <div class="roadmap-title">ImGui integration</div>
+            <div class="roadmap-desc">ImGui wired up as an optional compile-time feature with a dedicated
+              <code>OnImGuiRender</code> hook.
+            </div>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <span class="roadmap-icon">→</span>
+          <div class="roadmap-content">
+            <div class="roadmap-title">GameObject and component model</div>
+            <div class="roadmap-desc">Cache-friendly ECS-style architecture.</div>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <span class="roadmap-icon">○</span>
+          <div class="roadmap-content">
+            <div class="roadmap-title">Lua scripting via Sol3</div>
+            <div class="roadmap-desc">Embedded Lua interpreter with a clean C++ binding layer. Defines the API available
+              to engine users.</div>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <span class="roadmap-icon">○</span>
+          <div class="roadmap-content">
+            <div class="roadmap-title">Renderer abstraction</div>
+            <div class="roadmap-desc">Backend-agnostic graphics layer. SDL_Renderer first, with a path to Vulkan, OpenGL
+              and WebGPU.</div>
+          </div>
+        </div>
+
+        <div class="roadmap-item">
+          <span class="roadmap-icon">○</span>
+          <div class="roadmap-content">
+            <div class="roadmap-title">Project export/import</div>
+            <div class="roadmap-desc">Exporting Cadmium projects in a custom file format to enable sharing.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Why section -->
+    <section>
+      <div class="section-label">Why Build This</div>
+      <p>
+        Most commercial engines are a black box with some documentation. They're monoliths, built incrementally across
+        decades which makes grasping them completely an almost impossible task. As someone who is interested in how and
+        why things work, I want to replicate the systems I see powering millions of games every day as an exercise.
+      </p>
+      <p>
+        Cadmium forces me to think about design, to plan ahead. I have to make sure I don't shoot myself in the foot,
+        and when I eventually do, I need to fix it myself.
+      </p>
+      <p>
+        Cadmium also forces me to learn about the details that are so often overlooked. The combination of web and
+        native support challenges my assumptions of what should work and how I need to approach programming. Learning
+        and adapting to new platforms is maybe the biggest challenge of this project.
+      </p>
+      <p>
+        The long-term vision is a browser-based editor where someone can open a tab, write Lua,
+        and have a running game in under a minute. Whether that's ambitious or naive probably
+        depends on how the next few milestones go.
+      </p>
+    </section>
+
+    </main>
+
+  </div>
+
+  <img src="https://librecounter.org/hidden.svg" referrerPolicy="unsafe-url" width="0" />
+  <footer class="site-footer">
+    <span>© 2026 Semih Teke</span>
+    <span>Just a text editor and a browser</span>
+  </footer>
+
+
+  <script src="../assets/scripts/syncHLjs.js"></script>
+  <script src="../assets/scripts/tags.js"></script>
+  <script>
+    applyTagColors();
+    hljs.highlightAll();
+
+    // Collapsible code cards
+    function toggleCard(header) {
+      const content = header.nextElementSibling;
+      const icon = header.querySelector('.toggle-icon');
+      const open = content.style.display === 'block';
+      content.style.display = open ? 'none' : 'block';
+      icon.textContent = open ? '+' : '−';
+    }
+
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'light' || (!saved && !prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
+      localStorage.setItem('theme', isLight ? 'dark' : 'light');
+      syncHljsTheme();
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      // Toggle open/close + X animation
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+      });
+      // Close on link click
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        });
+      });
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove('open');
+          hamburger.classList.remove('open');
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
